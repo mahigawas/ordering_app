@@ -1,0 +1,24 @@
+<ion-view>
+    <ion-nav-bar class="bar-stable bar-shadow">
+        <ion-nav-buttons side="left">
+            <button class="button top-btn" ui-sref="ordering.detailRest"><img src="img/icon-back.png"></button>
+        </ion-nav-buttons>
+        <ion-nav-title>{{HeaderTitle}}</ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button top-btn"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="color-bg">
+        <ion-item class="detail-item" ng-repeat="item in resSubMenulist" ng-click="onProductOption(item)">
+            <span class="float-left mg-top-sm">{{item.name}}</span> <span class="color-main font-small float-right">{{item.price}}</span>
+            <div class="bottom-line-grey"></div>
+        </ion-item>
+    </ion-content>
+    <ion-footer-bar class="color-main-bg footer-style">
+        <div class="button find-btn font-large btn-bar-bottom pd-right-3 color-font-white button-positive" ng-click="onViewOrder()">
+            <div class="float-left btn-badge-cont">{{allDishCount}}</div>View Order
+        </div>
+    </ion-footer-bar>
+</ion-view>
+

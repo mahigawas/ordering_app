@@ -1,0 +1,71 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-stable bar-shadow fix-buttons">
+        <button class="button top-btn" ng-click="offRegPopup()"><img src="img/icon-close.png"></button>
+        <ion-title class="font-large-x">Sign In</ion-title>
+        <button class="button top-btn mg-top-btn-right" ng-click="onRegister()"><img src="img/icon-back.png" class="rote-item"></button>
+    </ion-header-bar>
+    <ion-content class="color-bg padding">
+        <div class="row">
+            <div class="col col-35"> </div>
+            <div class="col col-30"><img src="img/signup-avatar.png" class="w-100"></div>
+            <div class="col col-35"> </div>
+        </div>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="First Name" ng-model="signUpUser.name">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Last Name" ng-model="signUpUser.lastname">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Last Name2" ng-model="signUpUser.lastname2">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="email" class="w-100 in-box-style" placeholder="Email" ng-model="signUpUser.email">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="password" class="w-100 in-box-style" placeholder="Password" ng-model="signUpUser.password">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Address" ng-model="signUpUser.address">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Colony" ng-model="signUpUser.colony">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="number" class="w-100 in-box-style" placeholder="Zip" ng-model="signUpUser.zip">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="number" class="w-100 in-box-style" placeholder="Country" ng-model="signUpUser.country">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="number" class="w-100 in-box-style" placeholder="City" ng-model="signUpUser.city">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="tel" class="w-100 in-box-style" placeholder="Tel" ng-model="signUpUser.tel">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Cel" ng-model="signUpUser.cel">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="API" ng-model="signUpUser.api">
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-b">
+            <input type="url" class="w-100 in-box-style" placeholder="Path of Profile Image" ng-model="signUpUser.imgpath">
+        </ion-item>
+        <div class="row">
+            <div class="col-20"></div>
+            <div class="col-60"><img src="img/signup-divider.png" class="w-100"></div>
+            <div class="col-20"></div>
+        </div>
+        <ion-item class="no-border no-bg no-padding-h pd-none-t">
+            <button class="button button-positive w-100">CONTINUE AS GUEST</button>
+        </ion-item>
+        <ion-item class="no-border no-bg no-padding-h pd-none-t">
+            <button class="button button-calm w-100 row pd-none">
+                <div class="col col-15 pd-none text-center"><i class="icon ion-social-facebook"></i></div>
+                <div class="col col-70 pd-none">LOGIN WITH FACEBOOK</div>
+                <div class="col col-15 pd-none"></div>
+            </button>
+        </ion-item>
+    </ion-content>
+</ion-modal-view>

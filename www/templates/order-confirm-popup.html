@@ -1,0 +1,19 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-stable bar-shadow fix-buttons">
+        <button class="button-icon icon-btn-close" ng-click="offConfirm()"></button>
+        <!--<ion-title class="font-mid">Checkout</ion-title>-->
+    </ion-header-bar>
+    <ion-content class="order-view-cont color-bg pd-top-10">
+        <ion-item class="font-center no-bg no-border">
+            <img src="img/logo.png">
+        </ion-item>
+        <ion-item class="no-border pd-left-2 pd-right-2 no-bg">
+            <div class="confirm-dlg">
+                <p class="font-large-x color-main">Update on your order #{{placedData.id}}</p>
+                <p class="font-mid">Your order #{{placedData.id}} status change<br>to delivered</p>
+                <button class="button assertive" ng-click="offConfirm()">Ok, go back to homepage</button>
+            </div>
+        </ion-item>
+
+    </ion-content>
+</ion-modal-view>

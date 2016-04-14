@@ -1,0 +1,29 @@
+<ion-view view-title="Settings">
+    <ion-nav-bar class="bar-stable bar-shadow">
+        <ion-nav-buttons side="left">
+            <button class="button top-btn" menu-toggle="left"><img src="img/icon-back.png"></button>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+        <div class="list">
+            <div class="item item-divider divider-padding">
+                Notifications
+            </div>
+            <ion-toggle ng-model="pushState.checked" ng-change="pushChanged()" ng-show="getLoginState() == true">
+                {{ pushState.curState }} Push Notification
+            </ion-toggle>
+			<div class="item" ng-show="getLoginState() == false">
+				<span class="positive float-right">*Required Login</span>
+				<span class="float-left font-large">Push Notification</span>
+			</div>
+            <!--<div class="item item-divider divider-padding">
+                Others
+            </div>
+            <div class="item">
+                <input class="sel-location" placeholder="Change your location">
+            </div>-->
+        </div>
+    </ion-content>
+</ion-view>

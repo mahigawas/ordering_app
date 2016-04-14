@@ -1,0 +1,117 @@
+<ion-view>
+    <ion-nav-bar class="bar-stable bar-shadow fix-buttons">
+        <ion-nav-buttons side="left">
+            <button class="button top-btn" ng-click="onClickDetail()"><img src="img/icon-close.png"></button>
+        </ion-nav-buttons>
+        <ion-nav-title>Checkout</ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button top-btn" ng-click="onClickDetail()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="color-bg">
+        <ion-item class="item-divider">
+            <span class="divider-padding no-padding-h">Delivery Address</span>
+        </ion-item>
+        <div>
+            <div id="map2" data-tap-disabled="true" class="map-view"></div>
+        </div>
+        <ion-item class="item-divider">
+            <span class="divider-padding no-padding-h positive">Please input correct Information(*)</span>
+        </ion-item>
+        <ion-item class="no-border text-center">
+            <input type="text" class="w-100 in-box-style-base" placeholder="Full Name *" ng-model="order_buyer.name" />
+        </ion-item>
+        <ion-item class="no-border text-center pd-none-t">
+            <input type="email" class="w-100 in-box-style-base" placeholder="Email *" ng-model="order_buyer.email" />
+        </ion-item>
+        <ion-item class="no-border text-center pd-none-t">
+            <input class="w-100 in-box-style-base" placeholder="Full Address *" ng-model="order_buyer.address" googleplace ng-click="onAutoCompleteAddress()"/>
+        </ion-item>
+        <ion-item class="no-border text-center pd-none-t">
+            <input type="tel" class="w-100 in-box-style-base" placeholder="Phone Number *" ng-model="order_buyer.tel" />
+        </ion-item>
+        <!------------------------------------------------->
+        <ion-item class="border-none-b">
+            <textarea class="special-inbox" placeholder="Special address instructions (between streets, apartment number, etc)" ng-model="finalCheckout.specialcomment"></textarea>
+        </ion-item>
+        <ion-item class="item-divider">
+            <span class="divider-padding no-padding-h">Order Details</span>
+        </ion-item>
+        <ion-item class="detail-item" ng-click="">
+            <span class="float-left mg-top-sm">Delivery Time</span>
+            <div class="float-right"></div>
+            <span class="color-font-placeholder float-right mg-top-sm pd-right-1">ASAP</span>
+            <div class="bottom-line-grey"></div>
+        </ion-item>
+        <ion-item class="detail-item" ng-click="onPaymentPopup()">
+            <span class="float-left mg-top-sm">Payment Method</span>
+            <div class="float-right icon-more-next-p mg-top-sm"></div>
+            <span class="color-font-placeholder-p float-right mg-top-sm pd-right-1">{{ paymentModel.model }}</span>
+            <div class="bottom-line-grey"></div>
+        </ion-item>
+        <ion-item class="border-none-b">
+            <div class="diver-type">
+                <div class="border-b padding-4"><span class="color-font-placeholder">Driver Tip : </span> {{ c_unit }} {{data.driveTips}}</div>
+                <div class="row font-mid perc-style">
+                    <div class="col-20">0%</div>
+                    <div class="col-20">10%</div>
+                    <div class="col-20">15%</div>
+                    <div class="col-20">20%</div>
+                    <div class="col-20">25%</div>
+                </div>
+                <div class="button-bar border-none-b" >
+                    <ion-radio ng-repeat="item in driverTipsList"
+                               ng-value="item.value"
+                               ng-model="data.driveTips" ng-click="changedRadioValue()" class="h-radio-bar">
+                    </ion-radio>
+                </div>
+
+                <div class="color-font-placeholder pd-top-4">100% of the tip goes to your driver</div>
+            </div>
+        </ion-item>
+        <ion-item class="item-divider">
+            <span class="divider-padding no-padding-h">Order Summary</span>
+        </ion-item>
+        <ion-item class="pd-top-4 no-border pd-none-b"
+                  ng-repeat="dish in curMyDishes track by $index">
+            <div class="food-cont color-font-dark">
+                <div class="float-left badge-cont">{{dish.quantity}}</div>
+                <span class="float-left">{{dish.name}}</span>
+                <p class="color-main font-small float-right">{{ c_unit }} {{(dish.total).toFixed(2)}}</p>
+            </div>
+            <p class="color-font-gray food-tail"><span ng-repeat="extra in dish.extras track by $index">{{extra.name}}</span></p>
+            <p class="color-font-gray food-tail pd-top-4"><span>{{dish.comments}}</span></p>
+            <div class="h-line-grey"></div>
+        </ion-item>
+        <ion-item class="pd-top-4 no-border pd-none-b">
+            <div class="calc-item">
+                <p class="color-font-gray float-left">Subtotal</p>
+                <p class="color-main font-small float-right">{{ c_unit }} {{ subTotalPrice.toFixed(2) }}</p>
+            </div>
+            <div class="calc-item">
+                <p class="color-font-gray float-left">Tax</p>
+                <p class="color-main font-small float-right">{{ c_unit }} {{ curBusiness.tax }}</p>
+            </div>
+            <div class="calc-item">
+                <p class="color-font-gray float-left">Delivery Fee</p>
+                <p class="color-main font-small float-right">{{ c_unit }} {{ deliveryFee }}</p>
+            </div>
+            <div class="calc-item">
+                <p class="color-font-gray float-left">Driver Tip</p>
+                <p class="color-main font-small float-right"> {{ c_unit }} {{data.driveTips}}</p>
+            </div>
+            <div class="calc-item">
+                <p class="color-font-gray float-left">Service Fee ({{ curBusiness.servicefee }}%)</p>
+                <p class="color-main font-small float-right"> {{ c_unit }} {{curBusiness.servicefeeTotal}}</p>
+            </div>
+            <div class="h-line-grey mg-none-b"></div>
+        </ion-item>
+        <ion-item class="pd-top-4 no-border pd-none-b total-item">
+            <p class="font-large color-font-dark float-left">Total</p>
+            <p class="font-small color-main float-right"> {{ c_unit }} {{orderTotal.toFixed(2)}}</p>
+        </ion-item>
+    </ion-content>
+    <ion-footer-bar class="color-main-bg footer-style">
+        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="placeOrderNow()">PLACE ORDER</div>
+    </ion-footer-bar>
+</ion-view>

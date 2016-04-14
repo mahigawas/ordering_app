@@ -1,0 +1,30 @@
+<ion-view>
+    <ion-nav-bar class="bar-stable bar-shadow">
+        <ion-nav-buttons side="left">
+            <button class="button top-btn" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()"><img src="img/icon-back.png"></button>
+        </ion-nav-buttons>
+        <ion-nav-title>{{HeaderTitle}}</ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button top-btn mg-top-btn-right"></button>
+            <!--<img src="img/icon-timer.png"></button>-->
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="color-bg">
+        <div class="rest-detail-item">
+            <img ng-src="{{HeaderUrl}}">
+            <div class="row logo-cont">
+                <div class="col col-40"> </div>
+                <div class="col col-20">
+                    <div class="logo-cont-sub">
+                        <img ng-src="http://ionicapp.orderingco.com/{{LogoUrl}}">
+                    </div>
+                </div>
+                <div class="col col-40"> </div>
+            </div>
+        </div>
+        <ion-item class="detail-item" ng-repeat="item in resMenulist" ng-click="goDetailMenu(item)">
+            <span class="float-left mg-top-sm">{{item.name}}</span> <div class="float-right icon-more-next"></div>
+            <div class="bottom-line-grey"></div>
+        </ion-item>
+    </ion-content>
+</ion-view>

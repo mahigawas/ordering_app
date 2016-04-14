@@ -1,0 +1,46 @@
+<!--<ion-nav-bar class="top-bar">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon w-4e" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+</ion-nav-bar>-->
+<ion-header-bar class="top-bar">
+    <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn" menu-toggle="left">
+    </button>
+</ion-header-bar>
+<ion-nav-view class="form-content" name="homeContainer">
+    <div class="list search-form">
+        <ion-item>
+            <img src="img/hungry.png">
+        </ion-item>
+        <form ng-submit="findRest()">
+        <ion-item style="display: flex">
+            <select class="select-item" ng-model="myOrder.orderType">
+              <option ng-repeat="item in orderTypelist" value="{{item.value}}" ng-selected="item.selected">
+                {{item.name}}
+              </option>
+            </select>
+           <!--  <div class="drop-btn"></div>-->
+        </ion-item>
+        <ion-item class="location-cont">
+            <div class="gp-container">
+                <input placeholder="Address or Zip Code" ng-model="myOrder.curAddress" class="font-mid" googleplace ng-click="onAutoCompleteAddress()"/>
+            </div>
+            <!--<p>{{myOrder.orderType}}</p>-->
+        </ion-item>
+        </form>
+        <ion-item class="btn-cur-location" >
+            <a class="my-location" ng-click="getCurLocation()">
+                <span class="font-large-x">Use my current location</span>
+            </a>
+        </ion-item>
+        <ion-item>
+            <button class="button find-btn button-positive" on-swipe-right="onSwipeRight()" ng-click="findRest()">
+                FIND RESTAURANTS
+            </button>
+        </ion-item>
+        <!--<ion-item>
+            <input class="button button-block button-positive" type="button" value="PayPal Test" ng-click="onClickPaypal()" />
+        </ion-item>-->
+    </div>
+</ion-nav-view>

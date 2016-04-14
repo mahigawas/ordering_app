@@ -1,0 +1,71 @@
+<ion-view view-title="Edit Account">
+    <ion-nav-bar class="bar-stable bar-shadow">
+        <ion-nav-buttons side="left">
+            <button class="button top-btn" menu-toggle="left"><img src="img/icon-back.png"></button>
+        </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button top-btn"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="profile-cont">
+        <div data-tap-disabled="true">
+            <div id="profile-map" data-tap-disabled="true" class="map-view"></div>
+        </div>
+      <!--  <div class="row">
+            <div class="col col-35"> </div>
+            <div class="col col-30">
+                <img ng-src="{{updateUser.imgpath}}" class="w-100" imageonload>
+              <img ng-src="{{updateUser.imgpath}}" err-src="{{ dummy }}" class="w-100 profile-image">
+            </div>
+            <div class="col col-35"> </div>
+        </div>-->
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="First Name" ng-model="updateUser.name">
+        </ion-item>
+        <!--<ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Last Name" ng-model="updateUser.lastname">
+        </ion-item>
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Last Name2" ng-model="updateUser.lastname2">
+        </ion-item>-->
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="email" class="w-100 in-box-style" placeholder="Email" ng-model="updateUser.email">
+        </ion-item>
+        <ion-item class="no-border no-bg pd-none-b" ng-if="fbUserState != 'FB_USER'">
+            <input type="password" class="w-100 in-box-style" placeholder="Password" ng-model="updateUser.password" >
+        </ion-item>
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Address" ng-model="updateUser.address" googleplace ng-click="onAutoCompleteAddress()">
+        </ion-item>
+        <!--<ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Colony" ng-model="updateUser.colony">
+        </ion-item>
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Zip" ng-model="updateUser.zip">
+        </ion-item>
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Country" ng-model="updateUser.country">
+        </ion-item>
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="City" ng-model="updateUser.city">
+        </ion-item>-->
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="tel" class="w-100 in-box-style" placeholder="Tel" ng-model="updateUser.tel">
+        </ion-item>
+        <!--<ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="Cel" ng-model="updateUser.cel">
+        </ion-item>-->
+        <!--<ion-item class="no-border no-bg pd-none-b">
+            <input type="text" class="w-100 in-box-style" placeholder="API" ng-model="updateUser.api">
+        </ion-item>
+        <ion-item class="no-border no-bg pd-none-b">
+            <input type="url" class="w-100 in-box-style" placeholder="Path of Profile Image" ng-model="updateUser.imgpath">
+        </ion-item>-->
+        <ion-item class="no-border no-bg pd-none-b">
+            <div class="end-item"></div>
+        </ion-item>
+    </ion-content>
+    <ion-footer-bar class="color-main-bg footer-style">
+        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="updateProfile()">UPDATE</div>
+    </ion-footer-bar>
+</ion-view>

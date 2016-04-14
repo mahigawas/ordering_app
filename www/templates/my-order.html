@@ -1,0 +1,29 @@
+<ion-view view-title="My Orders">
+    <ion-nav-bar class="bar-stable bar-shadow">
+        <ion-nav-buttons side="left">
+            <button class="button top-btn" menu-toggle="left"><img src="img/icon-back.png"></button>
+        </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button top-btn"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="order-cont">
+        <ion-item class="order-kind">
+            <div class="row">
+                <div class="col col-10">#</div>
+                <div class="col col-30">Date</div>
+                <div class="col col-50">Business</div>
+            </div>
+        </ion-item>
+        <ion-item ng-repeat="order in myOrders" ng-model="orderModel">
+            <div class="row">
+                <div class="col col-10">{{ order.id }}</div>
+                <div class="col col-25 date-format">{{ order.date }}</div>
+                <div class="col col-30">{{ order.busname }}</div>
+                <div class="col col-25 view-btn-cont">
+                    <a class="button view-more" ng-click="orderViewMore(order.id)">View more</a>
+                </div>
+            </div>
+        </ion-item>
+    </ion-content>
+</ion-view>

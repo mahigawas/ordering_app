@@ -1,0 +1,29 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+node_modules/
+platforms/
+# plugins/
+
+# Exclude OS X folder attributes
+.DS_Store
+
+# Exclude any PSD/AI source
+*.psd
+*.ai
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Exclude log files
+node_modules
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# WebStorm config files
+.idea

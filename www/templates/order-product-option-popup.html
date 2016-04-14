@@ -1,0 +1,52 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-stable bar-shadow fix-buttons">
+        <button class="button top-btn" ng-click="offProductOption()"><img src="img/icon-close.png"></button>
+        <ion-title class="font-large-x">{{productOptionList.name}}</ion-title>
+        <button class="button top-btn" ng-click="offProductOption()"> </button>
+    </ion-header-bar>
+    <ion-content class="color-bg">
+        <div ng-repeat="option in productOptionList.options">
+            <div ng-show="C_OState.optional != option.maxsel && option.conditional == 'no'">
+                <ion-item class="item-divider">
+                    <span class="divider-padding no-padding-h">Please choose your {{option.name}}</span>
+                    <span ng-if="option.minsel == '1'">(Required)</span>
+                </ion-item>
+                <ion-checkbox class="checkbox-item" ng-repeat="item in option.choices"
+                              ng-model="pOptionModel['data_'+option.id]['value']['model_'+item.id]"
+                              ng-change="onCheckOption(option,item)">
+                    {{ item.name }}<span class="float-right color-main">{{'$ ' + item.price}}</span>
+                </ion-checkbox>
+            </div>
+            <div ng-show="C_OState.optional == option.maxsel && option.conditional == 'no'" ng-init="listIndex = $index">
+                <ion-item class="item-divider">
+                    <span class="divider-padding no-padding-h">Please choose your {{option.name}}</span>
+                    <span ng-if="option.minsel == '1'">(Required)</span>
+                </ion-item>
+                <ion-radio class="radio-item" ng-repeat="item in option.choices"
+                           ng-value="item.name"
+                           name = "{{option.name}}"
+                           ng-model="pOptionModel['data_'+option.id]['value']"
+                           ng-click="onClickOptions(option,item,listIndex)">
+                    <p class="float-left">{{ item.name }}</p>
+                    <p class="float-right color-main">{{'$ ' + item.price }}</p>
+                </ion-radio>
+            </div>
+        </div>
+        <ion-item class="item-divider">
+            <span class="divider-padding no-padding-h">Special Instructions</span>
+        </ion-item>
+        <ion-item>
+            <textarea class="special-inbox" placeholder="Add any special instructions" ng-model="myDish.comments"></textarea>
+        </ion-item>
+        <ion-item class="row color-main-bg bottom-cont">
+            <div class="col-50 color-bg-white pd-btn">
+                <button class="button-icon icon-btn-minus float-left" ng-click="onMinusQuantity()"></button>
+                <button class="button-icon icon-btn-plus float-left" ng-click="onPlusQuantity()"></button>
+                <p class="price float-right">$ {{myDish.total}}</p>
+            </div>
+            <div class="col-50 item-btn" ng-click="">
+                <a class="button pd-right-2" ng-click="onAddToCart(productOptionList)"><div class="float-left btn-badge-cont">{{myDish.quantity}}</div>Add</a>
+            </div>
+        </ion-item>
+    </ion-content>
+</ion-modal-view>
