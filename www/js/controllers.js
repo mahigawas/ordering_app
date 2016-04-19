@@ -112,6 +112,39 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             }else {
                 $scope.myOrder.curAddress = gUserData.getData().address;
             }
+            if (typeof $rootScope.buyerInfo == 'undefined'){
+                
+                $rootScope.buyerInfo = {
+                    id : "",
+                    address :"",
+                    city :"",
+                    cityname :"",
+                    tax : "",
+                    taxtype : "",
+                    deliveryType :"",
+                    deliverydate :"ASAP",
+                    comments : "",
+                    name :"",
+                    lastname2 :"",
+                    email :"",
+                    api :"",
+                    colony :"",
+                    tel :"",
+                    checkoutfields : [
+                        "Phone",
+                        "Receive SMS",
+                        "Tip For The Driver",
+                        "Discount Coupon",
+                        "ChackoutMap",
+                        "Name",
+                        "Last Name",
+                        "Email",
+                        "Full Address",
+                        "APT\/Suit",
+                        "Area \/ Neighborhood"
+                    ]
+                };
+            }
         });
         //---No Internet Connection------------------
         $rootScope.netModalState = false;
@@ -165,7 +198,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     G_NETSTATE = STATE.STATE_OK;
                 }
             }
-            if (G_NETSTATE == STATE.NO_INTERNET){
+              if (G_NETSTATE == STATE.NO_INTERNET){
                 if ($rootScope.netModalState){
                     $rootScope.netModalState = false;
                     $scope.openModal();
@@ -174,6 +207,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 }
             }
         }, 2000);
+
+
 
         //--------------------------------------------------------------------------------------------------------
 
@@ -1329,6 +1364,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             };
 
             $rootScope.buyerInfo = {
+                id : "",
                 address :"",
                 city :"",
                 cityname :"",
@@ -1996,7 +2032,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.payment = [
             { val : 'cash', name : 'Cash on delivery', img : 'img/cash-icon.png'},
             { val : 'card', name : 'Card on delivery', img : 'img/debit-icon.png'},
-//            { val : 'paypal', name : 'Paypal', img : 'img/paypal-icon.png'}
+            { val : 'paypal', name : 'Paypal', img : 'img/paypal-icon.png'}
         ];
 
         /// Paypal ------------------------
