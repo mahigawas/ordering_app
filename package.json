@@ -32,8 +32,5 @@
     "com.paypal.cordova.mobilesdk",
     "onesignal-cordova-plugin"
   ],
-  "cordovaPlatforms": [
-    "android",
-    "ios"
-  ]
+  "cordovaPlatforms": []
 }
