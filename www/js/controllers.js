@@ -2032,7 +2032,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.payment = [
             { val : 'cash', name : 'Cash on delivery', img : 'img/cash-icon.png'},
             { val : 'card', name : 'Card on delivery', img : 'img/debit-icon.png'},
-            { val : 'paypal', name : 'Paypal', img : 'img/paypal-icon.png'}
+          //  { val : 'paypal', name : 'Paypal', img : 'img/paypal-icon.png'}
         ];
 
         /// Paypal ------------------------
