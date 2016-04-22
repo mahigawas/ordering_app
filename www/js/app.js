@@ -16,10 +16,10 @@ angular.module('orderingApp', ['ionic','orderingApp.controllers','orderingApp.se
 
             // Detect of Network Connection
             if (window.Connection) {
+                // checkConnection();
                 if (navigator.connection.type == Connection.NONE) {
                     G_NETSTATE = STATE.NO_INTERNET;
                     //alert("Connect detect : " + STATE.NO_INTERNET);
-                    checkConnection();
                 }else{
                     G_NETSTATE = STATE.STATE_OK;
                     //alert("Connect detect : " + STATE.STATE_OK);
@@ -39,7 +39,10 @@ angular.module('orderingApp', ['ionic','orderingApp.controllers','orderingApp.se
                 states[Connection.CELL]     = 'Cell generic connection';
                 states[Connection.NONE]     = 'No network connection';
 
-                alert('Connection type: ' + states[networkState]);
+                $ionicPopup.alert({
+                    title : 'OrderingApp',
+                    template : 'ConnectionType: ' + states[networkState]
+                });
             }
 
             //------------------------------------------------------------
@@ -52,20 +55,37 @@ angular.module('orderingApp', ['ionic','orderingApp.controllers','orderingApp.se
                 StatusBar.styleDefault();
             }
 
-            // GCM_Push Register part -------------------------------------
+            // Push Register part -------------------------------------
             if (window.plugins && window.plugins.pushNotification) {
-                window.plugins.pushNotification.register(
-                    function(result) {
-                        //alert('Push Register : ' + result);
-
-                    },
-                    function() {
-                        alert('Push Register Error!');
-                    },
-                    {
-                        "senderID": GCM_SENDER_ID,
-                        "ecb": "onNotificationGCM"
-                    });
+                if (ionic.Platform.isAndroid()){
+                    window.plugins.pushNotification.register(
+                        function(result) {
+                            //alert('Push Register : ' + result);
+                        },
+                        function() {
+                            alert('Push Register Error!');
+                        },
+                        {
+                            "senderID": GCM_SENDER_ID,
+                            "ecb": "onNotificationGCM"
+                        });
+                }else if (ionic.Platform.isIOS()){
+                    window.plugins.pushNotification.register(
+                        function(token){
+                            // $ionicPopup.alert({
+                            //     title : 'OrderingApp',
+                            //     template : 'DeviceID : ' + token
+                            // });
+                            GCM_DEVICE_TOKEN = token;
+                        },
+                        function(){},
+                        {
+                            "badge": true,
+                            "sound": true,
+                            "alert": true,
+                            "ecb":"onNotificationAPN"
+                        });
+                }
             }
 
             // OneSignal_Push Config---------------------------------

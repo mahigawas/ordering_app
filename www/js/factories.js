@@ -146,7 +146,8 @@ angular.module('orderingApp.factories',['ngResource'])
     .factory('PushUserApi', function($resource){
         return $resource('http://ionicapp.orderingco.com/ionicapp/gcm_user.php',{
             user_id : '@userID',
-            device_id : '@deviceID'
+            device_id : '@deviceID',
+            kind : '@deviceKind'
         },{
             charge: {method:'POST'}
         });
@@ -179,7 +180,7 @@ angular.module('orderingApp.factories',['ngResource'])
                 if(!$window.navigator) {
                     deferred.reject(new Error('Geolocation is not supported'));
                 } else {
-                    var positionOptions = {timeout: 10000, enableHighAccuracy: true};
+                    var positionOptions = {timeout: 15000, enableHighAccuracy: true};
                     $window.navigator.geolocation.getCurrentPosition(function(position) {
                         deferred.resolve({
                             lat: position.coords.latitude,

@@ -337,10 +337,6 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
             },function(err){
                 $scope.hide();
-                var noAddr = {
-                    address : 'UnDefined Address',
-                    location : {lat : '',lng : ''}
-                };
                 $ionicPopup.alert({
                     title : "ERROR!",
                     template : "Geolocation Error!"
@@ -818,7 +814,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             }else{
                 var promptPopup = $ionicPopup.confirm({
                     title: 'OrderingApp',
-                    template: 'Are you cancel current order?',
+                    template: 'Do you want to cancel current order?',
                     cancelType: 'button-stable'
                 });
                 promptPopup.then(function(res) {
@@ -1735,15 +1731,23 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
             });
             // Registration of Device Token --------------------
+            var device_kind = 0;
+            if (ionic.Platform.isIOS()){
+                device_kind = 1;
+            }else{
+                device_kind = 0;
+            }
+            // alert("kind" + device_kind + "user" + usr_id + "device_id" + GCM_DEVICE_TOKEN);
             if (GCM_DEVICE_TOKEN != ''){
                 PushUserApi.charge({
                     user_id : usr_id,
-                    device_id : GCM_DEVICE_TOKEN
+                    device_id : GCM_DEVICE_TOKEN,
+                    kind : device_kind
                 },function(res){
-                    //$ionicPopup.alert({
+                    // $ionicPopup.alert({
                     //    title : 'DEVICE_INFO',
                     //    template : 'DEVICE : ' + res
-                    //});
+                    // });
                 });
             }
         }
