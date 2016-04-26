@@ -27,10 +27,16 @@
       "locator": "https://github.com/phonegap-build/PushPlugin.git",
       "id": "com.phonegap.plugins.PushPlugin"
     },
-    "E:\\_IonicProjects\\Ref_Data\\PayPal-Cordova-Plugin-master",
     "cordova-plugin-geolocation",
     "com.paypal.cordova.mobilesdk",
-    "onesignal-cordova-plugin"
+    "onesignal-cordova-plugin",
+    "ionic-plugin-deploy"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    {
+      "platform": "ios",
+      "version": "3.9.2",
+      "locator": "ios@3.9.2"
+    }
+  ]
 }

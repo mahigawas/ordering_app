@@ -1,6 +1,6 @@
 {
   "name": "OrderingApp_ionic",
-  "app_id": "",
+  "app_id": "1695aa18",
   "gulpStartupTasks": [
     "sass",
     "watch"
