@@ -9,15 +9,15 @@
         <ion-item class="order-bg font-mid">Order No : {{ myOrderId }} <span class="float-right">Status : {{ myCurOrder.status }}</span></ion-item>
         <ion-item>
             <div class="row font-small">
-                <div class="col col-50">Name</div>
+                <div class="col col-50">Full Name</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.name }}</div>
             </div>
         </ion-item>
-        <ion-item>
+      <!--  <ion-item>
             <div class="row font-small">
                 <div class="col col-50">Last Name</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.lastname }}</div>
-            </div>
+            </div> -->
         </ion-item>
         <ion-item>
             <div class="row font-small">
@@ -27,24 +27,24 @@
         </ion-item>
         <ion-item>
             <div class="row font-small">
-                <div class="col col-50">Address</div>
+                <div class="col col-50">Full Address</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.address }}</div>
             </div>
         </ion-item>
         <ion-item>
             <div class="row font-small">
-                <div class="col col-50">APT/Suit</div>
+                <div class="col col-50">Notes</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.api }}</div>
             </div>
         </ion-item>
         <ion-item>
             <div class="row font-small">
-                <div class="col col-50">Phone</div>
+                <div class="col col-50">Mobile Phone</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.tel }}</div>
             </div>
         </ion-item>
         <ion-item>
-            <div class="row font-small">
+          <!--   <div class="row font-small">
                 <div class="col col-50">City</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.cityname }}</div>
             </div>
@@ -59,11 +59,11 @@
             <div class="row font-small">
                 <div class="col col-50">Reference</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.reference }}</div>
-            </div>
+            </div>-->
         </ion-item>
         <p class="ht-3"></p>
         <ion-item class="padding-5 no-border">
-            <p class="color-font-dark padding-top-5">{{ myOrderDetail.business[0].name}} <span class="color-main">{{'(Phone : ' + myOrderDetail.business[0].tel + ')'}}</span></p>
+            <p class="color-font-dark padding-top-5">{{ myOrderDetail.business[0].name}} <span class="color-main">{{'(Business Phone : ' + myOrderDetail.business[0].tel + ')'}}</span></p>
             <p class="color-font-gray">Payment Method: {{ payMethod }} on Delivery</p>
             <p class="color-font-gray">Delivery type: {{myOrderDetail.buyer.deliveryType}}</p>
             <p class="color-font-gray">Delivery Date: {{ myCurOrder.date }}</p>
@@ -89,11 +89,11 @@
                 <p class="color-main font-small float-right">$ {{myOrderDetail.servicefeeTotal}}</p>
             </div>
             <div class="calc-item">
-                <p class="color-font-gray float-left">Service Fee(0%)</p>
+                <p class="color-font-gray float-left">Service Fee</p>
                 <p class="color-main font-small float-right">$ {{myOrderDetail.servicefee}}</p>
             </div>
             <div class="calc-item">
-                <p class="color-font-gray float-left">Tax (0%) (Tax not included in price)</p>
+                <p class="color-font-gray float-left">Tax</p>
                 <p class="color-main font-small float-right">${{myOrderDetail.tax}}</p>
             </div>
             <div class="calc-item">

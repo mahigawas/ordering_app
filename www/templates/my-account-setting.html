@@ -12,11 +12,11 @@
                 Notifications
             </div>
             <ion-toggle ng-model="pushState.checked" ng-change="pushChanged()" ng-show="getLoginState() == true">
-                {{ pushState.curState }} Push Notification
+                {{ pushState.curState }} Push Notifications
             </ion-toggle>
 			<div class="item" ng-show="getLoginState() == false">
-				<span class="positive float-right">*Required Login</span>
-				<span class="float-left font-large">Push Notification</span>
+				<span class="positive float-right">*Login Required</span>
+				<span class="float-left font-large">Push Notifications</span>
 			</div>
             <!--<div class="item item-divider divider-padding">
                 Others
