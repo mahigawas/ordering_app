@@ -339,7 +339,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 $scope.hide();
                 $ionicPopup.alert({
                     title : "ERROR!",
-                    template : "Geolocation Error!"
+                    template : err.message
+                }).then(function(){
+                        //GPS enabled?????
+                        var locationConfig = window.plugins.locationAndSettings;
+                        locationConfig.switchToLocationSettings(function(result){},function(errer){ console.log(errer); });
                 });
             });
 
@@ -1713,6 +1717,25 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         // Get User and Setting Buyer information by ID ----------------
 
         function getUserInformation ( usr_id ) {
+            
+                    // Registration of Device Token --------------------
+            var device_kind = 0;
+            if (ionic.Platform.isIOS()){
+                device_kind = 1;
+            }else{
+                device_kind = 0;
+            }
+             //alert("kind" + device_kind + "user" + usr_id + "device_id" + GCM_DEVICE_TOKEN);
+            if (GCM_DEVICE_TOKEN != ''){
+                PushUserApi.charge({
+                    user_id : usr_id,
+                    device_id : GCM_DEVICE_TOKEN,
+                    kind : device_kind
+                },function(res){
+                     console.log("Device_REG_RESP : "+JSON.stringify(res));
+                });
+            }
+
             GetUserByIdApi.charge({
                 id : usr_id
             },function(res){
@@ -1730,26 +1753,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 $scope.buyerInfoSetting(usr_id); // BuyerInfoSetting
 
             });
-            // Registration of Device Token --------------------
-            var device_kind = 0;
-            if (ionic.Platform.isIOS()){
-                device_kind = 1;
-            }else{
-                device_kind = 0;
-            }
-            // alert("kind" + device_kind + "user" + usr_id + "device_id" + GCM_DEVICE_TOKEN);
-            if (GCM_DEVICE_TOKEN != ''){
-                PushUserApi.charge({
-                    user_id : usr_id,
-                    device_id : GCM_DEVICE_TOKEN,
-                    kind : device_kind
-                },function(res){
-                    // $ionicPopup.alert({
-                    //    title : 'DEVICE_INFO',
-                    //    template : 'DEVICE : ' + res
-                    // });
-                });
-            }
+
         }
 
         // ------ Implement of Register Popup ------------------------------

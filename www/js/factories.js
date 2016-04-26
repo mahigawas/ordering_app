@@ -201,7 +201,7 @@ angular.module('orderingApp.factories',['ngResource'])
     .factory('AddressLookupSvc', [
         '$q', '$http', 'GeolocationSvc',
         function($q, $http, GeolocationSvc) {
-            var MAPS_ENDPOINT = 'http://maps.google.com/maps/api/geocode/json?latlng={POSITION}&sensor=false';
+            var MAPS_ENDPOINT = 'https://maps.google.com/maps/api/geocode/json?latlng={POSITION}&sensor=false';
 
             return {
                 urlForLatLng: function(lat, lng) {
@@ -231,21 +231,23 @@ angular.module('orderingApp.factories',['ngResource'])
                     var url = this.urlForLatLng(lat, lng);
                     $http.get(url).success(function(response) {
                         // hacky
-                        var address;
+                        var address; 
+                        var state = false;
                         angular.forEach(response.results, function(result) {
-                            if (result.types[0] === 'street_address')
-                            {
+                            if (state == false){
+                                if (result.types[0] === 'street_address'){
                                 address = result.formatted_address;
-                            }
-                            /*else if (result.types[0] === 'postal_code'){
-                                address = result.formatted_address;
+                                    state = true;
                             }else if (result.types[0] === 'locality'){
                                 address = result.formatted_address;
-                            }else{
+                                    state = true;
+                                }else if (result.types[0] === 'postal_code'){
                                 address = result.formatted_address;
-                            }*/
+                                    state = true;
+                                }    
+                            }
                         });
-                        deferred.resolve(address);
+                        deferred.resolve(address);                        
                     }).error(deferred.reject);
 
                     return deferred.promise;
