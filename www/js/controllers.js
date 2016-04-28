@@ -789,7 +789,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.$on('$ionicView.beforeEnter',function(){
             $scope.item = gCurRestaurant.getData();
             $scope.HeaderTitle = $scope.item.name;
-            $scope.HeaderUrl = "https://ionicapp.orderingco.com/" + $scope.item.header;
+            $scope.HeaderUrl = "http://ordering.talabatey.com/" + $scope.item.header;
             $scope.LogoUrl = $scope.item.logo;
 
             $scope.resMenulist = [];

@@ -5,7 +5,7 @@ var SEVER_API_KEY_CURRENT = 'AIzaSyCH4hL3Mc7jh8wejEe3MBLDRe68MwoJujc';
 var SENDER_ID_CURRENT = '1021116265386';
 */
 
-var ROOT_URL = 'https://ionicapp.orderingco.com/ionicapp';
+var ROOT_URL = 'http://ordering.talabatey.com/ionicapp';
 
 var GCM_SENDER_ID = '1021116265386';
 var ONE_SIGNAL_ID = '189153bf-6f7b-4e2c-87ce-7fb4a15d475f';
