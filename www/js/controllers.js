@@ -1305,8 +1305,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 comments : ''
             };
 
-             if ($scope.curBusinessInfo.minium == "") $scope.curBusinessInfo.minium = "0";
-              $scope.minimumPrice = parseFloat($scope.curBusinessInfo.minium);
+             if ($scope.curBusinessInfo.minimum == "") $scope.curBusinessInfo.minimum = "0";
+            $scope.minimumPrice = parseFloat($scope.curBusinessInfo.minimum);
             $scope.subTotal = 0;
 
             for (var i = 0, len = $scope.curMyDishes.length; i < len; i++) {

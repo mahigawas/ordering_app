@@ -19,7 +19,7 @@
             <div class="food-cont color-font-dark">
                 <div class="float-left badge-cont">{{dish.quantity}}</div>
                 <span class="float-left">{{dish.name}}</span>
-                <p class="color-main font-small float-right">{{ c_unit }} {{(dish.total).toFixed(2)}}</p>
+                <p class="color-main font-small float-right">{{ c_unit }} {{(dish.total).toFixed(2)}} {{'IQD' | translate}}</p>
             </div>
             <p class="color-font-gray food-tail">
                 <span ng-repeat="extra in dish.extras track by $index">{{extra.name}}, </span>
@@ -35,10 +35,10 @@
                 <p class="float-left font-mid">{{ 'Delivery Fee' | translate }}</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ deliveryFee }}</p>
             </div>
-            <input type="text" placeholder="Comments ex. for whom?" class="outline-txt-box" ng-model="delivery.comments" />
-            <div class="h-line-grey"></div>
+            <!-- <input type="text" placeholder="Comments ex. for whom?" class="outline-txt-box" ng-model="delivery.comments" />
+            <div class="h-line-grey"></div> -->
         </ion-item>
-        <ion-item class="no-border">
+<!--         <ion-item class="no-border">
             <div class="food-cont color-font-dark">
                 <p class="float-left font-mid">Tax ({{ curBusinessInfo.tax }}%)</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ taxPrice.toFixed(2) }}</p>
@@ -52,14 +52,14 @@
                 <p class="color-main font-small float-right">{{ c_unit }} {{(serviceFee).toFixed(2)}}</p>
             </div>
             <div class="h-line-grey"></div>
-        </ion-item>
+        </ion-item> -->
         <ion-item class="no-border total-item">
             <p class="font-large color-font-dark float-left">{{ 'Total' | translate }}</p>
-            <p class="font-small color-main float-right">{{ c_unit }} {{(calcTotalPrice).toFixed(2)}}</p>
+            <p class="font-small color-main float-right">{{ c_unit }} {{(calcTotalPrice).toFixed(2)}} {{'IQD' | translate}}</p>
         </ion-item>
     </ion-content>
     <ion-footer-bar class="color-main-bg footer-style">
-        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="onFinalCheckOut()" ng-if="subTotal >= minimumPrice">ORDER NOW</div>
+        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="onFinalCheckOut()" ng-if="subTotal >= minimumPrice">{{'ORDER NOW' | translate}}</div>
         <div class="button find-btn font-large btn-bar-bottom color-font-white button-royal" ng-if="subTotal < minimumPrice">{{ 'MIN ORDER' | translate }} : {{ minimumPrice.toFixed(2) }}</div>
     </ion-footer-bar>
 </ion-view>

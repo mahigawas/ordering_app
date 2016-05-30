@@ -397,7 +397,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'image could not be loaded': 'image could not be loaded',
             'Please enter correct mobile number': 'Please enter correct mobile number',
             'OK': 'OK',
-            'IQD': 'IQD'
+            'IQD': 'IQD',
+            'Add any special instructions': 'Add any special instructions'
 
         });
 
@@ -528,7 +529,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'image could not be loaded': 'لاصور لم تحمل ',
             'Please enter correct mobile number': 'الرجاء ادخال رقم الموبايل بشكل صحيح',
             'OK': 'حسنا',
-            'IQD': 'د.ع.'
+            'IQD': 'د.ع.',
+            'Add any special instructions': 'إضافة أي تعليمات خاصة'
         });
 
         $translateProvider.translations('kr', {
@@ -657,7 +659,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'image could not be loaded': 'وێنە ناتوانێت بار نابكرێت',
             'Please enter correct mobile number': 'تكايە ژمارەى مۆبايلى ڕاست بچەيە ناو',
             'OK': 'حسنا',
-            'IQD': 'د.ع.'
+            'IQD': 'د.ع.',
+            'Add any special instructions': 'إضافة أي تعليمات خاصة'
         });
 
         $translateProvider.preferredLanguage(localStorage.getItem("language"));
