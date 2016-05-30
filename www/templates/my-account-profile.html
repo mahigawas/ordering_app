@@ -1,8 +1,10 @@
-<ion-view view-title="Edit Account">
+<ion-view>
     <ion-nav-bar class="bar-stable bar-shadow">
         <ion-nav-buttons side="left">
-            <button class="button top-btn" menu-toggle="left"><img src="img/icon-back.png"></button>
+            <button class="button top-btn" menu-toggle="left"><img src="img/icon-back.png" ng-show="['ar', 'kr'].indexOf(lang) < 0"></button>
+            <button class="button top-btn" menu-toggle="right"><img src="img/icon-back.png" ng-show="['ar', 'kr'].indexOf(lang) >ar -1"></button>
         </ion-nav-buttons>
+        <ion-nav-title>{{ 'Edit Account' | translate }}</ion-nav-title>
       <ion-nav-buttons side="right">
         <button class="button top-btn"></button>
       </ion-nav-buttons>
@@ -20,7 +22,7 @@
             <div class="col col-35"> </div>
         </div>-->
         <ion-item class="no-border no-bg pd-none-b">
-            <input type="text" class="w-100 in-box-style" placeholder="Full Name" ng-model="updateUser.name">
+            <input type="text" class="w-100 in-box-style" placeholder="{{ 'Full Name' | translate }}" ng-model="updateUser.name">
         </ion-item>
         <!--<ion-item class="no-border no-bg pd-none-b">
             <input type="text" class="w-100 in-box-style" placeholder="Last Name" ng-model="updateUser.lastname">
@@ -29,13 +31,13 @@
             <input type="text" class="w-100 in-box-style" placeholder="Last Name2" ng-model="updateUser.lastname2">
         </ion-item>-->
         <ion-item class="no-border no-bg pd-none-b">
-            <input type="email" class="w-100 in-box-style" placeholder="Email" ng-model="updateUser.email">
+            <input type="email" class="w-100 in-box-style" placeholder="{{ 'Email' | translate }}" ng-model="updateUser.email">
         </ion-item>
         <ion-item class="no-border no-bg pd-none-b" ng-if="fbUserState != 'FB_USER'">
-            <input type="password" class="w-100 in-box-style" placeholder="Password" ng-model="updateUser.password" >
+            <input type="password" class="w-100 in-box-style" placeholder="{{ 'Password' | translate }}" ng-model="updateUser.password" >
         </ion-item>
         <ion-item class="no-border no-bg pd-none-b">
-            <input type="text" class="w-100 in-box-style" placeholder="Full Address" ng-model="updateUser.address" googleplace ng-click="onAutoCompleteAddress()">
+            <input type="text" class="w-100 in-box-style" placeholder="{{ 'Full Address' | translate }}" ng-model="updateUser.address" googleplace ng-click="onAutoCompleteAddress()">
         </ion-item>
         <!--<ion-item class="no-border no-bg pd-none-b">
             <input type="text" class="w-100 in-box-style" placeholder="Colony" ng-model="updateUser.colony">
@@ -50,7 +52,7 @@
             <input type="text" class="w-100 in-box-style" placeholder="City" ng-model="updateUser.city">
         </ion-item>-->
         <ion-item class="no-border no-bg pd-none-b">
-            <input type="tel" class="w-100 in-box-style" placeholder="Mobile Phone" ng-model="updateUser.tel">
+            <input type="tel" class="w-100 in-box-style" placeholder="{{ 'Mobile Phone' | translate }}" ng-model="updateUser.tel">
         </ion-item>
         <!--<ion-item class="no-border no-bg pd-none-b">
             <input type="text" class="w-100 in-box-style" placeholder="Cel" ng-model="updateUser.cel">
@@ -66,6 +68,6 @@
         </ion-item>
     </ion-content>
     <ion-footer-bar class="color-main-bg footer-style">
-        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="updateProfile()">UPDATE</div>
+        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="updateProfile()">{{ 'UPDATE' | translate }}</div>
     </ion-footer-bar>
 </ion-view>

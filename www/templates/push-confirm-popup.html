@@ -9,10 +9,10 @@
         </ion-item>
         <ion-item class="no-border pd-left-2 pd-right-2 no-bg">
             <div class="confirm-dlg">
-                <p class="font-large-x color-main">Update on your order #{{order.order_id}}</p>
+                <p class="font-large-x color-main">{{ 'Update on your order' | translate }} #{{order.order_id}}</p>
                 <p class="font-large-x color-main">${{ order.price }}</p>
-                <p class="font-mid">Your order #{{order.order_id}} status change<br>to {{ order.status }}</p>
-                <button class="button assertive" ng-click="offConfirm()">Ok, go back to homepage</button>
+                <p class="font-mid">{{ 'Your order' | translate }} #{{order.order_id}} {{ 'status change' | translate }}<br>{{ 'to' | translate }} {{ order.status }}</p>
+                <button class="button assertive" ng-click="offConfirm()">{{ 'Ok, go back to homepage' | translate }}</button>
             </div>
         </ion-item>
 

@@ -3,6 +3,91 @@
  */
 
 angular.module('orderingApp.factories',['ngResource'])
+    
+    .factory('NeighborListApi', function($resource){
+        return $resource('http://ordering.talabatey.com/ionicapp/fetchNeighborhoodAreas.php',{},{
+            charge: {method:'POST'}
+        });
+    })
+
+    .factory('MyLoading',function ($ionicLoading) {
+        return {
+            show : showLoading,
+            hide : hideLoading
+        };
+        function showLoading(msg) {
+            $ionicLoading.show({
+                template:'<p>' + msg + '</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
+            });
+        }
+        function hideLoading() {
+            $ionicLoading.hide();
+        }
+    })
+
+    .factory('MyAlert',function ($ionicPopup, $rootScope, $q) {
+        return {
+            show : showAlert,
+            alert : callAlert,
+            confirm : callConfirm,
+            prompt : callPrompt
+        };
+        function showAlert(msg) {
+            $ionicPopup.alert({
+                title : 'OrderingApp',
+                template: msg
+            });
+        }
+        function callAlert(msg) {
+            var def = $q.defer();
+            $ionicPopup.alert({
+                title : 'OrderingApp',
+                template : msg
+            }).then(function (res) {
+                def.resolve();
+            });
+        }
+        function callConfirm(msg) {
+            var def = $q.defer();
+            $ionicPopup.confirm({
+                title : 'OrderingApp',
+                template : msg
+            }).then(function (res) {
+                if (res){
+                    def.resolve('OK');
+                }else {
+                    def.reject('CANCEL');
+                }
+            });
+        }
+        function callPrompt(msg) {
+            var def = $q.defer();
+            $ionicPopup.confirm({
+                title : 'OrderingApp',
+                template : msg
+            }).then(function (res) {
+                if (res){
+                    def.resolve(res);
+                }else {
+                    def.reject('CANCEL');
+                }
+            });
+        }
+    })
+
+    .factory('CountryApi', function($resource){
+        return $resource('http://ordering.talabatey.com/ionicapp/country.php',{},{
+            charge: {method:'POST'}
+        });
+    })
+
+    .factory('CityApi', function($resource){
+        return $resource('http://ordering.talabatey.com/ionicapp/city.php',{
+            country : '@countryID'
+        },{
+            charge: {method:'POST'}
+        });
+    })
 
     .factory('AllBusinessApi', function($resource){
         return $resource('http://ordering.talabatey.com/ionicapp/allbusiness.php',{

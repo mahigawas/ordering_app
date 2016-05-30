@@ -1,8 +1,10 @@
-<ion-view view-title="My Orders">
+<ion-view>
     <ion-nav-bar class="bar-stable bar-shadow">
         <ion-nav-buttons side="left">
-            <button class="button top-btn" menu-toggle="left"><img src="img/icon-back.png"></button>
+            <button class="button top-btn" menu-toggle="left"><img src="img/icon-back.png" ng-show="['ar', 'kr'].indexOf(lang) < 0"></button>
+            <button class="button top-btn" menu-toggle="right"><img src="img/icon-back.png" ng-show="['ar', 'kr'].indexOf(lang) > -1"></button>
         </ion-nav-buttons>
+        <ion-nav-title>{{ 'My Orders' | translate }}</ion-nav-title>
       <ion-nav-buttons side="right">
         <button class="button top-btn"></button>
       </ion-nav-buttons>
@@ -11,8 +13,8 @@
         <ion-item class="order-kind">
             <div class="row">
                 <div class="col col-10">#</div>
-                <div class="col col-30">Date</div>
-                <div class="col col-50">Business</div>
+                <div class="col col-30">{{ 'Date' | translate }}</div>
+                <div class="col col-50">{{ 'Business' | translate }}</div>
             </div>
         </ion-item>
         <ion-item ng-repeat="order in myOrders" ng-model="orderModel">
@@ -21,7 +23,7 @@
                 <div class="col col-25 date-format">{{ order.date }}</div>
                 <div class="col col-30">{{ order.busname }}</div>
                 <div class="col col-25 view-btn-cont">
-                    <a class="button view-more" ng-click="orderViewMore(order.id)">View more</a>
+                    <a class="button view-more" ng-click="orderViewMore(order.id)">{{ 'View more' | translate }}</a>
                 </div>
             </div>
         </ion-item>

@@ -4,7 +4,7 @@
 
 angular.module('orderingApp.controllers',['ngOpenFB'])
 
-    .controller('sideMenuCtrl', function($scope, $state, $http, $ionicModal, $ionicPopup, $ionicSideMenuDelegate, $ionicPlatform, gUserData, $ionicHistory,gStates){
+    .controller('sideMenuCtrl', function($scope, $state, $http, $ionicModal, $ionicPopup, $ionicSideMenuDelegate, $ionicPlatform, gUserData, $ionicHistory,gStates, $filter){
 
         $scope.$on('$ionicView.enter',function(){
             $ionicHistory.nextViewOptions({
@@ -61,18 +61,20 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
     .controller('homeScreenCtrl', function($scope, $state, $rootScope, $http, $filter, $ionicPlatform, $ionicLoading, $ionicPopup,
                                            GetUserByIdApi, $ionicModal, $ionicHistory, gNearService, gAllBusiness,
                                            AllBusinessApi, gMyLatLng, gStates, PushUserApi, ionicReady, gUserData,
-                                           GeolocationSvc, AddressLookupSvc){
+                                           GeolocationSvc, AddressLookupSvc, NeighborListApi, MyLoading, MyAlert, CountryApi, CityApi){
 
         $scope.gPlace;          // geoPlace Variable AutoComplete
 
         $scope.myOrder = {
             orderType : 'delivery',
             curAddress : '',
+            neighborId : '',
+            cityId : '',
             location :{
-                lat:40.7275043,
-                long:-73.98006450000003,
-                zip:'10009',
-                zoom:'14'
+                latitud : 40.7127837,
+                longitud : -74.00594130000002,
+                zipcode : -1,
+                zoom : 15
             }
         };
         $scope.location = null;
@@ -84,7 +86,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         ];
         $scope.show = function() {
             $ionicLoading.show({
-                template: '<p>Searching...</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
+                template: '<p>{{"Searching..." | translate}}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
             });
         };
         $scope.hide = function(){
@@ -94,24 +96,24 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $ionicHistory.clearHistory();       // initialize Clear Histories
         $scope.$on('$ionicView.enter',function(){
             //alert('Entered');
-            if (typeof gUserData.getData().id == 'undefined'){
-                //alert(localStorage.getItem(STORE_VAL.USR_ID));
-                if (localStorage.getItem(STORE_VAL.USR_ID) != null && localStorage.getItem(STORE_VAL.USR_ID) != ''){
-                    $scope.show();
-                    GetUserByIdApi.charge({
-                        id : localStorage.getItem(STORE_VAL.USR_ID)
-                    }, function(resp){
-                        gUserData.setData(resp.register[0]);
-                        LOGIN_STATE = true;
-                        $scope.myOrder.curAddress = resp.register[0].address;
-                        $scope.hide();
-                    });
-                }else{
-                    $scope.myOrder.curAddress = '';
-                }
-            }else {
-                $scope.myOrder.curAddress = gUserData.getData().address;
-            }
+            // if (typeof gUserData.getData().id == 'undefined'){
+            //     //alert(localStorage.getItem(STORE_VAL.USR_ID));
+            //     if (localStorage.getItem(STORE_VAL.USR_ID) != null && localStorage.getItem(STORE_VAL.USR_ID) != ''){
+            //         $scope.show();
+            //         GetUserByIdApi.charge({
+            //             id : localStorage.getItem(STORE_VAL.USR_ID)
+            //         }, function(resp){
+            //             gUserData.setData(resp.register[0]);
+            //             LOGIN_STATE = true;
+            //             $scope.myOrder.curAddress = resp.register[0].address;
+            //             $scope.hide();
+            //         });
+            //     }else{
+            //         $scope.myOrder.curAddress = '';
+            //     }
+            // }else {
+            //     $scope.myOrder.curAddress = gUserData.getData().address;
+            // }
             if (typeof $rootScope.buyerInfo == 'undefined'){
                 
                 $rootScope.buyerInfo = {
@@ -145,7 +147,81 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     ]
                 };
             }
+            // Fetching Neighborhood Areas.     
+            fetchNeighborhoodArea();        
+            getCountries();
         });
+
+        function fetchNeighborhoodArea() {
+            MyLoading.show('GettingMenu...');
+            NeighborListApi.charge({},function (s) {
+                if (s.status == true){
+                    $scope.neighborMenuListAll = s.register;
+                }else {
+                    MyAlert.show("Error : " + s.message);
+                }
+            },function (e) {
+                MyLoading.hide();
+                MyAlert.show(JSON.stringify(e));
+            })
+        }
+              
+        function getCountries() {       
+            CountryApi.charge({},function (s) {     
+                if (s.status == true){      
+                    $scope.countries = s.country;       
+                    getCities($scope.countries[0].id);      
+                }else {     
+                    MyAlert.show("Error : " + s.message);       
+                }       
+            },function (e) {        
+                MyAlert.show(JSON.stringify(e));        
+            })      
+        }       
+        function getCities(id) {        
+            CityApi.charge({        
+                country : id        
+            },function (s) {        
+                MyLoading.hide();       
+                if (s.status == true){      
+                    $scope.cities = s.city;     
+                }else {     
+                    MyAlert.show("Error : " + s.message);       
+                }       
+            },function (e) {        
+                MyLoading.hide();       
+                MyAlert.show(JSON.stringify(e));        
+            })      
+        }       
+        
+        $scope.selectCity = function () {
+            if (typeof $scope.cities == 'undefined') return;
+            var i = 0, len = $scope.cities.length;
+            for (; i < len; i++){
+                if ($scope.cities[i].id = $scope.myOrder.cityId) {
+                    $scope.curCity = $scope.cities[i];
+                    break;
+                }
+            }
+            $scope.neighborMenuList = [];
+            var j = 0; leng = $scope.neighborMenuListAll.length;
+            for(; j < leng; j++){
+                if ($scope.neighborMenuListAll[j].city == $scope.curCity.id){
+                    $scope.neighborMenuList.push($scope.neighborMenuListAll[j]);
+                }
+            }
+        };
+
+        $scope.selectArea = function (id) {
+            if (typeof $scope.neighborMenuList == 'undefined') return;
+            var i = 0, len = $scope.neighborMenuList.length;
+            for (; i < len; i++){
+                if ($scope.neighborMenuList[i].id = id) {
+                    return $scope.neighborMenuList[i];
+                }
+            }
+        };     
+
         //---No Internet Connection------------------
         $rootScope.netModalState = false;
         $ionicModal.fromTemplateUrl('templates/no-connection.html', {
@@ -213,16 +289,24 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         //--------------------------------------------------------------------------------------------------------
 
         $scope.findRest = function () {
-            var vCountry = $scope.myOrder.curAddress;
-            if(vCountry == ''){
+            var vCountry = $scope.myOrder.neighborId;
+            if(vCountry == '' || vCountry == null){
                 $ionicPopup.alert({
                     title : 'OrderingApp',
-                    template : 'Please Enter your Full Address or ZipCode'
+                    template : 'Please Select your Area'
+                });
+                return;
+            }
+            var vCity = $scope.myOrder.cityId;
+            if(vCity == ''){
+                $ionicPopup.alert({
+                    title : 'OrderingApp',
+                    template : 'Please Select your City'
                 });
                 return;
             }
             $scope.show($ionicLoading);
-            var geoCoder = new google.maps.Geocoder();
+            /*var geoCoder = new google.maps.Geocoder();
             geoCoder.geocode( { 'address': vCountry}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
 
@@ -246,41 +330,45 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                         template : 'Geocode was not successful for the following reason: ' + status
                     });
                 }
-            });
+            });*/
+
+            $scope.curArea = $scope.selectArea($scope.myOrder.neighborId);
+            $scope.findRestaurant();
         };
 
         $scope.findRestaurant = function(){
-            var orderAccept = $scope.myOrder.orderType;
-            var lat  = $scope.myOrder.location.lat;
-            var long = $scope.myOrder.location.long;
-            var zip = $scope.myOrder.location.zip;
-            var zoom = $scope.myOrder.location.zoom;
-            var location = angular.toJson({latitud:lat,longitud:long,zipcode:zip,zoom:zoom});
 
-            var whereall = {
-                "country":"6",
-                "city":"6",
-                "delivery_neighborhoodStaus":0,
-                "currency":"USD",
-                "ga":"",
-                "cityname":"Newyork",
-                "collecttype":orderAccept,
-                "reservestatus":orderAccept,
-                "address":$scope.myOrder.curAddress,
-                "resturant":"","cuisines":"","rhour":-1,"rmin":-1,
-                "location":location,
-                "approved":true,
-                "zipcode":zip
+            var params = {
+                "whereall":{
+                    "country":"1",
+                    "city":$scope.curCity.id,
+                    "delivery_neighborhoodStaus":1,
+                    "delivery_neighborhood":$scope.curArea.name,
+                    "delivery_neighborhoodid":$scope.curArea.id,
+                    "currency":null,
+                    "ga":"",
+                    "cityname": $scope.curCity.name,
+                    "collecttype": $scope.myOrder.orderType,
+                    "reservestatus": $scope.myOrder.orderType,
+                    "address":"2",
+                    "resturant":"",
+                    "cuisines":"",
+                    "rhour":-1,
+                    "rmin":-1,
+                    "location": JSON.stringify($scope.myOrder.location),
+                    "approved":true,
+                    "zipcode":-1
+                },
+                "location": JSON.stringify($scope.myOrder.location),
+                "deliveryType" : $scope.myOrder.orderType,
+                "category" :'',
+                "city" : parseInt($scope.curCity.id),
+                "filters" : false
             };
 
-            AllBusinessApi.charge({
-                location:location,  //'{\"latitud\":lat,\"longitud\":long,\"zipcode\":\"zip\",\"zoom\":zoom}',
-                deliveryType:orderAccept,
-                category:'',
-                city:0,
-                filters:false,
-                whereall:angular.toJson(whereall)
-            }, function(data){
+            AllBusinessApi.charge(
+                JSON.stringify(params),
+                function(data){
                 if (data.status == true){
                     $ionicLoading.hide();
 
@@ -288,7 +376,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
                     //---After response from server---
                     var responseData = {};
-                    responseData.nearAddress = $scope.myOrder.curAddress;
+                    responseData.nearAddress = $scope.curArea.name;
                     responseData.nearCount = gAllBusiness.getData().business.length;
                     responseData.orderType = $scope.myOrder.orderType;
                     responseData.whereAll = '';
@@ -304,6 +392,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     });
                 }
             });
+
         };
 
         //Get Current Location
@@ -311,7 +400,12 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             $scope.show($ionicLoading);
             GeolocationSvc().then(function(position) {
 
-                AddressLookupSvc.lookupByAddress(position.lat, position.lng).then(function(addr) {
+                $scope.hide();
+
+                $scope.myOrder.location.latitud = position.lat;
+                $scope.myOrder.location.longitud = position.lng;
+
+                /*AddressLookupSvc.lookupByAddress(position.lat, position.lng).then(function(addr) {
                     $ionicLoading.hide();
                     $scope.location = {
                         address : addr,
@@ -319,12 +413,12 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     };
                     gMyLatLng.setData($scope.location.location);
                     $scope.myOrder.curAddress = $scope.location.address;
-                    /*$ionicPopup.alert({
+                    /!*$ionicPopup.alert({
                         title : 'Location Information',
                         template : 'Latitude : ' + $scope.location.location.lat +'\n'+
                         'Longitude : ' + $scope.location.location.lng + '\n' +
                         'Address : ' + $scope.location.address
-                    });*/
+                    });*!/
 
                 },function(error){
                     $scope.hide();
@@ -333,13 +427,15 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                         title : "ERROR!",
                         template : "Getting Location Error!"
                     });
-                });
+                });*/
 
             },function(err){
                 $scope.hide();
                 $ionicPopup.alert({
-                    title : "ERROR!",
-                    template : err.message
+                    title : $filter('translate')("ERROR!"),
+                    template : err.message,
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 }).then(function(){
                         //GPS enabled?????
                         var locationConfig = window.plugins.locationAndSettings;
@@ -347,45 +443,6 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 });
             });
 
-            /*$scope.show($ionicLoading);
-            navigator.geolocation.getCurrentPosition(
-                function(obj){
-                    $scope.location = obj;
-                    var geocoder = new google.maps.Geocoder();
-                    var latlng = new google.maps.LatLng(obj.coords.latitude, obj.coords.longitude);
-                    // Save My Location --------------------
-                    var myLatLng = {};
-                    myLatLng.lat = obj.coords.latitude;
-                    myLatLng.lng = obj.coords.longitude;
-                    gMyLatLng.setData(myLatLng);
-
-                    geocoder.geocode({ 'latLng': latlng }, function (results, status)
-                    {
-                        if (status == google.maps.GeocoderStatus.OK)
-                        {
-                            $scope.hide();
-                            if (results[1])
-                            {
-                                $scope.myOrder.curAddress = results[1].formatted_address;
-                            } else {
-                                $scope.myOrder.curAddress = 'Location not found';
-                            }
-                        }
-                        else
-                        {
-                            $scope.hide();
-                            $ionicPopup.alert({
-                                title : 'OrderingApp',
-                                template : 'Geocoder failed due to: ' + status
-                            });
-                        }
-                    });
-                },
-                function (e) {
-                    alert('get location error');
-                },
-                { enableHighAccuracy: true }
-            );*/
         };
 
         $scope.onAutoCompleteAddress = function() {
@@ -404,11 +461,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
     })
 
-    .controller('profileCtrl', function($scope, $state, $ionicLoading, $ionicPopup, gMyLatLng, UpdateUserApi, gUserData, $http, gStates){
+    .controller('profileCtrl', function($scope, $state, $ionicLoading, $ionicPopup, gMyLatLng, UpdateUserApi, gUserData, $http, gStates, $filter){
 
         $scope.show = function() {
             $ionicLoading.show({
-                template: '<p>Updating...</p><ion-spinner icon="bubbles" class="spinner-assertive"></ion-spinner>'
+                template: '<p>{{ "Updating..." | translate }}</p><ion-spinner icon="bubbles" class="spinner-assertive"></ion-spinner>'
             });
         };
         $scope.hide = function(){
@@ -518,8 +575,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 $scope.hide();
                 if (res.status == true) {
                     $ionicPopup.alert({
-                        title : 'OrderingApp',
-                        template : 'User Profile updated!'
+                        title : $filter('translate')('OrderingApp'),
+                        template : $filter('translate')('User Profile updated!'),
+                        okText: $filter('translate')('OK'),
+                        cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                     });
                     $scope.updateUser.id = localStorage.getItem(STORE_VAL.USR_ID);
                     gUserData.setData($scope.updateUser);
@@ -547,14 +606,14 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
 
     })
-    .controller('orderCtrl', function($scope, $state, $ionicLoading,$ionicScrollDelegate, $ionicPopup, $ionicHistory, gUserData, gStates,gSingleOrderData, MyOrderApi, SingleOrderApi){
+    .controller('orderCtrl', function($scope, $state, $ionicLoading,$ionicScrollDelegate, $ionicPopup, $ionicHistory, $filter, gUserData, gStates,gSingleOrderData, MyOrderApi, SingleOrderApi){
         $scope.$on('$ionicView.beforeEnter', function(){
             $ionicScrollDelegate.scrollTop();
             $scope.loadOrderData();
         });
         $scope.show = function() {
             $ionicLoading.show({
-                template: '<p>Getting Data...</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
+                template: '<p>{{ "Getting Data..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
             });
         };
         $scope.hide = function(){
@@ -573,8 +632,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     $scope.myOrders = res.orders;
                     if ($scope.myOrders.length == 0){
                         $ionicPopup.alert({
-                            title : 'OrderingApp',
-                            template : 'Already you have never been ordered!. Please...!'
+                            title : $filter('translate')('OrderingApp'),
+                            template : $filter('translate')('Already you have never been ordered!. Please...!'),
+                            okText: $filter('translate')('OK'),
+                            cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                         });
                     }
                 }else {
@@ -596,15 +657,17 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     $state.go('sideMenu.orderDetail');
                 }else {
                     $ionicPopup.alert({
-                        title : 'OrderingApp',
-                        template : 'Getting Failed!'
+                        title : $filter('translate')('OrderingApp'),
+                        template : $filter('translate')('Getting Failed!'),
+                        okText: $filter('translate')('OK'),
+                        cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                     });
                 }
             });
         }
     })
 
-    .controller('orderDetailCtrl', function($scope, $state, gUserData, gSingleOrderData){
+    .controller('orderDetailCtrl', function($scope, $state, $filter, gUserData, gSingleOrderData){
 
         $scope.$on('$ionicView.beforeEnter',function() {
             $scope.myCurOrder = gSingleOrderData.getData();
@@ -624,10 +687,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             $state.go('sideMenu.myOrder');
         }
     })
-    .controller('addressCtrl', function($scope, $state){
+    .controller('addressCtrl', function($scope, $state, $filter){
 
     })
-    .controller('settingCtrl', function($scope, $state, $ionicLoading, PushStateApi){
+    .controller('settingCtrl', function($scope, $state, $ionicLoading, $filter, PushStateApi){
         $scope.$on('$ionicView.beforeEnter', function(){
             //alert('PUSH :' + localStorage.getItem(STORE_VAL.PUSH));
             if (localStorage.getItem(STORE_VAL.PUSH) == null){
@@ -661,18 +724,27 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
     })
 
-    .controller('orderingCtrl', function($scope, $state, $ionicHistory){
+    .controller('orderingCtrl', function($scope, $state, $ionicHistory, $filter){
 
     })
 
-    .controller('searchCtrl', function($scope, $ionicLoading, $ionicPopup,$ionicHistory, $ionicScrollDelegate, $ionicFilterBar, $state, gNearService, gCurRestaurant, gAllBusiness, FetchAllBusinessMenuApi, gStates, BusinessInfoApi){
+    .controller('languageSetting', function($scope, $state, $ionicHistory, $rootScope, $translate){
+        $scope.setLanguage = function(language){
+            localStorage.setItem("language", language)
+            $rootScope.lang = localStorage.getItem('language') || 'ar'
+            $translate.use($rootScope.lang);
+            $state.go('sideMenu.homeScreen')
+        }
+    })
+
+    .controller('searchCtrl', function($scope, $ionicLoading, $ionicPopup,$ionicHistory, $ionicScrollDelegate, $ionicFilterBar, $state, $filter, gNearService, gCurRestaurant, gAllBusiness, FetchAllBusinessMenuApi, gStates, BusinessInfoApi){
             $scope.$on('$ionicView.beforeEnter', function(){
                 $ionicScrollDelegate.scrollTop();
                 $scope.loadData();
             });
             $scope.show = function() {
                 $ionicLoading.show({
-                    template: '<p>Loading...</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
+                    template: '<p>{{ "Loading..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
                 });
             };
             $scope.hide = function(){
@@ -734,8 +806,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             if (selRestaurant.open == false){
                 $ionicPopup.alert({
                     //title : 'OrderingApp',
-                    title : 'Open & Close Time',
-                    template : '\<center\>' + selRestaurant.opentime + ' - ' + selRestaurant.closetime + '\<\center\>'
+                    title : $filter('translate')('Open & Close Time'),
+                    template : '\<center\>' + selRestaurant.opentime + ' - ' + selRestaurant.closetime + '\<\center\>',
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 });
                 return;
             }
@@ -784,7 +858,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
     })
 
-    .controller('detailRestCtrl', function($scope, $state, $ionicPopup, $ionicHistory, gCurRestaurant, gAllBusiness, gCurDishList, gOrder){
+    .controller('detailRestCtrl', function($scope, $state, $ionicPopup, $ionicHistory, $filter, gCurRestaurant, gAllBusiness, gCurDishList, gOrder){
 
         $scope.$on('$ionicView.beforeEnter',function(){
             $scope.item = gCurRestaurant.getData();
@@ -817,9 +891,12 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 $state.go('restaurantSearch');
             }else{
                 var promptPopup = $ionicPopup.confirm({
-                    title: 'OrderingApp',
-                    template: 'Do you want to cancel current order?',
-                    cancelType: 'button-stable'
+                    title: $filter('translate')('OrderingApp'),
+                    template: $filter('translate')('Do you want to cancel current order?'),
+                    cancelType: 'button-stable',
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
+                    cancelText: $filter('translate')('Cancel')
                 });
                 promptPopup.then(function(res) {
                     if (res) {
@@ -838,10 +915,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
     })
 
-    .controller('detailMenuCtrl', function($scope, $state, $ionicLoading, $ionicPopup, $ionicModal, ProductOptionApi, gOrder, gCurDishList){
+    .controller('detailMenuCtrl', function($scope, $state, $ionicLoading, $ionicPopup, $ionicModal, ProductOptionApi, gOrder, gCurDishList, $filter){
         $scope.show = function() {
             $ionicLoading.show({
-                template: '<p>Searching...</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
+                template: '<p>{{ "Searching..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
             });
         };
         $scope.hide = function(){
@@ -1080,7 +1157,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 bOption.id = item.id;
                 bOption.option = option;
                 bOption.choice = item;
-                bOption.prefix = 'Please choose your ';
+                bOption.prefix = $filter('translate')('Please choose your ');
                 $scope.tempOptions.push(bOption);
             }
         };
@@ -1131,8 +1208,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
             if (!checkPOptioins()) {
                 $ionicPopup.alert({
-                    title : 'OrderingApp',
-                    template : '\<center\>Please Select Required Options\<\/center\>'
+                    title : $filter('translate')('OrderingApp'),
+                    template : '\<center\>{{ "Please Select Required Options" | translate}}\<\/center\>',
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
                 });
                 return;
             }
@@ -1182,7 +1261,9 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.onViewOrder = function(){
             if (gOrder.getData().length == 0){
                 $ionicPopup.alert({
-                    title : 'Your Cart is Empty!'
+                    title : $filter('translate')('Your Cart is Empty!'),
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
                 })
             }else{
                 $state.go('ordering.checkOut');
@@ -1197,11 +1278,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         });
     })
 
-    .controller('checkOutCtrl',function($scope, $state, $rootScope, $ionicLoading, $ionicModal, $ionicPopup, $ionicHistory,gNearService,gDeliveryComment, gAllBusiness, gCurRestaurant, gOrder, gUserData, gBusinessData, CheckOutInfoApi, GetUserByIdApi, gStates){
+    .controller('checkOutCtrl',function($scope, $state, $rootScope, $ionicLoading, $ionicModal, $ionicPopup, $ionicHistory, $filter, gNearService,gDeliveryComment, gAllBusiness, gCurRestaurant, gOrder, gUserData, gBusinessData, CheckOutInfoApi, GetUserByIdApi, gStates){
 
         $scope.show = function() {
             $ionicLoading.show({
-                template: '<p>GettingData...</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
+                template: '<p>{{ "GettingData..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
             });
         };
         $scope.hide = function(){
@@ -1224,7 +1305,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 comments : ''
             };
 
-            $scope.minimumPrice = parseFloat($scope.curBusiness.restData.minimum);
+             if ($scope.curBusinessInfo.minium == "") $scope.curBusinessInfo.minium = "0";
+              $scope.minimumPrice = parseFloat($scope.curBusinessInfo.minium);
             $scope.subTotal = 0;
 
             for (var i = 0, len = $scope.curMyDishes.length; i < len; i++) {
@@ -1470,9 +1552,12 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 $state.go('restaurantSearch');
             }else{
                 var promptPopup = $ionicPopup.confirm({
-                    title: 'OrderingApp',
-                    template: 'Are you cancel current order?',
-                    cancelType: 'button-stable'
+                    title: $filter('translate')('OrderingApp'),
+                    template: $filter('translate')('Are you cancel current order?'),
+                    cancelType: 'button-stable',
+                    okText: $filter('translate')('OK'),
+                    cancelText: $filter('translate')('Cancel'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 });
                 promptPopup.then(function(res) {
                     if (res) {
@@ -1489,11 +1574,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
     })
 
-    .controller('signUpCtrl',function($scope, $state, $rootScope, $ionicLoading, $ionicHistory, $ionicModal, $ionicPopup, gAllBusiness, gNearService, gBusinessData, gDeliveryComment, gCurRestaurant, gOrder, gUserData, GetUserByIdApi, CheckOutInfoApi, UserRegisterApi, SignInApi, gStates, PushUserApi, ngFB, gMyLatLng) {
+    .controller('signUpCtrl',function($scope, $state, $stateParams, $rootScope, $ionicLoading, $ionicHistory, $ionicModal, $ionicPopup, $filter, gAllBusiness, gNearService, gBusinessData, gDeliveryComment, gCurRestaurant, gOrder, gUserData, GetUserByIdApi, CheckOutInfoApi, UserRegisterApi, SignInApi, gStates, PushUserApi, ngFB, gMyLatLng, $http) {
 
         $scope.show = function() {
             $ionicLoading.show({
-                template: '<p>GettingData...</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
+                template: '<p>{{ "GettingData..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
             });
         };
         $scope.hide = function(){
@@ -1501,13 +1586,13 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
 
         $scope.$on('$ionicView.enter',function(){
-            initVariable();
+           initVariable();
         });
         // init variables -------------------------------
-
+        $scope.naam = $stateParams.name
         function initVariable () {
             $scope.signUpUser = {
-                name        : '',
+                name        : $stateParams.name || '',
                 lastname    : '' ,
                 lastname2   : '' ,
                 email       : '' ,
@@ -1521,7 +1606,9 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 cel         : '' ,
                 api         : '',
                 imgpath     : '',
-                level       : ''
+                level       : '',
+                mobile      : $stateParams.mobile_number || '',
+                registration_code : ''
             };
 
             $scope.signInUser = {
@@ -1529,7 +1616,6 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 pwd : ''
             };
         }
-
         initVariable();
         // Buyer Info Setting ---------------------------
         var nearService = gNearService.getData();
@@ -1611,8 +1697,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
                 }else {
                     var promptPopup = $ionicPopup.prompt({
-                        title: 'OrderingApp',
-                        template: 'Failed with Getting User Data. Try again?',
+                        title: $filter('translate')('OrderingApp'),
+                        template: $filter('translate')('Failed with Getting User Data. Try again?'),
+                        okText: $filter('translate')('OK'),
+                        cancelText: $filter('translate')('Cancel'),
+                        cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
                         cancelType: 'button-stable'
                     });
                     promptPopup.then(function(res) {
@@ -1634,9 +1723,12 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.onClickBack = function () {
             if (gStates.getState() == STATE.ORDERING){
                 $ionicPopup.confirm({
-                    title : 'OrderingApp',
-                    template : 'Are you cancel your Order!',
-                    cancelType: 'button-stable'
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Are you cancel your Order!'),
+                    cancelType: 'button-stable',
+                    okText: $filter('translate')('OK'),
+                    cancelText: $filter('translate')('Cancel'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 }).then(function(res){
                     if (res){
                         console.log('Pressed OK!');
@@ -1682,8 +1774,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.signIn = function () {
             if ($scope.signInUser.email == '' || $scope.signInUser.pwd == '' ) {
                 $ionicPopup.alert({
-                    title : 'OrderingApp',
-                    template : 'Please Fill Required Fields!'
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Please Fill Required Fields!'),
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 });
                 return;
             }
@@ -1707,8 +1801,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 }else {
                     $scope.hide();
                     $ionicPopup.alert({
-                        title : 'OrderingApp',
-                        template : 'Invalid user data. Please try again'
+                        title : $filter('translate')('OrderingApp'),
+                        template : $filter('translate')('Invalid user data. Please try again'),
+                        okText: $filter('translate')('OK'),
+                        cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                     });
                 }
             })
@@ -1769,18 +1865,98 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.offRegPopup = function(){
             $scope.modal1.hide();
         };
-        //-------------------------------------------------------------------
-        $scope.onClickSignUp = function () {
-            if ($scope.signUpUser.name == '' || $scope.signUpUser.email == '' || $scope.signUpUser.password == '') {
+
+
+        $scope.onClickSignUpNextStep = function () {
+            if ($scope.signUpUser.name == '' || $scope.signUpUser.mobile_number == '') {
                 $ionicPopup.alert({
-                    title : 'OrderingApp',
-                    template : 'Please Fill Required Fields!'
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Please Fill Required Fields!'),
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 });
                 return;
+            } else if (/\D/.test($scope.signUpUser.mobile_number)){
+                $ionicPopup.alert({
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Please Enter only numbers'),
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
+                });
+                return
+            } else if ($scope.signUpUser.mobile_number.indexOf('07') != 0 ){
+                $ionicPopup.alert({
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Please enter correct mobile number'),
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
+                });
+                return
             }
-            USER_STATE = 'SIGNUP';
-            $scope.onRegister();
+            hash = sha512('St49tOr03sXa82jAx83r' + $scope.signUpUser.mobile_number)
+            $http({
+                method: 'POST',
+                url: 'http://ordering.talabatey.com/m_api/v1/requestcode/',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
+                transformRequest: function(obj) {
+                    var str = [];
+                    for(var p in obj)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    return str.join("&");
+                },
+                data: {
+                msisdn : $scope.signUpUser.mobile_number,
+                hash: hash
+                }
+            }).then(function (res) {     //first function "success"
+            }, function (err) {          //second function "error"
+                $state.go('nextStep', {name: $scope.signUpUser.name, mobile_number: $scope.signUpUser.mobile_number});
+                // $ionicPopup.alert({
+                //     title : 'OrderingApp',
+                //     template : 'Failed to get registration code'
+                // })
+            });
+
         };
+        //-------------------------------------------------------------------
+        $scope.onClickSignUp = function () {
+            // if ($scope.signUpUser.name == '' || $scope.signUpUser.mobile_number == '' || $scope.signUpUser.registration_code == '') {
+            //     $ionicPopup.alert({
+            //         title : 'OrderingApp',
+            //         template : 'Please Fill Required Fields!'
+            //     });
+            //     return;
+            // }
+            USER_STATE = 'SIGNUP';
+            hash = sha512('St49tOr03sXa82jAx83r' + $scope.signUpUser.mobile + $scope.signUpUser.registration_code)
+            $http({
+                method: 'POST',
+                url: 'http://ordering.talabatey.com/m_api/v1/verify/',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
+                transformRequest: function(obj) {
+                    var str = [];
+                    for(var p in obj)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    return str.join("&");
+                },
+                data: {
+                msisdn : $scope.signUpUser.mobile,
+                pin: $scope.signUpUser.registration_code,
+                hash: hash
+                }
+            }).then(function (res) {     //first function "success"
+            }, function (err) {          //second function "error"
+                LOGIN_STATE = true;
+                $scope.onRegister
+                $state.go('sideMenu.homeScreen');
+                // $ionicPopup.alert({
+                //     title : 'OrderingApp',
+                //     template : 'Register Failed! please try again later.'
+                // })
+            });
+
+        };
+
         $scope.onRegister = function () {
             $scope.signUpUser.level = '3';
             $scope.show($ionicLoading);
@@ -1810,7 +1986,9 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     $scope.hide();
                     $ionicPopup.alert({
                         title : 'OrderingApp',
-                        template : 'Register Failed! please try again later.'
+                        template : 'Register Failed! please try again later.',
+                        okText: $filter('translate')('OK'),
+                        cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                     });
                 }
             })
@@ -1901,11 +2079,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
     })
 
-    .controller('finalCheckOutCtrl', function($scope, $state, $ionicScrollDelegate, $ionicLoading, $ionicModal, $ionicPopup, $ionicHistory, gNearService, gAllBusiness, gCurRestaurant, gOrder, gUserData, gBusinessData, PlaceOrderApi, PlaceOrderApi2, gMyLatLng, PaypalService, UpdateUserApi) {
+    .controller('finalCheckOutCtrl', function($scope, $state, $ionicScrollDelegate, $ionicLoading, $ionicModal, $ionicPopup, $ionicHistory, $filter, gNearService, gAllBusiness, gCurRestaurant, gOrder, gUserData, gBusinessData, PlaceOrderApi, PlaceOrderApi2, gMyLatLng, PaypalService, UpdateUserApi) {
 
         $scope.show = function() {
             $ionicLoading.show({
-                template: '<p>Ordering...</p><ion-spinner icon="lines" class="spinner-assertive"></ion-spinner>'
+                template: '<p>{{ "Ordering..." | translate }}</p><ion-spinner icon="lines" class="spinner-assertive"></ion-spinner>'
             });
         };
         $scope.hide = function(){
@@ -1940,8 +2118,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             };
 
             $scope.paymentModel = {
-                val : 'none',
-                model : 'Please select'
+                val : $filter('translate')('none'),
+                model : $filter('translate')('Please select')
             };
 
             $scope.order_buyer = gUserData.getData();
@@ -2029,7 +2207,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         $scope.fieldDetect = function( str ) {
             $ionicPopup.alert({
-                title : 'OrderingApp',
+                title : $filter('translate')('OrderingApp'),
                 template : str
             });
             $ionicScrollDelegate.scrollTop();
@@ -2053,8 +2231,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     $ionicLoading.hide();
                     PaypalService.makePayment($scope.orderTotal, 'Total Amount').then(function (response) {
                         $ionicPopup.alert({
-                            title : "OrderingApp",
-                            template : 'Success'+JSON.stringify(response)
+                            title : $filter('translate')("OrderingApp"),
+                            template : 'Success'+JSON.stringify(response),
+                            okText: $filter('translate')('OK'),
+                            cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                         });
                         //alert('Success'+JSON.stringify(response));
                         $scope.paymentModel.val = 'Paid with PayPal';
@@ -2063,12 +2243,14 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                         $scope.modal2.hide();
                     }, function (error) {
                         $scope.paymentModel = {
-                            val : 'none',
-                            model : 'Please select'
+                            val : $filter('translate')('none'),
+                            model : $filter('translate')('Please select')
                         };
                         $ionicPopup.alert({
-                            title : "OrderingApp",
-                            template : 'Transaction Canceled'
+                            title : $filter('translate')("OrderingApp"),
+                            template : $filter('translate')('Transaction Canceled'),
+                            okText: $filter('translate')('OK'),
+                            cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                         });
                         //alert('Transaction Canceled');
                     });
@@ -2092,8 +2274,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.offPaymentPopup = function(){
             if ($scope.paymentModel.val === 'none') {
                 $ionicPopup.alert({
-                    title : 'OrderingApp',
-                    template : 'Please select Payment Method!'
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Please select Payment Method!'),
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 });
                 return;
             }
@@ -2220,8 +2404,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     $scope.onConfirm();
                 }else{
                     $ionicPopup.alert({
-                        title : 'OrderingApp',
-                        template : 'Failed Place Order!! ^o^'
+                        title : $filter('translate')('OrderingApp'),
+                        template : 'Failed Place Order!! ^o^',
+                        okText: $filter('translate')('OK'),
+                        cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                     })
                 }
             });
@@ -2435,4 +2621,17 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             }
         }
 
-    }]);
+    }])
+    
+    .directive('select', function($interpolate) {
+        return {
+            restrict: 'E',
+            require: 'ngModel',
+            link: function(scope, elem, attrs, ctrl) {
+                var defaultOptionTemplate;
+                scope.defaultOptionText = attrs.defaultOption || 'Select...';
+                defaultOptionTemplate = '<option value="" disabled selected style="display: none;">{{defaultOptionText}}</option>';
+                elem.prepend($interpolate(defaultOptionTemplate)(scope));
+            }
+        };
+    });;

@@ -3,32 +3,32 @@
         <ion-nav-buttons side="left">
             <button class="button top-btn" ng-click="onClickDetail()"><img src="img/icon-close.png"></button>
         </ion-nav-buttons>
-        <ion-nav-title>Checkout</ion-nav-title>
+        <ion-nav-title>{{ 'Checkout' | translate }}</ion-nav-title>
         <ion-nav-buttons side="right">
             <button class="button top-btn" ng-click="onClickDetail()"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="color-bg">
         <ion-item class="item-divider">
-            <span class="divider-padding no-padding-h">Delivery Address</span>
+            <span class="divider-padding no-padding-h">{{ 'Delivery Address' | translate }}</span>
         </ion-item>
         <div>
             <div id="map2" data-tap-disabled="true" class="map-view"></div>
         </div>
         <ion-item class="item-divider">
-            <span class="divider-padding no-padding-h positive">Please input correct Information(*)</span>
+            <span class="divider-padding no-padding-h positive">{{ 'Please input correct Information(*)' | translate }}Please input correct Information(*)</span>
         </ion-item>
         <ion-item class="no-border text-center">
-            <input type="text" class="w-100 in-box-style-base" placeholder="Full Name *" ng-model="order_buyer.name" />
+            <input type="text" class="w-100 in-box-style-base" placeholder="{{ 'Full Name' | translate }} *" ng-model="order_buyer.name" />
         </ion-item>
         <ion-item class="no-border text-center pd-none-t">
-            <input type="email" class="w-100 in-box-style-base" placeholder="Email *" ng-model="order_buyer.email" />
+            <input type="email" class="w-100 in-box-style-base" placeholder="{{ 'Email' | translate }} *" ng-model="order_buyer.email" />
         </ion-item>
         <ion-item class="no-border text-center pd-none-t">
-            <input class="w-100 in-box-style-base" placeholder="Full Address *" ng-model="order_buyer.address" googleplace ng-click="onAutoCompleteAddress()"/>
+            <input class="w-100 in-box-style-base" placeholder="{{ 'Full Address' | translate }} *" ng-model="order_buyer.address" googleplace ng-click="onAutoCompleteAddress()"/>
         </ion-item>
         <ion-item class="no-border text-center pd-none-t">
-            <input type="tel" class="w-100 in-box-style-base" placeholder="Mobile Phone Number *" ng-model="order_buyer.tel" />
+            <input type="tel" class="w-100 in-box-style-base" placeholder="{{ 'Mobile Phone Number' | translate }} *" ng-model="order_buyer.tel" />
         </ion-item>
         <!------------------------------------------------->
         <ion-item class="border-none-b">

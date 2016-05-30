@@ -3,9 +3,9 @@
         <ion-nav-buttons side="left">
             <button class="button top-btn" ui-sref="ordering.detailMenu"><img src="img/icon-back.png"></button>
         </ion-nav-buttons>
-        <ion-nav-title>Order Details</ion-nav-title>
+        <ion-nav-title>{{ 'Order Details' | translate }}</ion-nav-title>
         <ion-nav-buttons side="right">
-            <button class="button top-edit" ng-click="onClickCancel()" >Cancel</button>
+            <button class="button top-edit" ng-click="onClickCancel()" >{{ 'Cancel' | translate }}</button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="order-view-cont color-bg">
@@ -32,7 +32,7 @@
 
         <ion-item class="no-border">
             <div class="food-cont color-font-dark h-30">
-                <p class="float-left font-mid">Delivery Fee</p>
+                <p class="float-left font-mid">{{ 'Delivery Fee' | translate }}</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ deliveryFee }}</p>
             </div>
             <input type="text" placeholder="Comments ex. for whom?" class="outline-txt-box" ng-model="delivery.comments" />
@@ -48,18 +48,18 @@
         </ion-item>
         <ion-item class="no-border">
             <div class="food-cont color-font-dark item-single">
-                <p class="float-left font-mid">Service Fee ({{ curBusinessInfo.servicefee }}%)</p>
+                <p class="float-left font-mid">{{ 'Service Fee' | translate }} ({{ curBusinessInfo.servicefee }}%)</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{(serviceFee).toFixed(2)}}</p>
             </div>
             <div class="h-line-grey"></div>
         </ion-item>
         <ion-item class="no-border total-item">
-            <p class="font-large color-font-dark float-left">Total</p>
+            <p class="font-large color-font-dark float-left">{{ 'Total' | translate }}</p>
             <p class="font-small color-main float-right">{{ c_unit }} {{(calcTotalPrice).toFixed(2)}}</p>
         </ion-item>
     </ion-content>
     <ion-footer-bar class="color-main-bg footer-style">
         <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="onFinalCheckOut()" ng-if="subTotal >= minimumPrice">ORDER NOW</div>
-        <div class="button find-btn font-large btn-bar-bottom color-font-white button-royal" ng-if="subTotal < minimumPrice">MIN ORDER : {{ minimumPrice.toFixed(2) }}</div>
+        <div class="button find-btn font-large btn-bar-bottom color-font-white button-royal" ng-if="subTotal < minimumPrice">{{ 'MIN ORDER' | translate }} : {{ minimumPrice.toFixed(2) }}</div>
     </ion-footer-bar>
 </ion-view>

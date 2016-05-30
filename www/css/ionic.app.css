@@ -10401,6 +10401,13 @@ input:-ms-input-placeholder {
   background-repeat: no-repeat;
   background-size: contain; }
 
+.icon-earth {
+  min-height: 22px;
+  min-width: 22px;
+  background-image: url("../img/icon-earth.png");
+  background-repeat: no-repeat;
+  background-size: contain; }
+
 .icon-signout {
   min-height: 22px;
   min-width: 22px;

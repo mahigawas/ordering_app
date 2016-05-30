@@ -8,7 +8,7 @@
         <div ng-repeat="option in productOptionList.options">
             <div ng-show="C_OState.optional != option.maxsel && option.conditional == 'no'">
                 <ion-item class="item-divider">
-                    <span class="divider-padding no-padding-h">Please choose your {{option.name}}</span>
+                    <span class="divider-padding no-padding-h">{{ 'Please choose your' | translate }} {{option.name}}</span>
                     <span ng-if="option.minsel == '1'">(Required)</span>
                 </ion-item>
                 <ion-checkbox class="checkbox-item" ng-repeat="item in option.choices"
@@ -19,7 +19,7 @@
             </div>
             <div ng-show="C_OState.optional == option.maxsel && option.conditional == 'no'" ng-init="listIndex = $index">
                 <ion-item class="item-divider">
-                    <span class="divider-padding no-padding-h">Please choose your {{option.name}}</span>
+                    <span class="divider-padding no-padding-h">{{ 'Please choose your' | translate }} {{option.name}}</span>
                     <span ng-if="option.minsel == '1'">(Required)</span>
                 </ion-item>
                 <ion-radio class="radio-item" ng-repeat="item in option.choices"
@@ -33,10 +33,10 @@
             </div>
         </div>
         <ion-item class="item-divider">
-            <span class="divider-padding no-padding-h">Special Instructions</span>
+            <span class="divider-padding no-padding-h">{{ 'Special Instructions' | translate }}</span>
         </ion-item>
         <ion-item>
-            <textarea class="special-inbox" placeholder="Add any special instructions" ng-model="myDish.comments"></textarea>
+            <textarea class="special-inbox" placeholder="{{ 'Add any special instructions' | translate }}" ng-model="myDish.comments"></textarea>
         </ion-item>
         <ion-item class="row color-main-bg bottom-cont">
             <div class="col-50 color-bg-white pd-btn">
@@ -45,7 +45,7 @@
                 <p class="price float-right">$ {{myDish.total}}</p>
             </div>
             <div class="col-50 item-btn" ng-click="">
-                <a class="button pd-right-2" ng-click="onAddToCart(productOptionList)"><div class="float-left btn-badge-cont">{{myDish.quantity}}</div>Add</a>
+                <a class="button pd-right-2" ng-click="onAddToCart(productOptionList)"><div class="float-left btn-badge-cont">{{myDish.quantity}}</div>{{ 'Add' | translate }}</a>
             </div>
         </ion-item>
     </ion-content>

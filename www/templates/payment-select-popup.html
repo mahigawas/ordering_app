@@ -1,7 +1,7 @@
 <ion-modal-view>
     <ion-header-bar class="bar-stable bar-shadow fix-buttons">
         <button class="button top-btn" ng-click="offPaymentPopup()"><img src="img/icon-close.png"></button>
-        <ion-title class="font-large-x">Payment Select</ion-title>
+        <ion-title class="font-large-x">{{ 'Payment Select' | translate }}</ion-title>
         <button class="button top-btn mg-top-btn-right" ng-click=""></button>
     </ion-header-bar>
     <ion-content class="color-bg padding">
@@ -11,7 +11,7 @@
             <div class="col col-35"> </div>
         </div>-->
         <ion-item class="item-divider">
-            <span class="divider-padding no-padding-h positive">Please choose your Payment method (Required)</span>
+            <span class="divider-padding no-padding-h positive">{{ 'Please choose your Payment method (Required)' | translate }}</span>
         </ion-item>
         <ion-radio class="radio-item" ng-repeat="item in payment"
                    ng-value="item.name"
@@ -25,7 +25,7 @@
             </div>
         </ion-radio>
         <ion-item class="no-border no-bg no-padding-h mg-top-nor">
-            <button class="button button-positive w-100" ng-click="offPaymentPopup()">ACCEPT</button>
+            <button class="button button-positive w-100" ng-click="offPaymentPopup()">{{ 'ACCEPT' | translate }}</button>
         </ion-item>
     </ion-content>
 </ion-modal-view>

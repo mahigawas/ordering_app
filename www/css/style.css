@@ -1,1 +1,23 @@
 /* Empty. Add your own CSS if you like */
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+.right_to_left{
+	direction: rtl;
+	unicode-bidi: bidi-override;
+	font-family: 'Droid Arabic Kufi', serif;
+}
+
+.right_to_left h3{
+	font-family: 'Droid Arabic Kufi', serif;
+}
+
+.right_to_left button{
+	font-family: 'Droid Arabic Kufi', serif;
+}
+
+.left_to_right{
+	direction: ltr;
+}
+
+.padding-right{
+	padding-right: 1.5em
+}

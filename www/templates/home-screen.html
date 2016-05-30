@@ -5,38 +5,47 @@
     </ion-nav-buttons>
 </ion-nav-bar>-->
 <ion-header-bar class="top-bar">
-    <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn" menu-toggle="left">
+    <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn" menu-toggle="left" ng-show="['ar', 'kr'].indexOf(lang) < 0">
     </button>
+    <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn" menu-toggle="right" ng-show="['ar', 'kr'].indexOf(lang) > -1">
+    </button>    
 </ion-header-bar>
+
 <ion-nav-view class="form-content" name="homeContainer">
     <div class="list search-form">
         <ion-item>
             <img src="img/hungry.png">
         </ion-item>
         <form ng-submit="findRest()">
-       <!--   <ion-item style="display: flex">
-            <select class="select-item" ng-model="myOrder.orderType">
-              <option ng-repeat="item in orderTypelist" value="{{item.value}}" ng-selected="item.selected">
-                {{item.name}}
-              </option>
-            </select>-->
-           <!--  <div class="drop-btn"></div>-->
-        </ion-item>
-        <ion-item class="location-cont">
-            <div class="gp-container">
-                <input placeholder="Address or Zip Code" ng-model="myOrder.curAddress" class="font-mid" googleplace ng-click="onAutoCompleteAddress()"/>
-            </div>
-            <!--<p>{{myOrder.orderType}}</p>-->
-        </ion-item>
+            <ion-item class="location-cont">
+                <div class="gp-container" style="padding-bottom: 5px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
+                    <select class="select-item" ng-model="myOrder.cityId"
+                            ng-options="item.id as item.name for item in cities"
+                            default-option="Select your Area" ng-change="selectCity()">
+                    </select>
+                    <div class="drop-btn"></div>
+                </div>
+                <div class="gp-container" style="padding-top: 5px;border-top-left-radius: 0;border-top-right-radius: 0">
+                    <!--<input placeholder="Address or Zip Code" ng-model="myOrder.curAddress" class="font-mid" googleplace ng-click="onAutoCompleteAddress()"/>-->
+                    <select class="select-item add" ng-model="myOrder.neighborId"
+                            ng-options="item.id as item.name for item in neighborMenuList"
+                            default-option="Select your Area">
+                    </select>
+                    <div class="drop-btn"></div>
+                </div>
+            </ion-item>
         </form>
+        <!--<ion-item>
+            <input placeholder="Address or Zip Code" ng-model="myOrder.curAddress" class="font-mid" googleplace ng-click="onAutoCompleteAddress()"/>
+        </ion-item>-->
         <ion-item class="btn-cur-location" >
             <a class="my-location" ng-click="getCurLocation()">
-                <span class="font-large-x">Use my current location</span>
+                <span class="font-large-x">{{'Use my current location' | translate }}</span>
             </a>
         </ion-item>
         <ion-item>
             <button class="button find-btn button-positive" on-swipe-right="onSwipeRight()" ng-click="findRest()">
-                FIND RESTAURANTS
+                {{'FIND RESTAURANTS' | translate }}
             </button>
         </ion-item>
         <!--<ion-item>
