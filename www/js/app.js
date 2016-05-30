@@ -396,7 +396,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Failed Place Order!!': 'Failed Place Order!!',
             'image could not be loaded': 'image could not be loaded',
             'Please enter correct mobile number': 'Please enter correct mobile number',
-            'OK': 'OK'
+            'OK': 'OK',
+            'IQD': 'IQD'
 
         });
 
@@ -526,7 +527,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Failed Place Order!!': 'لم يتم اختيار مكان الطلب ',
             'image could not be loaded': 'لاصور لم تحمل ',
             'Please enter correct mobile number': 'الرجاء ادخال رقم الموبايل بشكل صحيح',
-            'OK': 'حسنا'
+            'OK': 'حسنا',
+            'IQD': 'د.ع.'
         });
 
         $translateProvider.translations('kr', {
@@ -654,7 +656,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Failed Place Order!!': 'فەرمانى شوێن نشستيى هێنا!!',
             'image could not be loaded': 'وێنە ناتوانێت بار نابكرێت',
             'Please enter correct mobile number': 'تكايە ژمارەى مۆبايلى ڕاست بچەيە ناو',
-            'OK': 'حسنا'
+            'OK': 'حسنا',
+            'IQD': 'د.ع.'
         });
 
         $translateProvider.preferredLanguage(localStorage.getItem("language"));
