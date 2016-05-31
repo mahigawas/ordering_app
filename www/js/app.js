@@ -398,7 +398,9 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please enter correct mobile number': 'Please enter correct mobile number',
             'OK': 'OK',
             'IQD': 'IQD',
-            'Add any special instructions': 'Add any special instructions'
+            'Add any special instructions': 'Add any special instructions',
+            'Select your Area' : 'Select your Area',
+            'Rating': 'Rating'
 
         });
 
@@ -530,7 +532,9 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please enter correct mobile number': 'الرجاء ادخال رقم الموبايل بشكل صحيح',
             'OK': 'حسنا',
             'IQD': 'د.ع.',
-            'Add any special instructions': 'إضافة أي تعليمات خاصة'
+            'Add any special instructions': 'إضافة أي تعليمات خاصة',
+            'Select your Area': 'اختر منطقتك',
+            'Rating': 'تصنيف'
         });
 
         $translateProvider.translations('kr', {
@@ -660,7 +664,9 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please enter correct mobile number': 'تكايە ژمارەى مۆبايلى ڕاست بچەيە ناو',
             'OK': 'حسنا',
             'IQD': 'د.ع.',
-            'Add any special instructions': 'إضافة أي تعليمات خاصة'
+            'Add any special instructions': 'إضافة أي تعليمات خاصة',
+            'Select your Area': 'اختر منطقتك',
+            'Rating': 'تصنيف'
         });
 
         $translateProvider.preferredLanguage(localStorage.getItem("language"));
@@ -683,6 +689,12 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
         payPalMerchantUserAgreementURL : 'url to user agreement'
 
+    })
+
+    .constant('langSettings',{
+        'en': 1,
+        'ar': 19,
+        'kr': 29
     });
 
 

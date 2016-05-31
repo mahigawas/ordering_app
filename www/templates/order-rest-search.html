@@ -1,8 +1,8 @@
 
 <ion-view>
     <ion-nav-bar class="bar-stable bar-shadow">
-        <ion-nav-buttons side="left" ng-show="['ar', 'kr'].indexOf(lang) == -1">
-            <button class="button top-btn" ng-click="gotoHome()" ><img src="img/icon-back.png"></button>
+        <ion-nav-buttons side="left">
+            <button class="button top-btn" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/icon-back.png"></button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
             <button class="button top-btn" ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/icon-back.png"></button>
@@ -44,7 +44,7 @@
                         <div class="visa float-left"></div>
                         <div class="debit float-left"></div>
                         <div class="paypal float-left"></div> -->
-                        <span class="rating float-right">({{item.review.rating}}Rating)</span>
+                        <span class="rating float-right">({{item.review.rating}} {{'Rating' | translate}})</span>
                         <div ng-repeat="star in rateAry[$index]">
                             <div class="{{star.rate}} float-right"></div>
                         </div>

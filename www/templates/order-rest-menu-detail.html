@@ -1,11 +1,13 @@
 <ion-view>
     <ion-nav-bar class="bar-stable bar-shadow">
         <ion-nav-buttons side="left">
-            <button class="button top-btn" ui-sref="ordering.detailRest"><img src="img/icon-back.png"></button>
+            <button class="button top-btn" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/icon-back.png"></button>
         </ion-nav-buttons>
+
         <ion-nav-title>{{HeaderTitle}}</ion-nav-title>
+
         <ion-nav-buttons side="right">
-            <button class="button top-btn"></button>
+            <button class="button top-btn" ui-sref="ordering.detailRest" ><img src="img/icon-back.png" ng-show="['ar', 'kr'].indexOf(lang) > -1"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 

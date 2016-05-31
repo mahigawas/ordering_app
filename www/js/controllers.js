@@ -61,7 +61,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
     .controller('homeScreenCtrl', function($scope, $state, $rootScope, $http, $filter, $ionicPlatform, $ionicLoading, $ionicPopup,
                                            GetUserByIdApi, $ionicModal, $ionicHistory, gNearService, gAllBusiness,
                                            AllBusinessApi, gMyLatLng, gStates, PushUserApi, ionicReady, gUserData,
-                                           GeolocationSvc, AddressLookupSvc, NeighborListApi, MyLoading, MyAlert, CountryApi, CityApi){
+                                           GeolocationSvc, AddressLookupSvc, NeighborListApi, MyLoading, MyAlert, CountryApi, CityApi, langSettings){
 
         $scope.gPlace;          // geoPlace Variable AutoComplete
 
@@ -154,7 +154,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         function fetchNeighborhoodArea() {
             MyLoading.show('GettingMenu...');
-            NeighborListApi.charge({},function (s) {
+            NeighborListApi.charge({lang: langSettings[$rootScope.lang]},function (s) {
                 if (s.status == true){
                     $scope.neighborMenuListAll = s.register;
                 }else {
@@ -167,7 +167,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
               
         function getCountries() {       
-            CountryApi.charge({},function (s) {     
+            CountryApi.charge({lang: langSettings[$rootScope.lang]},function (s) {     
                 if (s.status == true){      
                     $scope.countries = s.country;       
                     getCities($scope.countries[0].id);      
@@ -178,9 +178,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 MyAlert.show(JSON.stringify(e));        
             })      
         }       
-        function getCities(id) {        
+        function getCities(id) {
             CityApi.charge({        
-                country : id        
+                country : id,
+                lang : langSettings[$rootScope.lang]
             },function (s) {        
                 MyLoading.hide();       
                 if (s.status == true){      
@@ -363,7 +364,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 "deliveryType" : $scope.myOrder.orderType,
                 "category" :'',
                 "city" : parseInt($scope.curCity.id),
-                "filters" : false
+                "filters" : false,
+                "lang": langSettings[$rootScope.lang]
             };
 
             AllBusinessApi.charge(
@@ -737,7 +739,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
     })
 
-    .controller('searchCtrl', function($scope, $ionicLoading, $ionicPopup,$ionicHistory, $ionicScrollDelegate, $ionicFilterBar, $state, $filter, gNearService, gCurRestaurant, gAllBusiness, FetchAllBusinessMenuApi, gStates, BusinessInfoApi){
+    .controller('searchCtrl', function($scope, $ionicLoading, $ionicPopup,$ionicHistory, $ionicScrollDelegate, $ionicFilterBar, $state, $filter, gNearService, gCurRestaurant, gAllBusiness, FetchAllBusinessMenuApi, gStates, BusinessInfoApi, langSettings, $rootScope){
             $scope.$on('$ionicView.beforeEnter', function(){
                 $ionicScrollDelegate.scrollTop();
                 $scope.loadData();
@@ -820,7 +822,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             FetchAllBusinessMenuApi.charge({
                 businessid:selRestaurant.id,
                 deliverytype:gNearService.getData().deliveryType,
-                whereall:gNearService.getData().whereAll
+                whereall:gNearService.getData().whereAll,
+                lang:langSettings[$rootScope.lang]
             },function(data){
                 $scope.hide($ionicLoading);
                 var buffObj = {};
@@ -858,7 +861,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
     })
 
-    .controller('detailRestCtrl', function($scope, $state, $ionicPopup, $ionicHistory, $filter, gCurRestaurant, gAllBusiness, gCurDishList, gOrder){
+    .controller('detailRestCtrl', function($scope, $state, $ionicPopup, $ionicHistory, $filter, gCurRestaurant, gAllBusiness, gCurDishList, gOrder, $rootScope){
 
         $scope.$on('$ionicView.beforeEnter',function(){
             $scope.item = gCurRestaurant.getData();
@@ -915,7 +918,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
     })
 
-    .controller('detailMenuCtrl', function($scope, $state, $ionicLoading, $ionicPopup, $ionicModal, ProductOptionApi, gOrder, gCurDishList, $filter){
+    .controller('detailMenuCtrl', function($scope, $state, $ionicLoading, $ionicPopup, $ionicModal, ProductOptionApi, gOrder, gCurDishList, $filter, langSettings, $rootScope){
         $scope.show = function() {
             $ionicLoading.show({
                 template: '<p>{{ "Searching..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
@@ -1027,7 +1030,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             //---getting extra list from System ---------------------------------
             ProductOptionApi.charge({
                 extras_id : extraIdAry,
-                dish_id : foodItem.id
+                dish_id : foodItem.id,
+                lang : langSettings[$rootScope.lang]
             },function(data){
                 if (data.status == true){
                     $scope.hide($ionicLoading);
@@ -1909,12 +1913,12 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 hash: hash
                 }
             }).then(function (res) {     //first function "success"
-            }, function (err) {          //second function "error"
                 $state.go('nextStep', {name: $scope.signUpUser.name, mobile_number: $scope.signUpUser.mobile_number});
-                // $ionicPopup.alert({
-                //     title : 'OrderingApp',
-                //     template : 'Failed to get registration code'
-                // })
+            }, function (err) {          //second function "error"
+                $ionicPopup.alert({
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Failed to get registration code')
+                })
             });
 
         };
@@ -1945,14 +1949,14 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 hash: hash
                 }
             }).then(function (res) {     //first function "success"
-            }, function (err) {          //second function "error"
                 LOGIN_STATE = true;
                 $scope.onRegister
                 $state.go('sideMenu.homeScreen');
-                // $ionicPopup.alert({
-                //     title : 'OrderingApp',
-                //     template : 'Register Failed! please try again later.'
-                // })
+            }, function (err) {          //second function "error"
+                $ionicPopup.alert({
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Register Failed! please try again later.')
+                })
             });
 
         };

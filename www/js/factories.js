@@ -96,7 +96,8 @@ angular.module('orderingApp.factories',['ngResource'])
             category:'@categories',
             city:0,
             filters:'@filter',
-            whereall:'@whereall'
+            whereall:'@whereall',
+            lang: '@lang'
         },{
             charge: {method:'POST'}
         });
@@ -105,7 +106,8 @@ angular.module('orderingApp.factories',['ngResource'])
         return $resource('http://ordering.talabatey.com/ionicapp/fetchallbusinessmenu.php',{
             businessid:'@id',
             deliverytype:'@type',
-            whereall:'@where'
+            whereall:'@where',
+            lang: '@lang'
         },{
             charge: {method:'POST'}
         });
