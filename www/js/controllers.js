@@ -58,10 +58,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             });
         }
     })
-    .controller('homeScreenCtrl', function($scope, $state, $rootScope, $http, $filter, $ionicPlatform, $ionicLoading, $ionicPopup,
-                                           GetUserByIdApi, $ionicModal, $ionicHistory, gNearService, gAllBusiness,
-                                           AllBusinessApi, gMyLatLng, gStates, PushUserApi, ionicReady, gUserData,
-                                           GeolocationSvc, AddressLookupSvc, NeighborListApi, MyLoading, MyAlert, CountryApi, CityApi, langSettings){
+
+    .controller('homeScreenCtrl', function($scope, $state, $rootScope, $http, $filter, $ionicPlatform, $ionicLoading, $ionicPopup, GetUserByIdApi, $ionicModal, $ionicHistory, gNearService, gAllBusiness, AllBusinessApi, gMyLatLng, gStates, PushUserApi, ionicReady, gUserData, GeolocationSvc, AddressLookupSvc, NeighborListApi, MyLoading, MyAlert, CountryApi, CityApi, langSettings){
 
         $scope.gPlace;          // geoPlace Variable AutoComplete
 
@@ -608,6 +606,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
 
     })
+
     .controller('orderCtrl', function($scope, $state, $ionicLoading,$ionicScrollDelegate, $ionicPopup, $ionicHistory, $filter, gUserData, gStates,gSingleOrderData, MyOrderApi, SingleOrderApi){
         $scope.$on('$ionicView.beforeEnter', function(){
             $ionicScrollDelegate.scrollTop();
@@ -689,9 +688,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             $state.go('sideMenu.myOrder');
         }
     })
+
     .controller('addressCtrl', function($scope, $state, $filter){
 
     })
+
     .controller('settingCtrl', function($scope, $state, $ionicLoading, $filter, PushStateApi){
         $scope.$on('$ionicView.beforeEnter', function(){
             //alert('PUSH :' + localStorage.getItem(STORE_VAL.PUSH));
@@ -739,64 +740,66 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
     })
 
-    .controller('searchCtrl', function($scope, $ionicLoading, $ionicPopup,$ionicHistory, $ionicScrollDelegate, $ionicFilterBar, $state, $filter, gNearService, gCurRestaurant, gAllBusiness, FetchAllBusinessMenuApi, gStates, BusinessInfoApi, langSettings, $rootScope){
-            $scope.$on('$ionicView.beforeEnter', function(){
-                $ionicScrollDelegate.scrollTop();
-                $scope.loadData();
+    .controller('searchCtrl', function($scope, $ionicLoading, $ionicPopup, $ionicHistory, $ionicScrollDelegate, $ionicFilterBar, $state, $filter, gNearService, gCurRestaurant, gAllBusiness, FetchAllBusinessMenuApi, gStates, BusinessInfoApi, langSettings, $rootScope){
+        
+        $scope.$on('$ionicView.beforeEnter', function(){
+            $ionicScrollDelegate.scrollTop();
+            $scope.loadData();
+        });
+        $scope.show = function() {
+            $ionicLoading.show({
+                template: '<p>{{ "Loading..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
             });
-            $scope.show = function() {
-                $ionicLoading.show({
-                    template: '<p>{{ "Loading..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
-                });
-            };
-            $scope.hide = function(){
-                $ionicLoading.hide();
-            };
+        };
 
-            $scope.loadData = function () {
-                $scope.nearAddress = gNearService.getData().nearAddress;
-                $scope.nearCount = gNearService.getData().nearCount;
+        $scope.hide = function(){
+            $ionicLoading.hide();
+        };
 
-                $scope.resturantlist = [];
-                $scope.resturantlist = gAllBusiness.getData().business;
+        $scope.loadData = function () {
+            $scope.nearAddress = gNearService.getData().nearAddress;
+            $scope.nearCount = gNearService.getData().nearCount;
 
-                $scope.rateAry = [];
-                for (var j = 0; j < $scope.resturantlist.length; j++){
-                    $scope.rateAry.push($scope.getRateState($scope.resturantlist[j].review.rating));
+            $scope.resturantlist = [];
+            $scope.resturantlist = gAllBusiness.getData().business;
+
+            $scope.rateAry = [];
+            for (var j = 0; j < $scope.resturantlist.length; j++){
+                $scope.rateAry.push($scope.getRateState($scope.resturantlist[j].review.rating));
+            }
+            $scope.rateDisAry = [
+                {rate:'stars-dis'},
+                {rate:'stars-dis'},
+                {rate:'stars-dis'},
+                {rate:'stars-dis'},
+                {rate:'stars-dis'}
+            ];
+
+            $scope.openState = false;
+        };
+
+        //$scope.loadData();
+
+        //----------------------------------
+        gStates.setState(STATE.MENU);
+        //----------------------------------
+
+        $scope.getDeliveryFee = function (zone) {
+            var zoneJson = JSON.parse(zone);
+            var zone1 = zoneJson.zone1;
+            return zone1.price;
+        };
+
+        $scope.getRateState = function (rNum){
+            var rateAry = [];
+            for (var i = 0; i < 5; i++){
+                if (i < (5 - rNum)){
+                    rateAry.push({rate:'stars-dis'});
+                }else {
+                    rateAry.push({rate:'stars'});
                 }
-                $scope.rateDisAry = [
-                    {rate:'stars-dis'},
-                    {rate:'stars-dis'},
-                    {rate:'stars-dis'},
-                    {rate:'stars-dis'},
-                    {rate:'stars-dis'}
-                ];
-
-                $scope.openState = false;
-            };
-
-            //$scope.loadData();
-
-            //----------------------------------
-            gStates.setState(STATE.MENU);
-            //----------------------------------
-
-            $scope.getDeliveryFee = function (zone) {
-                var zoneJson = JSON.parse(zone);
-                var zone1 = zoneJson.zone1;
-                return zone1.price;
-            };
-
-            $scope.getRateState = function (rNum){
-                var rateAry = [];
-                for (var i = 0; i < 5; i++){
-                    if (i < (5 - rNum)){
-                        rateAry.push({rate:'stars-dis'});
-                    }else {
-                        rateAry.push({rate:'stars'});
-                    }
-                }
-                return rateAry;
+            }
+            return rateAry;
         };
 
 
@@ -822,8 +825,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             FetchAllBusinessMenuApi.charge({
                 businessid:selRestaurant.id,
                 deliverytype:gNearService.getData().deliveryType,
-                whereall:gNearService.getData().whereAll,
-                lang:langSettings[$rootScope.lang]
+                whereall:gNearService.getData().whereAll
+                // lang:langSettings[$rootScope.lang]
             },function(data){
                 $scope.hide($ionicLoading);
                 var buffObj = {};
@@ -1651,6 +1654,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 $scope.setBuyer();
             }
         };
+
         $scope.setBuyer = function () {
             CheckOutInfoApi.charge({
             }, function(res){
@@ -1950,7 +1954,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 }
             }).then(function (res) {     //first function "success"
                 LOGIN_STATE = true;
-                $scope.onRegister
+                onRegister()
                 $state.go('sideMenu.homeScreen');
             }, function (err) {          //second function "error"
                 $ionicPopup.alert({
@@ -1960,8 +1964,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             });
 
         };
-
-        $scope.onRegister = function () {
+        function onRegister () {
+        // function onRegister = function () {
             $scope.signUpUser.level = '3';
             $scope.show($ionicLoading);
             UserRegisterApi.charge({
