@@ -825,8 +825,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             FetchAllBusinessMenuApi.charge({
                 businessid:selRestaurant.id,
                 deliverytype:gNearService.getData().deliveryType,
-                whereall:gNearService.getData().whereAll
-                // lang:langSettings[$rootScope.lang]
+                whereall:gNearService.getData().whereAll,
+                lang:langSettings[$rootScope.lang]
             },function(data){
                 $scope.hide($ionicLoading);
                 var buffObj = {};
