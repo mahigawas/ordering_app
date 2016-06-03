@@ -25,8 +25,8 @@
             </div>
         </div>
         <ion-item class="detail-item" ng-repeat="item in resMenulist" ng-click="goDetailMenu(item)">
-            <span class="float-left mg-top-sm">{{item.name}}</span> <div class="float-right icon-more-next"></div>
-            <div class="bottom-line-grey"></div>
+            <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right mg-top-sm' : 'float-left mg-top-sm'">{{item.name}}</span> <div ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-left icon-more-next' : 'float-right icon-more-next'"></div>
+            <div class="bottom-line-grey"></div>            
         </ion-item>
     </ion-content>
 </ion-view>

@@ -14,7 +14,7 @@
                 <ion-checkbox class="checkbox-item" ng-repeat="item in option.choices"
                               ng-model="pOptionModel['data_'+option.id]['value']['model_'+item.id]"
                               ng-change="onCheckOption(option,item)">
-                    {{ item.name }}<span class="float-right color-main">{{'$ ' + item.price}}</span>
+                    {{ item.name }}<span class="float-right color-main">{{item.price}}</span>
                 </ion-checkbox>
             </div>
             <div ng-show="C_OState.optional == option.maxsel && option.conditional == 'no'" ng-init="listIndex = $index">
@@ -42,7 +42,7 @@
             <div class="col-50 color-bg-white pd-btn">
                 <button class="button-icon icon-btn-minus float-left" ng-click="onMinusQuantity()"></button>
                 <button class="button-icon icon-btn-plus float-left" ng-click="onPlusQuantity()"></button>
-                <p class="price float-right">$ {{myDish.total}} {{'IQD' | translate}}</p>
+                <p class="price float-right">{{myDish.total}} {{'IQD' | translate}}</p>
             </div>
             <div class="col-50 item-btn" ng-click="">
                 <a class="button pd-right-2" ng-click="onAddToCart(productOptionList)"><div class="float-left btn-badge-cont">{{myDish.quantity}}</div>{{ 'Add' | translate }}</a>

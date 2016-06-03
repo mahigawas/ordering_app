@@ -19,7 +19,7 @@
             <div class="food-cont color-font-dark">
                 <div class="float-left badge-cont">{{dish.quantity}}</div>
                 <span class="float-left">{{dish.name}}</span>
-                <p class="color-main font-small float-right">{{ c_unit }} {{(dish.total).toFixed(2)}} {{'IQD' | translate}}</p>
+                <p class="color-main font-small float-right">{{(dish.total).toFixed(2)}} {{'IQD' | translate}}</p>
             </div>
             <p class="color-font-gray food-tail">
                 <span ng-repeat="extra in dish.extras track by $index">{{extra.name}}, </span>
@@ -33,7 +33,7 @@
         <ion-item class="no-border">
             <div class="food-cont color-font-dark h-30">
                 <p class="float-left font-mid">{{ 'Delivery Fee' | translate }}</p>
-                <p class="color-main font-small float-right">{{ c_unit }} {{ deliveryFee }}</p>
+                <p class="color-main font-small float-right">{{ deliveryFee }}</p>
             </div>
             <!-- <input type="text" placeholder="Comments ex. for whom?" class="outline-txt-box" ng-model="delivery.comments" />
             <div class="h-line-grey"></div> -->
