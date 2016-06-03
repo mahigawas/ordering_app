@@ -6,7 +6,9 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
     .run(function($ionicPlatform, $ionicPopup, gStates, ngFB, $rootScope, $ionicModal, $state) {
         $ionicPlatform.ready(function() {
-            $rootScope.lang = localStorage.getItem('language') || 'arabic'
+            $rootScope.lang = localStorage.getItem('language') || 'ar'
+            
+            // alert(typeof($rootScope.user_id))
             ngFB.init({appId : FB_APP_ID});
             // Hide the Splash Screen
             if(navigator.splashscreen){

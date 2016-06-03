@@ -63,6 +63,20 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         $scope.gPlace;          // geoPlace Variable AutoComplete
 
+        $rootScope.user_id = localStorage.getItem(STORE_VAL.USR_ID)
+        // alert(localStorage.getItem(STORE_VAL.USR_ID))
+
+        if(localStorage.getItem(STORE_VAL.USR_ID) != '' ){
+            LOGIN_STATE = true
+            if (!gUserData.getData().id) {
+                GetUserByIdApi.charge({
+                    id : $rootScope.user_id
+                },function(res){
+                    gUserData.setData(res.register[0]);
+                })
+            }
+        }
+
         $scope.myOrder = {
             orderType : 'delivery',
             curAddress : '',
@@ -1892,7 +1906,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 });
                 return
-            } else if ($scope.signUpUser.mobile_number.indexOf('07') != 0 ){
+            } else if ($scope.signUpUser.mobile_number.indexOf('07') != 0 || $scope.signUpUser.mobile_number.length != 11){
                 $ionicPopup.alert({
                     title : $filter('translate')('OrderingApp'),
                     template : $filter('translate')('Please enter correct mobile number'),
