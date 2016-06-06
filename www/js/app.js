@@ -200,6 +200,24 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                     }
                 }
             })
+            .state('sideMenu.aboutUs',{
+                url: '/about-us',
+                views: {
+                    'mainContainer':{
+                        templateUrl: 'templates/about-us.html',
+                        controller: 'sideMenuCtrl'
+                    }
+                }
+            })
+            .state('sideMenu.ourRestaurants',{
+                url: '/our-restaurants',
+                views: {
+                    'mainContainer':{
+                        templateUrl: 'templates/our-restaurants.html',
+                        controller: 'sideMenuCtrl'
+                    }
+                }
+            })
             .state('ordering',{
                 //cache: false,
                 url: '/ordering',
@@ -402,7 +420,11 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'IQD': 'IQD',
             'Add any special instructions': 'Add any special instructions',
             'Select your Area' : 'Select your Area',
-            'Rating': 'Rating'
+            'Rating': 'Rating',
+            'Facebook': 'Facebook',
+            'Youtube': 'Youtube',
+            'Our Restaurants': 'Our Restaurants',
+            'About Us': 'About Us'
 
         });
 
@@ -536,7 +558,11 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'IQD': 'د.ع.',
             'Add any special instructions': 'إضافة أي تعليمات خاصة',
             'Select your Area': 'اختر منطقتك',
-            'Rating': 'تصنيف'
+            'Rating': 'تصنيف',
+            'Facebook': '١- فيسبوك',
+            'Youtube': '٢- يوتيوب',
+            'Our Restaurants': '٣- مطاعمنا',
+            'About Us': '٤- عن طلباتي'
         });
 
         $translateProvider.translations('kr', {
@@ -673,7 +699,11 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'IQD': 'د.ع.',
             'Add any special instructions': 'إضافة أي تعليمات خاصة',
             'Select your Area': 'اختر منطقتك',
-            'Rating': 'تصنيف'
+            'Rating': 'تصنيف',
+            'Facebook': '١- فيسبوك',
+            'Youtube': '٢- يوتيوب',
+            'Our Restaurants': '٣- مطاعمنا',
+            'About Us': '٤- عن طلباتي'
         });
 
         $translateProvider.preferredLanguage(localStorage.getItem("language"));

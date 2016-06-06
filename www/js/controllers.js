@@ -66,7 +66,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $rootScope.user_id = localStorage.getItem(STORE_VAL.USR_ID)
         // alert(localStorage.getItem(STORE_VAL.USR_ID))
 
-        if(localStorage.getItem(STORE_VAL.USR_ID) != '' ){
+        if(localStorage.getItem(STORE_VAL.USR_ID)){
             LOGIN_STATE = true
             if (!gUserData.getData().id) {
                 GetUserByIdApi.charge({
@@ -1994,7 +1994,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 country     : '1',
                 city        : '1',
                 tel         : $scope.signUpUser.tel,
-                cel         : $scope.signUpUser.cel,
+                cel         : $scope.signUpUser.mobile,
                 api         : $scope.signUpUser.api,
                 imgpath     : '',
                 level       : $scope.signUpUser.level

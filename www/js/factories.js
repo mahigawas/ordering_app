@@ -178,7 +178,7 @@ angular.module('orderingApp.factories',['ngResource'])
             zip         : '@Zip' ,
             country     : '@Country' ,
             city        : '@City' ,
-            tel         : '@Tel' ,
+            tel         : '@tel' ,
             cel         : '@Cel' ,
             api         : '@Api',
             imgpath     : '@URL',
