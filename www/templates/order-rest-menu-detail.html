@@ -13,6 +13,7 @@
 
     <ion-content class="color-bg">
         <ion-item class="detail-item" ng-repeat="item in resSubMenulist" ng-click="onProductOption(item)">
+            <img ng-src="http://ordering.talabatey.com/panel/images/dishes/{{item.id}}/1/small.jpg", ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right' : 'float-left'">
             <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right mg-top-sm' : 'float-left mg-top-sm'">{{item.name}}</span> <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{item.price}}</span>
             <div class="bottom-line-grey"></div>
         </ion-item>
