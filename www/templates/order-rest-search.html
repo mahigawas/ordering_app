@@ -16,7 +16,7 @@
     </ion-nav-bar>
     <ion-content class="color-bg">
         <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
-        <ion-item  class="location-cont-item color-font-gray font-mid"><span>{{nearCount}} {{ 'Restaurants near' | translate }} {{nearAddress}}</span></ion-item>
+        <!-- <ion-item  class="location-cont-item color-font-gray font-mid"><span>{{nearCount}} {{ 'Restaurants near' | translate }} {{nearAddress}}</span></ion-item> -->
         <ion-item class="search-item" ng-repeat="item in resturantlist | filter : item.distance track by $id(item)">
         <!--<ion-item class="search-item" menu-close ng-repeat="item in resturantlist track by $id(item)">-->
             <div class="rest-item font-small" ng-click="onRestaurantItem(item)">

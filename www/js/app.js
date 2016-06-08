@@ -419,12 +419,13 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'OK': 'OK',
             'IQD': 'IQD',
             'Add any special instructions': 'Add any special instructions',
-            'Select your Area' : 'Select your Area',
+            'Select your Area' : 'Select Your Area',
             'Rating': 'Rating',
             'Facebook': 'Facebook',
             'Youtube': 'Youtube',
             'Our Restaurants': 'Our Restaurants',
-            'About Us': 'About Us'
+            'About Us': 'About Us',
+            'Select Your City': 'Select Your City'
 
         });
 
@@ -562,7 +563,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Facebook': '١- فيسبوك',
             'Youtube': '٢- يوتيوب',
             'Our Restaurants': '٣- مطاعمنا',
-            'About Us': '٤- عن طلباتي'
+            'About Us': '٤- عن طلباتي',
+            'Select Your City': 'اختر مدينتك'
         });
 
         $translateProvider.translations('kr', {
@@ -703,7 +705,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Facebook': '١- فيسبوك',
             'Youtube': '٢- يوتيوب',
             'Our Restaurants': '٣- مطاعمنا',
-            'About Us': '٤- عن طلباتي'
+            'About Us': '٤- عن طلباتي',
+            'Select Your City': 'اختر مدينتك'
         });
 
         $translateProvider.preferredLanguage(localStorage.getItem("language"));

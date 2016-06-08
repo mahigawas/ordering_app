@@ -31,7 +31,7 @@
             <input type="tel" class="w-100 in-box-style-base" placeholder="{{ 'Mobile Phone Number' | translate }} *" ng-model="order_buyer.tel" />
         </ion-item> -->
 
-        <ion-item class="item-divider">
+        <!-- <ion-item class="item-divider">
             <span class="divider-padding no-padding-h">Order Details</span>
         </ion-item>
         <ion-item class="detail-item" ng-click="">
@@ -40,12 +40,12 @@
             <span class="color-font-placeholder float-right mg-top-sm pd-right-1">ASAP</span>
             <div class="bottom-line-grey"></div>
         </ion-item>
-<!--         <ion-item class="detail-item" ng-click="onPaymentPopup()">
+        <ion-item class="detail-item" ng-click="onPaymentPopup()">
             <span class="float-left mg-top-sm">Payment Method</span>
             <div class="float-right icon-more-next-p mg-top-sm"></div>
             <span class="color-font-placeholder-p float-right mg-top-sm pd-right-1">{{ paymentModel.model }}</span>
             <div class="bottom-line-grey"></div>
-        </ion-item> -->
+        </ion-item>
         <ion-item class="border-none-b">
             <div class="diver-type">
                 <div class="border-b padding-4"><span class="color-font-placeholder">Driver Tip : </span> {{ c_unit }} {{data.driveTips}}</div>
@@ -65,7 +65,7 @@
 
                 <div class="color-font-placeholder pd-top-4">100% of the tip goes to your driver</div>
             </div>
-        </ion-item>
+        </ion-item> -->
         <ion-item class="item-divider">
             <span class="divider-padding no-padding-h">Order Summary</span>
         </ion-item>
@@ -85,22 +85,22 @@
                 <p class="color-font-gray float-left">Subtotal</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ subTotalPrice.toFixed(2) }}</p>
             </div>
-            <div class="calc-item">
+<!--             <div class="calc-item">
                 <p class="color-font-gray float-left">Tax</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ curBusiness.tax }}</p>
-            </div>
+            </div> -->
             <div class="calc-item">
                 <p class="color-font-gray float-left">Delivery Fee</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ deliveryFee }}</p>
             </div>
-            <div class="calc-item">
+<!--             <div class="calc-item">
                 <p class="color-font-gray float-left">Driver Tip</p>
                 <p class="color-main font-small float-right"> {{ c_unit }} {{data.driveTips}}</p>
-            </div>
-            <div class="calc-item">
+            </div> -->
+<!--             <div class="calc-item">
                 <p class="color-font-gray float-left">Service Fee ({{ curBusiness.servicefee }}%)</p>
                 <p class="color-main font-small float-right"> {{ c_unit }} {{curBusiness.servicefeeTotal}}</p>
-            </div>
+            </div> -->
             <div class="h-line-grey mg-none-b"></div>
         </ion-item>
         <ion-item class="pd-top-4 no-border pd-none-b total-item">
