@@ -2119,7 +2119,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         $scope.$on('$ionicView.beforeEnter', function(){
             $ionicScrollDelegate.scrollTop();
-            $scope.loadMap();
+            // $scope.loadMap();
             initVariables();
         });
         $scope.gMap2 = new GoogleMap();
@@ -2317,18 +2317,18 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 $scope.order_buyer.address == '' || $scope.order_buyer.tel == '') {
                 $scope.fieldDetect('Please Fill Required Fields!');
                 return;
-
-            }else if ($scope.paymentModel.val == 'none'){
-                $scope.fieldDetect('Please Select your Payment Method');
-                return;
             }
+            // }else if ($scope.paymentModel.val == 'none'){
+            //     $scope.fieldDetect('Please Select your Payment Method');
+            //     return;
+            // }
 
             // Update Buyer Info=
             $scope.curBusiness.buyer.name = $scope.order_buyer.name;
             $scope.curBusiness.buyer.email = $scope.order_buyer.email;
             $scope.curBusiness.buyer.address = $scope.order_buyer.address;
             $scope.curBusiness.buyer.street = $scope.order_buyer.address;
-            $scope.curBusiness.buyer.tel = $scope.order_buyer.tel;
+            $scope.curBusiness.buyer.tel = $scope.order_buyer.cel;
             $scope.curBusiness.buyer.tips = $scope.data.driveTips;
             $scope.curBusiness.buyer.api = $scope.finalCheckout.specialcomment;
             $scope.curBusiness.Total = $scope.orderTotal;
