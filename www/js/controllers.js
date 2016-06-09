@@ -166,7 +166,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         function fetchNeighborhoodArea() {
             MyLoading.show('GettingMenu...');
-            NeighborListApi.charge({lang: langSettings[$rootScope.lang]},function (s) {
+            NeighborListApi.charge({lang: 1},function (s) {
                 if (s.status == true){
                     $scope.neighborMenuListAll = s.register;
                 }else {
@@ -197,7 +197,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             },function (s) {        
                 MyLoading.hide();       
                 if (s.status == true){      
-                    $scope.cities = s.city;     
+                    $scope.cities = s.city;
                 }else {     
                     MyAlert.show("Error : " + s.message);       
                 }       
@@ -205,7 +205,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 MyLoading.hide();       
                 MyAlert.show(JSON.stringify(e));        
             })      
-        }       
+        }
         
         $scope.selectCity = function () {
             if (typeof $scope.cities == 'undefined') return;

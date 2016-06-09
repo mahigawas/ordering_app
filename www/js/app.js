@@ -2,7 +2,7 @@
  * Created by STORM on 2/8/2016.
  */
 
-app = angular.module('orderingApp', ['ionic','orderingApp.controllers','orderingApp.services','orderingApp.factories','jett.ionic.filter.bar','ngOpenFB', 'pascalprecht.translate'])
+app = angular.module('orderingApp', ['ionic','orderingApp.controllers','orderingApp.services','orderingApp.factories','jett.ionic.filter.bar','ngOpenFB', 'pascalprecht.translate', 'ui.select', 'ngSanitize'])
 
     .run(function($ionicPlatform, $ionicPopup, gStates, ngFB, $rootScope, $ionicModal, $state) {
         $ionicPlatform.ready(function() {
@@ -295,8 +295,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'FIND RESTAURANTS': 'FIND RESTAURANTS',
             'Language Settings': 'Language Settings',
             'English': 'English',
-            'Arabic': 'Arabic',
-            'Kurdish': 'Kurdish',
+            'Arabic': 'عربي',
+            'Kurdish': 'كوردي',
             'Edit Account': 'Edit Account',
             'Full Name': 'Full Name',
             'Email': 'Email',
@@ -434,9 +434,9 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Use my current location' : 'استخدام موقعي الحالي',
             'FIND RESTAURANTS': 'العثور على المطاعم',
             'Language Settings': 'اخيار اللغة',
-            'English': 'انلكيزي',
+            'English': 'English',
             'Arabic': 'عربي',
-            'Kurdish': 'كردي',
+            'Kurdish': 'كوردي',
             'Edit Account': 'تعديل المعلومات',
             'Full Name': 'الاسم الكامل',
             'Email': 'البريد الإلكتروني',
@@ -560,10 +560,10 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Add any special instructions': 'إضافة أي تعليمات خاصة',
             'Select your Area': 'اختر منطقتك',
             'Rating': 'تصنيف',
-            'Facebook': '١- فيسبوك',
-            'Youtube': '٢- يوتيوب',
-            'Our Restaurants': '٣- مطاعمنا',
-            'About Us': '٤- عن طلباتي',
+            'Facebook': 'فيسبوك',
+            'Youtube': 'يوتيوب',
+            'Our Restaurants': 'مطاعمنا',
+            'About Us': 'عن طلباتي',
             'Select Your City': 'اختر مدينتك'
         });
 
@@ -572,8 +572,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Use my current location' : 'شويني ئيستا به كار بهينه',
             'FIND RESTAURANTS': 'جيشتخانه يه ك دياري بكه',
             'Language Settings': 'دانانەوەى زمان',
-            'English': 'ئينكليزي',
-            'Arabic': 'عه ره بي',
+            'English': 'English',
+            'Arabic': 'عربي',
             'Kurdish': 'كوردي',
             'Edit Account': 'حيساب پاكنووس بكە',
             'Full Name': 'ناوي ته واو',
@@ -702,10 +702,10 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Add any special instructions': 'إضافة أي تعليمات خاصة',
             'Select your Area': 'اختر منطقتك',
             'Rating': 'تصنيف',
-            'Facebook': '١- فيسبوك',
-            'Youtube': '٢- يوتيوب',
-            'Our Restaurants': '٣- مطاعمنا',
-            'About Us': '٤- عن طلباتي',
+            'Facebook': 'فيسبوك',
+            'Youtube': 'يوتيوب',
+            'Our Restaurants': 'مطاعمنا',
+            'About Us': 'عن طلباتي',
             'Select Your City': 'اختر مدينتك'
         });
 
