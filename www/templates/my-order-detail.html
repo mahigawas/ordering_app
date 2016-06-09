@@ -7,18 +7,18 @@
     </ion-nav-bar>
     <ion-content class="order-detail-cont color-bg">
         <ion-item class="order-bg font-mid">Order No : {{ myOrderId }} <span class="float-right">{{ 'Status' | translate}} : {{ myCurOrder.status }}</span></ion-item>
-        <ion-item>
+        <!-- <ion-item>
             <div class="row font-small">
                 <div class="col col-50">{{ 'Full Name' | translate }}</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.name }}</div>
             </div>
-        </ion-item>
+        </ion-item> -->
       <!--  <ion-item>
             <div class="row font-small">
                 <div class="col col-50">Last Name</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.lastname }}</div>
             </div> -->
-        </ion-item>
+        <!-- </ion-item>
         <ion-item>
             <div class="row font-small">
                 <div class="col col-50">{{ 'Email' | translate }}</div>
@@ -43,7 +43,7 @@
                 <div class="col col-50">{{ myOrderDetail.buyer.tel }}</div>
             </div>
         </ion-item>
-        <ion-item>
+        <ion-item> -->
           <!--   <div class="row font-small">
                 <div class="col col-50">City</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.cityname }}</div>
@@ -60,7 +60,7 @@
                 <div class="col col-50">Reference</div>
                 <div class="col col-50">{{ myOrderDetail.buyer.reference }}</div>
             </div>-->
-        <!-- </ion-item>
+        <!-- </ion-item> -->
         <p class="ht-3"></p>
         <ion-item class="padding-5 no-border">
             <p class="color-font-dark padding-top-5">{{ myOrderDetail.business[0].name}} <span class="color-main">{{'(Business Phone : ' + myOrderDetail.business[0].tel + ')'}}</span></p>
@@ -105,6 +105,6 @@
         <ion-item class="padding-5 no-border total-item">
             <p class="font-large color-font-dark float-left">{{ 'Total' | translate }}</p>
             <p class="font-small color-main float-right">$ {{myOrderDetail.Total}}</p>
-        </ion-item> -->
+        </ion-item>
     </ion-content>
 </ion-view>

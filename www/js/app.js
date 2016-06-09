@@ -428,7 +428,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Select Your City': 'Select Your City',
             'Order Summary': 'Order Summary',
             'Subtotal': 'Subtotal',
-            'PLACE ORDER': 'PLACE ORDER'
+            'PLACE ORDER': 'PLACE ORDER',
+            'You will logout from app, are you sure ?': 'You will logout from app, are you sure ?'
 
         });
 
@@ -570,7 +571,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Select Your City': 'اختر مدينتك',
             'Order Summary': 'ملخص الطلب',
             'Subtotal': 'حاصل الجمع',
-            'PLACE ORDER': 'مكان من اجل'
+            'PLACE ORDER': 'مكان من اجل',
+            'You will logout from app, are you sure ?': 'سوف تخرج من البرنامج، هل انت متاكد ؟'
         });
 
         $translateProvider.translations('kr', {
@@ -715,7 +717,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Select Your City': 'اختر مدينتك',
             'Order Summary': 'ملخص الطلب',
             'Subtotal': 'حاصل الجمع',
-            'PLACE ORDER': 'مكان من اجل'
+            'PLACE ORDER': 'مكان من اجل',
+            'You will logout from app, are you sure ?': 'سوف تخرج من البرنامج، هل انت متاكد ؟'
         });
         $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
         $translateProvider.useSanitizeValueStrategy(null)

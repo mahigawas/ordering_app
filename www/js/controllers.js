@@ -4,7 +4,7 @@
 
 angular.module('orderingApp.controllers',['ngOpenFB'])
 
-    .controller('sideMenuCtrl', function($scope, $state, $http, $ionicModal, $ionicPopup, $ionicSideMenuDelegate, $ionicPlatform, gUserData, $ionicHistory,gStates, $filter){
+    .controller('sideMenuCtrl', function($scope, $state, $http, $ionicModal, $ionicPopup, $ionicSideMenuDelegate, $ionicPlatform, gUserData, $ionicHistory,gStates, $filter, $rootScope){
 
         $scope.$on('$ionicView.enter',function(){
             $ionicHistory.nextViewOptions({
@@ -42,20 +42,35 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
 
         $scope.onSignOut = function () {
-            LOGIN_STATE = false;
-            $scope.state.loginState = LOGIN_STATE;
+            var promptPopup = $ionicPopup.confirm({
+                    title: $filter('translate')('OrderingApp'),
+                    template: $filter('translate')('You will logout from app, are you sure ?'),
+                    cancelType: 'button-stable',
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
+                    cancelText: $filter('translate')('Cancel')
+                });
+            promptPopup.then(function(res) {
+                if (res) {
+                    LOGIN_STATE = false;
+                    $scope.state.loginState = LOGIN_STATE;
 
-            localStorage.setItem(STORE_VAL.LOGIN, 'false');
-            localStorage.setItem(STORE_VAL.USR_ID, '');
+                    localStorage.setItem(STORE_VAL.LOGIN, 'false');
+                    localStorage.setItem(STORE_VAL.USR_ID, '');
 
-            var buff = {};
-            gUserData.setData(buff);
-            $ionicSideMenuDelegate.toggleLeft();
-            $ionicHistory.nextViewOptions({
-                historyRoot: true,
-                disableAnimate: true,
-                expire: 300
-            });
+                    var buff = {};
+                    gUserData.setData(buff);
+                    // $ionicSideMenuDelegate.toggleLeft();
+                    $ionicHistory.nextViewOptions({
+                        historyRoot: true,
+                        disableAnimate: true,
+                        expire: 300
+                    });
+                    // $state.go('sideMenu.homeScreen');
+                }
+                ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? $ionicSideMenuDelegate.toggleRight() : $ionicSideMenuDelegate.toggleLeft()
+                $state.go('sideMenu.homeScreen');
+            })
         }
     })
 
