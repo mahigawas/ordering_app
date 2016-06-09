@@ -25,6 +25,7 @@ angular.module('orderingApp.factories',['ngResource'])
         }
     })
 
+    
     .factory('MyAlert',function ($ionicPopup, $rootScope, $q) {
         return {
             show : showAlert,
@@ -88,6 +89,15 @@ angular.module('orderingApp.factories',['ngResource'])
             charge: {method:'POST'}
         });
     })
+
+    .factory('Logout', function($resource){
+        return $resource("http://ordering.talabatey.com/ionicapp/logout.php",{
+            id : '@id'
+        },{
+            charge: {method:'POST'}
+        });
+    })
+
 
     .factory('AllBusinessApi', function($resource){
         return $resource('http://ordering.talabatey.com/ionicapp/allbusiness.php',{
