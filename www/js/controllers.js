@@ -166,7 +166,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         function fetchNeighborhoodArea() {
             MyLoading.show('GettingMenu...');
-            NeighborListApi.charge({lang: 1},function (s) {
+            NeighborListApi.charge({lang: langSettings[$rootScope.lang]},function (s) {
                 if (s.status == true){
                     $scope.neighborMenuListAll = s.register;
                 }else {

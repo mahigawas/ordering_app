@@ -67,7 +67,7 @@
             </div>
         </ion-item> -->
         <ion-item class="item-divider">
-            <span class="divider-padding no-padding-h">Order Summary</span>
+            <span class="divider-padding no-padding-h">{{ 'Order Summary' | translate}}</span>
         </ion-item>
         <ion-item class="pd-top-4 no-border pd-none-b"
                   ng-repeat="dish in curMyDishes track by $index">
@@ -82,7 +82,7 @@
         </ion-item>
         <ion-item class="pd-top-4 no-border pd-none-b">
             <div class="calc-item">
-                <p class="color-font-gray float-left">Subtotal</p>
+                <p class="color-font-gray float-left">{{'Subtotal' | translate}}</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ subTotalPrice.toFixed(2) }}</p>
             </div>
 <!--             <div class="calc-item">
@@ -90,7 +90,7 @@
                 <p class="color-main font-small float-right">{{ c_unit }} {{ curBusiness.tax }}</p>
             </div> -->
             <div class="calc-item">
-                <p class="color-font-gray float-left">Delivery Fee</p>
+                <p class="color-font-gray float-left">{{ 'Delivery Fee' | translate}}</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ deliveryFee }}</p>
             </div>
 <!--             <div class="calc-item">
@@ -104,11 +104,11 @@
             <div class="h-line-grey mg-none-b"></div>
         </ion-item>
         <ion-item class="pd-top-4 no-border pd-none-b total-item">
-            <p class="font-large color-font-dark float-left">Total</p>
+            <p class="font-large color-font-dark float-left">{{ 'Total' | translate }}</p>
             <p class="font-small color-main float-right"> {{ c_unit }} {{orderTotal.toFixed(2)}}</p>
         </ion-item>
     </ion-content>
     <ion-footer-bar class="color-main-bg footer-style">
-        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="placeOrderNow()">PLACE ORDER</div>
+        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="placeOrderNow()">{{ 'PLACE ORDER' | translate}}</div>
     </ion-footer-bar>
 </ion-view>

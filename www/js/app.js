@@ -425,7 +425,10 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Youtube': 'Youtube',
             'Our Restaurants': 'Our Restaurants',
             'About Us': 'About Us',
-            'Select Your City': 'Select Your City'
+            'Select Your City': 'Select Your City',
+            'Order Summary': 'Order Summary',
+            'Subtotal': 'Subtotal',
+            'PLACE ORDER': 'PLACE ORDER'
 
         });
 
@@ -564,7 +567,10 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Youtube': 'يوتيوب',
             'Our Restaurants': 'مطاعمنا',
             'About Us': 'عن طلباتي',
-            'Select Your City': 'اختر مدينتك'
+            'Select Your City': 'اختر مدينتك',
+            'Order Summary': 'ملخص الطلب',
+            'Subtotal': 'حاصل الجمع',
+            'PLACE ORDER': 'مكان من اجل'
         });
 
         $translateProvider.translations('kr', {
@@ -706,10 +712,12 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Youtube': 'يوتيوب',
             'Our Restaurants': 'مطاعمنا',
             'About Us': 'عن طلباتي',
-            'Select Your City': 'اختر مدينتك'
+            'Select Your City': 'اختر مدينتك',
+            'Order Summary': 'ملخص الطلب',
+            'Subtotal': 'حاصل الجمع',
+            'PLACE ORDER': 'مكان من اجل'
         });
-
-        $translateProvider.preferredLanguage(localStorage.getItem("language"));
+        $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
         $translateProvider.useSanitizeValueStrategy(null)
         $resourceProvider.defaults.stripTrailingSlashes = false;
     })
