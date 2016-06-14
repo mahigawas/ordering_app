@@ -124,6 +124,12 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             //    console.log('getIds: ' + JSON.stringify(ids));
             //});
         });
+       
+        // $ionicPlatform.registerBackButtonAction(function (event) {
+        //     if ($ionicHistory.currentStateName() != 'sideMenu.homeScreen'){
+        //         event.preventDefault();
+        //     }
+        // }, 100);
 
     })
 
@@ -429,7 +435,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Order Summary': 'Order Summary',
             'Subtotal': 'Subtotal',
             'PLACE ORDER': 'PLACE ORDER',
-            'You will logout from app, are you sure ?': 'You will logout from app, are you sure ?'
+            'You will logout from app, are you sure ?': 'You will logout from app, are you sure ?',
+            'Please confirm your name and mobile number': 'Please confirm your name and mobile number'
 
         });
 
@@ -464,7 +471,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Delivery Fee': 'رسوم التوصيل',
             'Service Fee': 'رسوم الخدمة',
             'Driver Tip': 'البغشيش',
-            'Total': 'مجموع',
+            'Total': 'المجموع',
             'My Orders': 'طلباتي',
             'Date': 'التاريخ',
             'Business': 'المطاعم',
@@ -516,7 +523,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Path of Profile Image': 'مسار الملف صورة',
             'CONTINUE AS GUEST': 'المتابعة كضيف',
             'LOGIN WITH FACEBOOK': 'تسجيل الدخول باستخدام الفيسبوك',
-            'Start Order': 'ابدآ طلبك',
+            'Start Order': 'ابدأ طلبك',
             'My Profile': 'معلوماتي',
             'My Orders': 'طلباتي',
             'Logout': 'خروج',
@@ -557,7 +564,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please select Payment Method!': 'الرجاء اخيار طريقة الدفع',
             'Please Select your Payment Method': 'الرجاء اخيار طريقة الدفع',
             'Failed Place Order!!': 'لم يتم اختيار مكان الطلب ',
-            'image could not be loaded': 'لاصور لم تحمل ',
+            'image could not be loaded': 'الصور لم تحمل',
             'Please enter correct mobile number': 'الرجاء ادخال رقم الموبايل بشكل صحيح',
             'OK': 'اوكي',
             'IQD': 'د.ع.',
@@ -570,9 +577,10 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'About Us': 'عن طلباتي',
             'Select Your City': 'اختر مدينتك',
             'Order Summary': 'ملخص الطلب',
-            'Subtotal': 'حاصل الجمع',
-            'PLACE ORDER': 'مكان من اجل',
-            'You will logout from app, are you sure ?': 'سوف تخرج من البرنامج، هل انت متاكد ؟'
+            'Subtotal':  'المجموع الكلي',
+            'PLACE ORDER':  'تاكيد الطلب',
+            'You will logout from app, are you sure ?': 'سوف تخرج من البرنامج، هل انت متاكد ؟',
+            'Please confirm your name and mobile number': 'الرجاء التاكد من الاسم ورقم الموبايل'
         });
 
         $translateProvider.translations('kr', {
@@ -707,18 +715,19 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please enter correct mobile number': 'وێنە ناتوانێت بار نابكرێت',
             'OK': 'اوكي',
             'IQD': 'د.ع.',
-            'Add any special instructions': 'إضافة أي تعليمات خاصة',
-            'Select your Area': 'اختر منطقتك',
-            'Rating': 'تصنيف',
+            'Add any special instructions':'هەرێك ڕێنماييى تايبەتى زياد بكەە',
+            'Select your Area': 'ڕووبەرت هەڵ ببژێرە',
+            'Rating': 'هەڵ سەنگاندن',
             'Facebook': 'فيسبوك',
             'Youtube': 'يوتيوب',
-            'Our Restaurants': 'مطاعمنا',
+            'Our Restaurants': 'چێشتخانەەكانمان',
             'About Us': 'عن طلباتي',
-            'Select Your City': 'اختر مدينتك',
-            'Order Summary': 'ملخص الطلب',
-            'Subtotal': 'حاصل الجمع',
-            'PLACE ORDER': 'مكان من اجل',
-            'You will logout from app, are you sure ?': 'سوف تخرج من البرنامج، هل انت متاكد ؟'
+            'Select Your City':'شارت هەڵ ببژێرە',
+            'Order Summary':'پوختەى فەرمان',
+            'Subtotal': 'سەرجەم',
+            'PLACE ORDER': 'بكەە فەرمان بكات',
+            'You will logout from app, are you sure ?': 'تۆ ويل [لۆگۆوت] لە بەرنامەەوە، ببە تۆ دڵنيا',
+            'Please confirm your name and mobile number': 'تكايە ناوت و ژمارەى مۆبايل تەئكيد بكەوە'
         });
         $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
         $translateProvider.useSanitizeValueStrategy(null)

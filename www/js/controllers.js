@@ -771,8 +771,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
     })
 
-    .controller('languageSetting', function($scope, $state, $ionicHistory, $rootScope, $translate){
-
+    .controller('languageSetting', function($scope, $state, $ionicHistory, $rootScope, $translate, $ionicSideMenuDelegate){
+        
         $scope.$on('$ionicView.enter', function(){
             $ionicSideMenuDelegate.canDragContent(false);
         });
@@ -1641,7 +1641,6 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
            initVariable();
         });
         // init variables -------------------------------
-        $scope.naam = $stateParams.name
         function initVariable () {
             $scope.signUpUser = {
                 name        : $stateParams.name || '',
@@ -1946,29 +1945,49 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 });
                 return
             }
-            hash = sha512('St49tOr03sXa82jAx83r' + $scope.signUpUser.mobile_number)
-            $http({
-                method: 'POST',
-                url: 'http://ordering.talabatey.com/m_api/v1/requestcode/',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
-                transformRequest: function(obj) {
-                    var str = [];
-                    for(var p in obj)
-                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                    return str.join("&");
-                },
-                data: {
-                msisdn : $scope.signUpUser.mobile_number,
-                hash: hash
-                }
-            }).then(function (res) {     //first function "success"
-                $state.go('nextStep', {name: $scope.signUpUser.name, mobile_number: $scope.signUpUser.mobile_number});
-            }, function (err) {          //second function "error"
-                $ionicPopup.alert({
-                    title : $filter('translate')('OrderingApp'),
-                    template : $filter('translate')('Failed to get registration code')
-                })
+
+            var promptPopup = $ionicPopup.confirm({
+                title: $filter('translate')('OrderingApp'),
+                template: "<h5>" + $filter('translate')('Please confirm your name and mobile number') + "</h5><div>" + $filter('translate')('Name') + ": " + $scope.signUpUser.name + "</div><div>" + $filter('translate')('Mobile Number') + ": " +  $scope.signUpUser.mobile_number + "</div>",
+                cancelType: 'button-stable',
+                okText: $filter('translate')('OK'),
+                cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
+                cancelText: $filter('translate')('Cancel')
             });
+
+             promptPopup.then(function(res) {
+                if (res) {
+                    hash = sha512('St49tOr03sXa82jAx83r' + $scope.signUpUser.mobile_number)
+                    $http({
+                        method: 'POST',
+                        url: 'http://ordering.talabatey.com/m_api/v1/requestcode/',
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
+                        transformRequest: function(obj) {
+                            var str = [];
+                            for(var p in obj)
+                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                            return str.join("&");
+                        },
+                        data: {
+                        msisdn : $scope.signUpUser.mobile_number,
+                        hash: hash
+                        }
+                    }).then(function (res) {     //first function "success"
+                        $state.go('nextStep', {name: $scope.signUpUser.name, mobile_number: $scope.signUpUser.mobile_number});
+                    }, function (err) {          //second function "error"
+                        $ionicPopup.alert({
+                            title : $filter('translate')('OrderingApp'),
+                            template : $filter('translate')('Failed to get registration code')
+                        })
+                    });
+                    
+                } else {
+                    
+                }
+            });
+
+
+
 
         };
         //-------------------------------------------------------------------
@@ -1999,8 +2018,19 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 }
             }).then(function (res) {     //first function "success"
                 LOGIN_STATE = true;
-                onRegister()
-                $state.go('sideMenu.homeScreen');
+                a = $ionicPopup.alert({
+                    title : 'OrderingApp',
+                    template : 'Thanks' + $scope.signUpUser.name + ', your registration is done successfully',
+                    okText: $filter('translate')('OK'),
+                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
+                });
+
+                a.then(function(res) {
+                    if (res) {
+                        onRegister()
+                        $state.go('sideMenu.homeScreen');
+                    }
+                })
             }, function (err) {          //second function "error"
                 $ionicPopup.alert({
                     title : $filter('translate')('OrderingApp'),
@@ -2009,6 +2039,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             });
 
         };
+
         function onRegister () {
         // function onRegister = function () {
             $scope.signUpUser.level = '3';
