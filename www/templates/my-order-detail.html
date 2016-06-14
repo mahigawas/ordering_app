@@ -73,13 +73,13 @@
             <div class="food-cont color-font-dark">
                 <div class="float-left badge-cont">{{dish.quantity}}</div>
                 <span class="float-left">{{dish.name}}</span>
-                <p class="color-main font-small float-right">$ {{dish.total}}</p>
+                <p class="color-main font-small float-right">{{dish.total}} {{'IQD' | translate}}</p>
             </div>
             <p class="color-font-gray food-tail"><span ng-repeat="extra in dish.extras track by $index">{{extra.name}}, </span></p>
             <p class="color-font-gray food-tail pd-top-4"><span>{{dish.specialComment}}</span></p>
             <div class="h-line-grey"></div>
         </ion-item>
-        <ion-item class="padding-5 no-border">
+        <!-- <ion-item class="padding-5 no-border">
             <div class="calc-item">
                 <p class="color-font-gray float-left">{{ 'Tax' | translate }}</p>
                 <p class="color-main font-small float-right">$ {{myOrderDetail.tax}}</p>
@@ -101,10 +101,10 @@
                 <p class="color-main font-small float-right">${{myOrderDetail.servicefeeTotal1}}</p>
             </div>
             <div class="h-line-grey"></div>
-        </ion-item>
+        </ion-item> -->
         <ion-item class="padding-5 no-border total-item">
             <p class="font-large color-font-dark float-left">{{ 'Total' | translate }}</p>
-            <p class="font-small color-main float-right">$ {{myOrderDetail.Total}}</p>
+            <p class="font-small color-main float-right">{{myOrderDetail.Total}} {{'IQD' | translate}}</p>
         </ion-item>
     </ion-content>
 </ion-view>

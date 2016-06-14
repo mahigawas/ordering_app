@@ -9,7 +9,7 @@
             <div ng-show="C_OState.optional != option.maxsel && option.conditional == 'no'">
                 <ion-item class="item-divider">
                     <span class="divider-padding no-padding-h">{{ 'Please choose your' | translate }} {{option.name}}</span>
-                    <span ng-if="option.minsel == '1'">(Required)</span>
+                    <span ng-if="option.minsel == '1'"></span>
                 </ion-item>
                 <ion-checkbox class="checkbox-item" ng-repeat="item in option.choices"
                               ng-model="pOptionModel['data_'+option.id]['value']['model_'+item.id]"
@@ -20,7 +20,7 @@
             <div ng-show="C_OState.optional == option.maxsel && option.conditional == 'no'" ng-init="listIndex = $index">
                 <ion-item class="item-divider">
                     <span class="divider-padding no-padding-h">{{ 'Please choose your' | translate }} {{option.name}}</span>
-                    <span ng-if="option.minsel == '1'">(Required)</span>
+                    <span ng-if="option.minsel == '1'"></span>
                 </ion-item>
                 <ion-radio class="radio-item" ng-repeat="item in option.choices"
                            ng-value="item.name"

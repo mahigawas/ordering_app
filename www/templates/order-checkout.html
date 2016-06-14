@@ -32,8 +32,8 @@
 
         <ion-item class="no-border">
             <div class="food-cont color-font-dark h-30">
-                <p class="float-left font-mid">{{ 'Delivery Fee' | translate }}</p>
-                <p class="color-main font-small float-right">{{ deliveryFee }}</p>
+                <p class="float-left font-mid">{{ 'Delivery Fee' | translate }} </p>
+                <p class="color-main font-small float-right">{{ deliveryFee }} {{'IQD' | translate}}</p>
             </div>
             <!-- <input type="text" placeholder="Comments ex. for whom?" class="outline-txt-box" ng-model="delivery.comments" />
             <div class="h-line-grey"></div> -->
@@ -54,8 +54,8 @@
             <div class="h-line-grey"></div>
         </ion-item> -->
         <ion-item class="no-border total-item">
-            <p class="font-large color-font-dark float-left">{{ 'Total' | translate }}</p>
-            <p class="font-small color-main float-right">{{ c_unit }} {{(calcTotalPrice).toFixed(2)}} {{'IQD' | translate}}</p>
+            <p class="font-large color-font-dark float-left">{{ 'Total' | translate }} {{'IQD' | translate}}</p>
+            <p class="font-small color-main float-right">{{(calcTotalPrice).toFixed(2)}} {{'IQD' | translate}}</p>
         </ion-item>
     </ion-content>
     <ion-footer-bar class="color-main-bg footer-style">
