@@ -772,6 +772,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
     })
 
     .controller('languageSetting', function($scope, $state, $ionicHistory, $rootScope, $translate){
+
+        $scope.$on('$ionicView.enter', function(){
+            $ionicSideMenuDelegate.canDragContent(false);
+        });
+
         $scope.setLanguage = function(language){
             localStorage.setItem("language", language)
             $rootScope.lang = localStorage.getItem('language') || 'ar'

@@ -7,16 +7,16 @@
             </button>
         </ion-nav-buttons> -->
     </ion-nav-bar>
-
+    {{lang}}
     <ion-content>
         <div class="list">
-            <div class="item item-divider divider-padding", ng-click="setLanguage('en')">
+            <div class="item item-divider divider-padding", ng-click="setLanguage('en')", ng-class="{'active-language': lang == 'en'}">
                 {{ 'English' | translate }}
             </div>
-            <div class="item item-divider divider-padding", ng-click="setLanguage('ar')">
+            <div class="item item-divider divider-padding", ng-click="setLanguage('ar')", ng-class="{'active-language': lang == 'ar'}">
                 {{ 'Arabic' | translate }}
             </div>
-            <div class="item item-divider divider-padding", ng-click="setLanguage('kr')">
+            <div class="item item-divider divider-padding", ng-click="setLanguage('kr')" ng-class="{'active-language': lang == 'kr'}">
                 {{ 'Kurdish' | translate }}
             </div>
         </div>
