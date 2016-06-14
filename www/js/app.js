@@ -4,7 +4,7 @@
 
 app = angular.module('orderingApp', ['ionic','orderingApp.controllers','orderingApp.services','orderingApp.factories','jett.ionic.filter.bar','ngOpenFB', 'pascalprecht.translate', 'ui.select', 'ngSanitize'])
 
-    .run(function($ionicPlatform, $ionicPopup, gStates, ngFB, $rootScope, $ionicModal, $state) {
+    .run(function($ionicPlatform, $ionicPopup, gStates, ngFB, $rootScope, $ionicModal, $state, $ionicHistory) {
         $ionicPlatform.ready(function() {
             $rootScope.lang = localStorage.getItem('language') || 'ar'
             
@@ -125,11 +125,13 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             //});
         });
        
-        // $ionicPlatform.registerBackButtonAction(function (event) {
-        //     if ($ionicHistory.currentStateName() != 'sideMenu.homeScreen'){
-        //         event.preventDefault();
-        //     }
-        // }, 100);
+        $ionicPlatform.registerBackButtonAction(function (event) {
+            if ($ionicHistory.currentStateName() != 'sideMenu.homeScreen'){
+                event.preventDefault();
+            } else{
+                navigator.app.exitApp()
+            }
+        }, 100);
 
     })
 
