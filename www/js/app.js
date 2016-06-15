@@ -2,7 +2,7 @@
  * Created by STORM on 2/8/2016.
  */
 
-app = angular.module('orderingApp', ['ionic','orderingApp.controllers','orderingApp.services','orderingApp.factories','jett.ionic.filter.bar','ngOpenFB', 'pascalprecht.translate', 'ui.select', 'ngSanitize'])
+app = angular.module('orderingApp', ['ionic','orderingApp.controllers','orderingApp.services','orderingApp.factories','jett.ionic.filter.bar','ngOpenFB', 'pascalprecht.translate', 'ui.select', 'ngSanitize', 'ionic-modal-select'])
 
     .run(function($ionicPlatform, $ionicPopup, gStates, ngFB, $rootScope, $ionicModal, $state, $ionicHistory) {
         $ionicPlatform.ready(function() {
@@ -438,7 +438,11 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Subtotal': 'Subtotal',
             'PLACE ORDER': 'PLACE ORDER',
             'You will logout from app, are you sure ?': 'You will logout from app, are you sure ?',
-            'Please confirm your name and mobile number': 'Please confirm your name and mobile number'
+            'Please confirm your name and mobile number': 'Please confirm your name and mobile number',
+            'Thanks': 'Thanks',
+            'your registration is done successfully': 'your registration is done successfully',
+            'Order No': 'Order No',
+            'Back to main menu': 'Back to main menu'
 
         });
 
@@ -582,7 +586,11 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Subtotal':  'المجموع الكلي',
             'PLACE ORDER':  'تاكيد الطلب',
             'You will logout from app, are you sure ?': 'سوف تخرج من البرنامج، هل انت متاكد ؟',
-            'Please confirm your name and mobile number': 'الرجاء التاكد من الاسم ورقم الموبايل'
+            'Please confirm your name and mobile number': 'الرجاء التاكد من الاسم ورقم الموبايل',
+            'Thanks': 'شكرا',
+            'your registration is done successfully': 'لقد تم اشتراكك بنجاح',
+            'Order No': 'أجل لا',
+            'Back to main menu': 'العودة للقائمة الرئيسية'
         });
 
         $translateProvider.translations('kr', {
@@ -729,7 +737,11 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Subtotal': 'سەرجەم',
             'PLACE ORDER': 'بكەە فەرمان بكات',
             'You will logout from app, are you sure ?': 'تۆ ويل [لۆگۆوت] لە بەرنامەەوە، ببە تۆ دڵنيا',
-            'Please confirm your name and mobile number': 'تكايە ناوت و ژمارەى مۆبايل تەئكيد بكەوە'
+            'Please confirm your name and mobile number': 'تكايە ناوت و ژمارەى مۆبايل تەئكيد بكەوە',
+            'Thanks': 'شكرا',
+            'your registration is done successfully': 'لقد تم اشتراكك بنجاح',
+            'Order No': 'أجل لا',
+            'Back to main menu': 'العودة للقائمة الرئيسية'
         });
         $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
         $translateProvider.useSanitizeValueStrategy(null)

@@ -2020,7 +2020,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 LOGIN_STATE = true;
                 a = $ionicPopup.alert({
                     title : 'OrderingApp',
-                    template : 'Thanks' + $scope.signUpUser.name + ', your registration is done successfully',
+                    template : $filter('translate')('Thanks')+ ' ' + $scope.signUpUser.name + ', ' + $filter('translate')('your registration is done successfully'),
                     okText: $filter('translate')('OK'),
                     cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
                 });

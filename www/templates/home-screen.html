@@ -8,7 +8,7 @@
     <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn" menu-toggle="left" ng-show="['ar', 'kr'].indexOf(lang) < 0">
     </button>
     <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn" menu-toggle="right" ng-show="['ar', 'kr'].indexOf(lang) > -1">
-    </button>    
+    </button>
 </ion-header-bar>
 
 <ion-nav-view class="form-content" name="homeContainer">
@@ -31,10 +31,20 @@
                             ng-options="item.id as item.name for item in neighborMenuList"
                             default-option="{{'Select your Area' | translate }}">
                     </select>
-                    <div class="drop-btn"></div>
+
                 </div>
             </ion-item>
         </form>
+        <!-- <div class="drop-btn"></div>
+                    <button class="button button-positive" modal-select="" ng-model="someModel" options="selectables" modal-title="Select a person">
+  Select it
+  <div class="option">
+    {{option}}
+  </div>
+</button>
+<h3>
+  Selected value: {{secondModel}} 
+</h3> -->
         <!--<ion-item>
             <input placeholder="Address or Zip Code" ng-model="myOrder.curAddress" class="font-mid" googleplace ng-click="onAutoCompleteAddress()"/>
         </ion-item>-->
