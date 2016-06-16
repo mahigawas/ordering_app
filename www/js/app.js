@@ -7,7 +7,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
     .run(function($ionicPlatform, $ionicPopup, gStates, ngFB, $rootScope, $ionicModal, $state, $ionicHistory) {
         $ionicPlatform.ready(function() {
             $rootScope.lang = localStorage.getItem('language') || 'ar'
-            
+
             // alert(typeof($rootScope.user_id))
             ngFB.init({appId : FB_APP_ID});
             // Hide the Splash Screen
@@ -124,7 +124,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             //    console.log('getIds: ' + JSON.stringify(ids));
             //});
         });
-       
+
         $ionicPlatform.registerBackButtonAction(function (event) {
             if ($ionicHistory.currentStateName() != 'sideMenu.homeScreen'){
                 event.preventDefault();

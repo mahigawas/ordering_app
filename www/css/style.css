@@ -25,3 +25,19 @@
 .active-language {
 	background-color: green
 }
+
+button.select-item {
+  width: 100%;
+  border-radius: 5px;
+  min-height: 40px;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  padding-left: 0.8em;
+  -webkit-appearance: none;
+  z-index: 2;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(166, 166, 166);
+  text-align: left;
+}

@@ -52,8 +52,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 });
             promptPopup.then(function(res) {
                 if (res) {
-                    
-                    Logout.charge({id: localStorage.getItem(STORE_VAL.USR_ID)},function (s) {     
+
+                    Logout.charge({id: localStorage.getItem(STORE_VAL.USR_ID)},function (s) {
                         if (s.status == true){
 
                             LOGIN_STATE = false;
@@ -68,13 +68,13 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                                 historyRoot: true,
                                 disableAnimate: true,
                                 expire: 300
-                            });     
-  
-                        }else {     
-                            MyAlert.show("Error : " + s.message);       
-                        }       
-                        },function (e) {        
-                            MyAlert.show(JSON.stringify(e));        
+                            });
+
+                        }else {
+                            MyAlert.show("Error : " + s.message);
+                        }
+                        },function (e) {
+                            MyAlert.show(JSON.stringify(e));
                     })
 
                     // $state.go('sideMenu.homeScreen');
@@ -88,6 +88,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
     .controller('homeScreenCtrl', function($scope, $state, $rootScope, $http, $filter, $ionicPlatform, $ionicLoading, $ionicPopup, GetUserByIdApi, $ionicModal, $ionicHistory, gNearService, gAllBusiness, AllBusinessApi, gMyLatLng, gStates, PushUserApi, ionicReady, gUserData, GeolocationSvc, AddressLookupSvc, NeighborListApi, MyLoading, MyAlert, CountryApi, CityApi, langSettings){
 
         $scope.gPlace;          // geoPlace Variable AutoComplete
+        $scope.neighborMenuList = [];
 
         $rootScope.user_id = localStorage.getItem(STORE_VAL.USR_ID)
         // alert(localStorage.getItem(STORE_VAL.USR_ID))
@@ -153,7 +154,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             //     $scope.myOrder.curAddress = gUserData.getData().address;
             // }
             if (typeof $rootScope.buyerInfo == 'undefined'){
-                
+
                 $rootScope.buyerInfo = {
                     id : "",
                     address :"",
@@ -185,13 +186,13 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     ]
                 };
             }
-            // Fetching Neighborhood Areas.     
-            fetchNeighborhoodArea();        
+            // Fetching Neighborhood Areas.
+            fetchNeighborhoodArea();
             getCountries();
         });
 
         function fetchNeighborhoodArea() {
-            MyLoading.show('GettingMenu...');
+            MyLoading.show('Getting Menu...');
             NeighborListApi.charge({lang: langSettings[$rootScope.lang]},function (s) {
                 if (s.status == true){
                     $scope.neighborMenuListAll = s.register;
@@ -203,38 +204,39 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 MyAlert.show(JSON.stringify(e));
             })
         }
-              
-        function getCountries() {       
-            CountryApi.charge({lang: langSettings[$rootScope.lang]},function (s) {     
-                if (s.status == true){      
-                    $scope.countries = s.country;       
-                    getCities($scope.countries[0].id);      
-                }else {     
-                    MyAlert.show("Error : " + s.message);       
-                }       
-            },function (e) {        
-                MyAlert.show(JSON.stringify(e));        
-            })      
-        }       
+
+        function getCountries() {
+            CountryApi.charge({lang: langSettings[$rootScope.lang]},function (s) {
+                if (s.status == true){
+                    $scope.countries = s.country;
+                    getCities($scope.countries[0].id);
+                }else {
+                    MyAlert.show("Error : " + s.message);
+                }
+            },function (e) {
+                MyAlert.show(JSON.stringify(e));
+            })
+        }
         function getCities(id) {
-            CityApi.charge({        
+            CityApi.charge({
                 country : id,
                 lang : langSettings[$rootScope.lang]
-            },function (s) {        
-                MyLoading.hide();       
-                if (s.status == true){      
+            },function (s) {
+                MyLoading.hide();
+                if (s.status == true){
                     $scope.cities = s.city;
-                }else {     
-                    MyAlert.show("Error : " + s.message);       
-                }       
-            },function (e) {        
-                MyLoading.hide();       
-                MyAlert.show(JSON.stringify(e));        
-            })      
+                }else {
+                    MyAlert.show("Error : " + s.message);
+                }
+            },function (e) {
+                MyLoading.hide();
+                MyAlert.show(JSON.stringify(e));
+            })
         }
-        
+
         $scope.selectCity = function () {
             if (typeof $scope.cities == 'undefined') return;
+            $scope.myOrder.neighborId = null;
             var i = 0, len = $scope.cities.length;
             for (; i < len; i++){
                 if ($scope.cities[i].id = $scope.myOrder.cityId) {
@@ -259,7 +261,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     return $scope.neighborMenuList[i];
                 }
             }
-        };     
+        };
 
         //---No Internet Connection------------------
         $rootScope.netModalState = false;
@@ -328,7 +330,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         //--------------------------------------------------------------------------------------------------------
 
         $scope.findRest = function () {
-            var vCountry = $scope.myOrder.neighborId;
+          var vCountry = $scope.myOrder.neighborId;
             if(vCountry == '' || vCountry == null){
                 $ionicPopup.alert({
                     title : 'OrderingApp',
@@ -371,7 +373,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 }
             });*/
 
-            $scope.curArea = $scope.selectArea($scope.myOrder.neighborId);
+            $scope.curArea = $scope.selectArea($scope.myOrder.neighborId.id);
             $scope.findRestaurant();
         };
 
@@ -772,7 +774,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
     })
 
     .controller('languageSetting', function($scope, $state, $ionicHistory, $rootScope, $translate, $ionicSideMenuDelegate){
-        
+
         $scope.$on('$ionicView.enter', function(){
             $ionicSideMenuDelegate.canDragContent(false);
         });
@@ -786,7 +788,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
     })
 
     .controller('searchCtrl', function($scope, $ionicLoading, $ionicPopup, $ionicHistory, $ionicScrollDelegate, $ionicFilterBar, $state, $filter, gNearService, gCurRestaurant, gAllBusiness, FetchAllBusinessMenuApi, gStates, BusinessInfoApi, langSettings, $rootScope){
-        
+
         $scope.$on('$ionicView.beforeEnter', function(){
             $ionicScrollDelegate.scrollTop();
             $scope.loadData();
@@ -1865,7 +1867,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         // Get User and Setting Buyer information by ID ----------------
 
         function getUserInformation ( usr_id ) {
-            
+
                     // Registration of Device Token --------------------
             var device_kind = 0;
             if (ionic.Platform.isIOS()){
@@ -1980,9 +1982,9 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                             template : $filter('translate')('Failed to get registration code')
                         })
                     });
-                    
+
                 } else {
-                    
+
                 }
             });
 
@@ -2706,7 +2708,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
 
     }])
-    
+
     .directive('select', function($interpolate) {
         return {
             restrict: 'E',

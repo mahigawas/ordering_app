@@ -16,7 +16,7 @@
         <ion-item>
             <img src="img/hungry.png">
         </ion-item>
-        <form ng-submit="findRest()">
+        <form ng-submit="">
             <ion-item class="location-cont">
                 <div class="gp-container" style="padding-bottom: 5px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
                     <select class="select-item" ng-model="myOrder.cityId"
@@ -27,10 +27,16 @@
                 </div>
                 <div class="gp-container" style="padding-top: 5px;border-top-left-radius: 0;border-top-right-radius: 0">
                     <!--<input placeholder="Address or Zip Code" ng-model="myOrder.curAddress" class="font-mid" googleplace ng-click="onAutoCompleteAddress()"/>-->
-                    <select class="select-item add" ng-model="myOrder.neighborId"
-                            ng-options="item.id as item.name for item in neighborMenuList"
-                            default-option="{{'Select your Area' | translate }}">
-                    </select>
+                    <!--<select class="select-item add" ng-model="myOrder.neighborId"-->
+                            <!--ng-options="item.id as item.name for item in neighborMenuList"-->
+                            <!--default-option="{{'Select your Area' | translate }}" has-search="true">-->
+                    <!--</select>-->
+                    <button class="select-item" modal-select="" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}">
+                        {{myOrder.neighborId.name || ('Select your Area' | translate)}}
+                        <div class="option">
+                          {{option.name | translate}}
+                        </div>
+                    </button>
 
                 </div>
             </ion-item>
@@ -43,7 +49,7 @@
   </div>
 </button>
 <h3>
-  Selected value: {{secondModel}} 
+  Selected value: {{secondModel}}
 </h3> -->
         <!--<ion-item>
             <input placeholder="Address or Zip Code" ng-model="myOrder.curAddress" class="font-mid" googleplace ng-click="onAutoCompleteAddress()"/>

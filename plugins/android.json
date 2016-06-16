@@ -7,6 +7,12 @@
         "files": {}
     },
     "installed_plugins": {
+        "com.paypal.cordova.mobilesdk": {
+            "PACKAGE_NAME": "com.orderingonlinesystem.p1"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.orderingonlinesystem.p1"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.orderingonlinesystem.p1"
         },
@@ -38,12 +44,6 @@
             "PACKAGE_NAME": "com.orderingonlinesystem.p1"
         },
         "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.orderingonlinesystem.p1"
-        },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.orderingonlinesystem.p1"
-        },
-        "com.paypal.cordova.mobilesdk": {
             "PACKAGE_NAME": "com.orderingonlinesystem.p1"
         }
     },
