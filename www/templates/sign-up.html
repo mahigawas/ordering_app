@@ -1,16 +1,15 @@
 <ion-view>
-    <ion-nav-bar class="bar-stable bar-shadow">
-        <ion-nav-title>{{ 'Sign Up' | translate }}</ion-nav-title>
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
+         <ion-nav-title >{{ 'Sign Up' | translate }}</ion-nav-title>
         <ion-nav-buttons side="left">
-            <button class="button top-btn" ng-click="onClickBack()"><img src="img/icon-close.png"></button>
+            <button type="button" class="btn btn-close" ng-click="onClickBack()"><img src="img/btnclose.png"></button>
         </ion-nav-buttons>
-        <ion-nav-buttons side="right">
-            <button class="button top-btn mg-top-btn-right"></button>
-        </ion-nav-buttons>
+        
     </ion-nav-bar>
+   
     <ion-content class="color-bg padding">
-        <form ng-submit="">
-            <div class="row">
+         <form ng-submit="">
+           <!-- <div class="row">
                 <div class="col col-35"> </div>
                 <div class="col col-30"><img src="img/sign_up.jpg" class="w-100 sign_up_image", style='border-radius: 30%'></div>
                 <div class="col col-35"> </div>
@@ -23,7 +22,32 @@
             </div>
             <ion-item class="no-border no-bg no-padding-h pd-none-b">
                 <button class="button button-positive w-100" ng-click="onClickSignUpNextStep()">{{ 'Next' | translate }}</button>
-            </ion-item>
-        </form>
+            </ion-item>-->
+            <div class="white_box" id="registration_box">
+            <div class="row">
+                <div class="col col-35"> </div>
+                <div class="col col-30"><img src="img/sign_up.jpg" class="w-100 sign_up_image", style='border-radius: 30%'></div>
+                <div class="col col-35"> </div>
+            </div>
+            <ul class="col-xs-12">
+              <li>
+                <div class="form-group">
+                  <label for="usr">Name</label>
+                  <input type="text" class="w-100 in-box-style" placeholder="{{ 'Name' | translate }}" ng-model="signUpUser.name">
+                </div>
+              </li>
+              <li>
+                <div class="form-group">
+                  <label for="pwd">Phone Number</label>
+                  <input type="text" class="w-100 in-box-style" placeholder="07xx-xxx-xxx" ng-model="signUpUser.mobile_number">
+                </div>
+              </li>
+              <li>
+                <button ng-click="onClickSignUpNextStep()" type="button" class="btn btn-common">{{ 'Next' | translate }}</button>
+              </li>
+            </ul>
+          </div>  
+        </form> 
+        
     </ion-content>
 </ion-view>

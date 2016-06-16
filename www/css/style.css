@@ -500,9 +500,14 @@ body {
 .navbar-default {
     background-color: #ef404c;
     border-color: #ef404c;
+    color: #ffffff !important;
+  font-weight: normal;
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding-top: 20px !important;
 }
 .navbar-default h4{
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: normal;
   vertical-align: middle;
   text-align: center;
@@ -528,7 +533,7 @@ body {
     background-color: #bf222d;
     border-radius: 10px;
     height: 36px;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     padding: 5px;
     width: 36px;
 }
