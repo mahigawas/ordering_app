@@ -495,7 +495,15 @@ html, body {
     background-color: #f6f6f6;
 }
 body {
-  //padding-top: 73px;
+  padding-top: 73px;
+}
+.remove_margin{
+	margin-left: 0;
+	margin-right: 0;
+}
+.remove_padding{
+	padding-left: 0;
+	padding-right: 0;
 }
 .navbar-default {
     background-color: #ef404c;
@@ -572,11 +580,7 @@ section{
   color: #cccccc;
   font-weight: normal;
 }
-#registration_box_arabic ul li .form-group label{
-  font-size: 12px;
-  color: #cccccc;
-  font-weight: normal;
-}
+
 .form-control{
   box-shadow: none;
 }
@@ -602,20 +606,6 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     right: 0;
     width: 0;
 }
-#registration_box_arabic .form-group{
-  position: relative;
-}
-#registration_box_arabic .form-group::before {
-    border-bottom: 13px solid #d6d6d6;
-    border-right: 12px solid transparent;
-    bottom: 0;
-    content: "";
-    height: 0;
-    position: absolute;
-    width: 0;
-    left: 0;
-    border-left: 0 none;
-}
 
 .btn-common {
    -webkit-border-radius: 70px;
@@ -632,13 +622,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     padding: 7px 12px;
     width: 100%;
 }
-.arabic{
-  text-align: right;
-}
-.remove_padding{
-  padding-left: 0;
-  padding-right: 0;
-}
+
 .menu{
     width: 25px;
     height: 5px;
@@ -649,8 +633,8 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
  /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
-    /*width: 0;  0 width - change this with JavaScript */
-    /*position: fixed; /!* Stay in place *!/*/
+    /* width: 0; 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place *!/*/
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
@@ -704,6 +688,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 #mySidenav .menu-list{
   padding: 0 17px;
 }
+
 #mySidenav .menu-list li{
   padding: 10px 0px;
   border-bottom: 1px solid #f3f3f4;
@@ -718,34 +703,273 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
   cursor: pointer;
   padding-top: 13px;
 }
-#mySidenav .menu-list-arabic {
-    clear: both;
-    padding: 0 17px;
+
+#select_dish_box li {
+    display: table;
+    width: 100%;
 }
-#mySidenav .menu-list-arabic li {
+.select_dish_image {
+    display: table-cell;
+    vertical-align: middle;
+    width: 15%;
+}
+.select_dish_image  img {
+    border-radius: 6px;
+    height: 37px;
+    width: 100%;
+}
+.select_dish_name {
+    display: table-cell;
+    vertical-align: middle;
+    width: 60%;
+}
+.select_dish_name p{
+	color: #333333;
+}
+.select_dish_price {
+    display: table-cell;
     text-align: right;
-    border-bottom: 1px solid #f3f3f4;
-    font-size: 15px;
-    padding: 10px 0;
+    vertical-align: middle;
+    width: 15%;
 }
-.sidenav_ar img {
-    float: right;
+
+#select_dish_box .select_dish_price span{
+	color: #ef404c;
 }
-.sidenav_ar a {
-    color: #1d1d26;
-    padding: 8px 25px 8px 32px;
+#select_dish_box .select_dish_np{
+	border-bottom: 1px solid #d6d6d6;
+	margin-left: 10px;
+}
+
+.btn-back {
+    background-color: #bf222d;
+    border-radius: 10px;
+    height: 36px;
+    margin-top: 15px;
+    padding: 5px;
+    width: 36px;
+}
+.thumbnail {
+
+    padding: 0px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+}
+.thumbnail .categoryname{
+	margin-bottom: 2px;
+	margin-top: 2px;
+	color: #333333;
+	text-transform: uppercase;
+	display: block;
+	text-align: center;
+}
+#select_category_box li {
+    float: left;
+    margin-right: 16px;
+    width: 47%;
+}
+#select_category_box li:last-child {
+	margin-right: 0;
+	}
+#select_category_box ul li a .categoryimg{
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 130px;
+    width: 100%;
+    display: inline-block;
+    -webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+#select_category_box ul{
+	margin-bottom: 0;
+
+
+}
+a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
+    border-color: transparent;
+
+
+
     text-decoration: none;
 }
-#mySidenav .logo-arabic {
-    height: 50px;
-    margin-bottom: 32px;
-    margin-top: -26px;
-    padding-left: 70px;
-    padding-right: 17px;
-    width: auto;
+/*.checkbox.checkbox-inline {
+    margin-top: 0;
 }
-.menu-icon-arabic{
-  cursor: pointer;
-  padding-top: 13px;
+.checkbox {
+    padding-left: 20px;
+}
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}*/
+/*.checkbox label::before {
+    background-color: #ccc;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    display: inline-block;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    position: absolute;
+    transition: border 0.15s ease-in-out 0s, color 0.15s ease-in-out 0s;
+    width: 17px;
+}
+.checkbox label::after {
+    color: #555555;
+    display: inline-block;
+    font-size: 11px;
+
+    height: 16px;
+    left: 0;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    position: absolute;
+    top: 0;
+    width: 16px;
+}*/
+/*.checkbox label {
+    display: inline-block;
+    font-size: 14px;
+    padding-left: 5px;
+    position: relative;
+    vertical-align: middle;
+}*/
+.checkbox label, .radio label{
+
+
+	padding-left: 0;
+}
+#size_box ul li{
+	padding-bottom: 5px;
+	border-bottom: 1px solid #d6d6d6;
+}
+#size_box ul li:first-child{
+	border-top: 1px solid #d6d6d6;
+}
+#size_box ul li span{
+	padding-top: 8px;
+}
+#size_box ul li .checkbox label{
+	font-size: 13px;
+}
+.form-control::-moz-placeholder {
+    color: #a7a7a7;
+    opacity: 1;
+    font-size: 12px;
+}
+#size_box .form-control:focus {
+    border-color: #ccc;
+    box-shadow: none;
+    outline: 0 none;
+}
+.text-red{
+	color: #ef404c;
+}
+.btn-red{
+	background-color: #ef404c;
+    background-image: linear-gradient(to top, #a8202a, #f54451);
+    color: #fff;
+    font-size: 22px;
+    padding: 0;
+    width: 23%;
+    -webkit-box-shadow: 0 4px 5px rgba(0,0,0,.35);
+	-moz-box-shadow: 0 4px 5px rgba(0,0,0,.35);
+	box-shadow: 0 4px 5px rgba(0,0,0,.35);
+}
+.btn-white {
+    background-color: #fff;
+    background-image: linear-gradient(to top, #fff, #fff);
+    color: #ef404c;
+    font-size: 20px;
+    padding: 2px;
+    width: 31%;
+}
+.red_box{
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	 border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+	background-color: #ef404c;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+	padding: 10px;
+}
+#size_box_button .red_box span{
+	vertical-align: middle;
+	text-align: center;
+	padding-left: 20px;
+	color: #fff;
+}
+#size_box_button .white_box span{
+	padding-left: 14px;
+	color: #333;
+}
+#size_box_button .white_box{
+	width: 55%;
+	margin-right: 10px;
+
+
+
 }
 /******************Language Setting Styles Ends************************/
+
+@media (min-width: 401px) and (max-width: 767px){
+	#select_dish_box li {
+	    height: 67px;
+	    margin-bottom: 10px;
+	    width: 100%;
+	}
+	.select_dish_image {
+	    display: table-cell;
+	    height: 67px;
+	    vertical-align: middle;
+	    width: 15%;
+	}
+	.select_dish_image img {
+	    border-radius: 6px;
+	    height: 67px;
+	    width: 100%;
+	}
+	#select_dish_box .select_dish_np {
+	    border-bottom: 1px solid #d6d6d6;
+	    height: 67px;
+	    margin-left: 10px;
+	}
+	.select_dish_name {
+	    display: table-cell;
+	    height: 67px;
+	    vertical-align: middle;
+	    width: 100%;
+	}
+	#select_category_box ul li a .categoryimg{
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 180px;
+	    width: 100%;
+	    display: inline-block;
+	    -webkit-border-top-left-radius: 3px;
+		-webkit-border-top-right-radius: 3px;
+		-moz-border-radius-topleft: 3px;
+		-moz-border-radius-topright: 3px;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	#select_category_box li {
+	    float: left;
+	    margin-right: 15px;
+	    width: 48%;
+	}
+
+}
