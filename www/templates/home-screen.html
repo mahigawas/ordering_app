@@ -23,20 +23,20 @@
                             ng-options="item.id as item.name for item in cities"
                             default-option="{{'Select Your City' | translate }}" ng-change="selectCity()">
                     </select>
-                    <div class="drop-btn"></div>
                 </div>
                 <div class="gp-container" style="padding-top: 5px;border-top-left-radius: 0;border-top-right-radius: 0">
-                    <!--<select class="select-item add" ng-model="myOrder.neighborId"-->
-                            <!--ng-options="item.id as item.name for item in neighborMenuList"-->
-                            <!--default-option="{{'Select your Area' | translate }}" has-search="true">-->
-                    <!--</select>-->
-                    <button class="select-item" modal-select="" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}">
+                    <button class="select-item" modal-select="" ng-if="isArabic" modal-class="right_to_left" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}" hide-reset="true">
                         {{myOrder.neighborId.name || ('Select your Area' | translate)}}
                         <div class="option">
-                          {{option.name | translate}}
+                            {{option.name | translate}}
                         </div>
                     </button>
-
+                    <button class="select-item" modal-select="" ng-if="!isArabic" modal-class="left_to_right" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}" hide-reset="true">
+                        {{myOrder.neighborId.name || ('Select your Area' | translate)}}
+                        <div class="option">
+                            {{option.name | translate}}
+                        </div>
+                    </button>
                 </div>
             </ion-item>
         </form>

@@ -882,7 +882,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
   background-color: green
 }
 
-button.select-item {
+.select-item {
   width: 100%;
   border-radius: 5px;
   min-height: 40px;
@@ -894,7 +894,7 @@ button.select-item {
   z-index: 2;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(166, 166, 166);
+  border-color: #d6d6d6; /* rgb(166, 166, 166); */
   text-align: start;
 }
 
