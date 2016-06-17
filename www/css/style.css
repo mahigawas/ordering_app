@@ -1,46 +1,5 @@
 /* Empty. Add your own CSS if you like */
 
-.right_to_left{
-	direction: rtl;
-	unicode-bidi: bidi-override;
-	font-family: 'Droid Arabic Kufi', serif;
-}
-
-.right_to_left h3{
-	font-family: 'Droid Arabic Kufi', serif;
-}
-
-.right_to_left button{
-	font-family: 'Droid Arabic Kufi', serif;
-}
-
-.left_to_right{
-	direction: ltr;
-}
-
-.padding-right{
-	padding-right: 1.5em
-}
-
-.active-language {
-	background-color: green
-}
-
-button.select-item {
-  width: 100%;
-  border-radius: 5px;
-  min-height: 40px;
-  background-color: transparent;
-  color: white;
-  font-size: 18px;
-  padding-left: 0.8em;
-  -webkit-appearance: none;
-  z-index: 2;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(166, 166, 166);
-  text-align: left;
-}
 
 
 /*-------------------------------------------------------
@@ -896,6 +855,49 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 
 
 }
+
+.right_to_left{
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  font-family: 'Droid Arabic Kufi', serif;
+}
+
+.right_to_left h3{
+  font-family: 'Droid Arabic Kufi', serif;
+}
+
+.right_to_left button{
+  font-family: 'Droid Arabic Kufi', serif;
+}
+
+.left_to_right{
+  direction: ltr;
+}
+
+.padding-right{
+  padding-right: 1.5em
+}
+
+.active-language {
+  background-color: green
+}
+
+button.select-item {
+  width: 100%;
+  border-radius: 5px;
+  min-height: 40px;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  padding-left: 0.8em;
+  -webkit-appearance: none;
+  z-index: 2;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(166, 166, 166);
+  text-align: start;
+}
+
 /******************Language Setting Styles Ends************************/
 
 @media (min-width: 401px) and (max-width: 767px){

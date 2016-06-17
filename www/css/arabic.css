@@ -37,6 +37,8 @@
     color: #1d1d26;
     padding: 8px 25px 8px 32px;
     text-decoration: none;
+    font-size:13px;
+    font-family: 'Droid Arabic Kufi', serif;
 }
 #mySidenav .logo-arabic {
     height: 50px;
@@ -133,4 +135,8 @@
 		float: right;
 	    margin-right: 15px;
 	}
+}
+
+.select-item {
+    padding-right: 1em;
 }
