@@ -1,20 +1,45 @@
 <ion-modal-view>
-    <ion-header-bar class="bar-stable bar-shadow fix-buttons">
-        <!--<button class="button-icon icon-btn-close" ng-click="offConfirm()"></button>-->
-        <button class="button top-btn" ng-click="offConfirm()"><img src="img/icon-close.png"></button>
-        <!--<ion-title class="font-mid">Checkout</ion-title>-->
+    <ion-header-bar class="navbar navbar-default navbar-fixed-top">
+        <ion-nav-title>{{ 'Italian Falafel' | translate }}</ion-nav-title>
+        <ion-nav-buttons side="left">
+          <button type="button" class="btn btn-close" ng-click="offConfirm()"><img src="img/btnclose.png"></button>
+        </ion-nav-buttons>
     </ion-header-bar>
     <ion-content class="order-view-cont color-bg pd-top-10">
-        <ion-item class="font-center no-bg no-border">
+         <ion-item class="font-center no-bg no-border">
             <img src="img/logo.png">
         </ion-item>
-        <ion-item class="no-border pd-left-2 pd-right-2 no-bg">
+         <ion-item class="no-border pd-left-2 pd-right-2 no-bg">
             <div class="confirm-dlg">
                 <p class="font-large-x color-main">You are awesome!</p>
                 <p class="font-mid">{{ 'Your order' | translate }} #{{placedData.id}} {{ 'was placed successfully' | translate }}<br>{{ 'Turn on your app push notifications.' | translate }}<br> {{ 'You will get order status changes.' | translate }}</p>
                 <button class="button assertive" ng-click="offConfirm()">{{ 'Ok, go back to homepage' | translate }}</button>
             </div>
-        </ion-item>
+             <!-- <section class="white_box" id="size_box">
+          <div class="row">
+            <div class="col-xs-12">
+              
+              <p class="text-red">{{ 'Special Instructions' | translate }}</p>
+              <textarea class="form-control" rows="4" id="" placeholder="Add any special instruction"></textarea>
+            </div>
+          </div>  
+        </section>
+         <section id="size_box_button">
+          <div class="row remove_margin">
+            <div class="col-xs-7 white_box">
+              <button class="btn btn-red" type="button">-</button>
+              <button class="btn btn-red" type="button">+</button>
+               <span>3000 IQD</span>
+            </div>
+            <div class="col-xs-5 red_box">
+              <button class="btn btn-white" type="button">1</button>
+              <span>Add</span>
+            </div>
+          </div>
+           
+         </section> -->
+        </ion-item>  
+       
 
     </ion-content>
 </ion-modal-view>
