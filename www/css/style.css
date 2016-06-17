@@ -1,5 +1,5 @@
 /* Empty. Add your own CSS if you like */
-@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
 .right_to_left{
 	direction: rtl;
 	unicode-bidi: bidi-override;
@@ -186,7 +186,27 @@ button.select-item {
          url('../fonts/RobotoRegular.svg#RobotoRegular') format('svg');
 }
 
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/DroidKufi-Regular.eot');
+  src: url('../fonts/DroidKufi-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/DroidKufi-Regular.woff2') format('woff2'),
+       url('../fonts/DroidKufi-Regular.woff') format('woff'),
+       url('../fonts/DroidKufi-Regular.ttf') format('truetype');
+}
 
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/DroidKufi-Bold.eot');
+  src: url('../fonts/DroidKufi-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/DroidKufi-Bold.woff2') format('woff2'),
+       url('../fonts/DroidKufi-Bold.woff') format('woff'),
+       url('../fonts/DroidKufi-Bold.ttf') format('truetype');
+}
 
 
 
