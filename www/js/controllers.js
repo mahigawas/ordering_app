@@ -89,6 +89,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         $scope.gPlace;          // geoPlace Variable AutoComplete
         $scope.neighborMenuList = [];
+        $scope.isArabic = (['ar', 'kr'].indexOf($rootScope.lang) != -1)? true : false;
+
 
         $rootScope.user_id = localStorage.getItem(STORE_VAL.USR_ID)
         // alert(localStorage.getItem(STORE_VAL.USR_ID))
