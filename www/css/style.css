@@ -514,9 +514,7 @@ html, body {
     font-family: 'RobotoRegular';
     background-color: #f6f6f6;
 }
-body {
-  padding-top: 73px;
-}
+
 .remove_margin{
 	margin-left: 0;
 	margin-right: 0;
@@ -653,8 +651,6 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
  /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
-    /* width: 0; 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place *!/*/
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
@@ -822,48 +818,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 
     text-decoration: none;
 }
-/*.checkbox.checkbox-inline {
-    margin-top: 0;
-}
-.checkbox {
-    padding-left: 20px;
-}
-.checkbox input[type="checkbox"] {
-    opacity: 0;
-}*/
-/*.checkbox label::before {
-    background-color: #ccc;
-    border: 1px solid #cccccc;
-    border-radius: 3px;
-    display: inline-block;
-    height: 17px;
-    left: 0;
-    margin-left: -20px;
-    position: absolute;
-    transition: border 0.15s ease-in-out 0s, color 0.15s ease-in-out 0s;
-    width: 17px;
-}
-.checkbox label::after {
-    color: #555555;
-    display: inline-block;
-    font-size: 11px;
 
-    height: 16px;
-    left: 0;
-    margin-left: -20px;
-    padding-left: 3px;
-    padding-top: 1px;
-    position: absolute;
-    top: 0;
-    width: 16px;
-}*/
-/*.checkbox label {
-    display: inline-block;
-    font-size: 14px;
-    padding-left: 5px;
-    position: relative;
-    vertical-align: middle;
-}*/
 .checkbox label, .radio label{
 
 
