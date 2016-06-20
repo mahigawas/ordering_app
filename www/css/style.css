@@ -859,15 +859,15 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 .right_to_left{
   direction: rtl;
   unicode-bidi: bidi-override;
-  font-family: 'Droid Arabic Kufi', serif;
+  font-family: 'Droid Arabic Kufi', "RobotoRegular";
 }
 
 .right_to_left h3{
-  font-family: 'Droid Arabic Kufi', serif;
+  font-family: 'Droid Arabic Kufi', "RobotoRegular";
 }
 
 .right_to_left button{
-  font-family: 'Droid Arabic Kufi', serif;
+  font-family: 'Droid Arabic Kufi', "RobotoRegular";
 }
 
 .left_to_right{

@@ -140,3 +140,16 @@
 .select-item {
     padding-right: 1em;
 }
+
+title, select, p, div, span, h1, h4{
+	font-family: 'Droid Arabic Kufi', 'RobotoRegular';
+}
+
+input {
+	font-family: 'Droid Arabic Kufi', 'RobotoRegular';
+	padding-right: 0.8em !important;
+}
+
+.ng-binding.float-right.mg-top-sm {
+	padding-right: 1em !important;
+}

@@ -10029,10 +10029,6 @@ form input[type='email'] {
   color: #b5b5b5 !important;
   font-weight: 400; }
 
-.color-font-placeholder-p {
-  color: #F45353 !important;
-  font-weight: 400; }
-
 .color-font-black {
   color: #000000 !important;
   font-weight: 700; }
@@ -10209,7 +10205,7 @@ form input[type='email'] {
 
 /* --------- search Form Styles---------------- */
 .form-content {
-  background-image: url("../img/new-search-page.jpg");
+  background-image: url("../img/new-search-page.png");
   background-size: cover !important; }
 
 .list ion-item {
@@ -10398,13 +10394,6 @@ input:-ms-input-placeholder {
   min-height: 22px;
   min-width: 22px;
   background-image: url("../img/icon-setting.png");
-  background-repeat: no-repeat;
-  background-size: contain; }
-
-.icon-earth {
-  min-height: 22px;
-  min-width: 22px;
-  background-image: url("../img/icon-earth.png");
   background-repeat: no-repeat;
   background-size: contain; }
 
@@ -10628,8 +10617,7 @@ input:-ms-input-placeholder {
 .map-view {
   min-height: 9.2em;
   background-color: white;
-  border-bottom: 1px solid #d4d4d4; 
-display: none;}
+  border-bottom: 1px solid #d4d4d4; }
 
 /*-------------Order View------------*/
 .order-cont {
@@ -10766,15 +10754,6 @@ display: none;}
   min-height: 1.5em;
   min-width: 1.5em;
   background-image: url("../img/icon-next.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: 0.15em;
-  margin-right: 0.6em; }
-
-  .icon-more-next-p {
-  min-height: 1.5em;
-  min-width: 1.5em;
-  background-image: url("../img/icon-next-p.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0.15em;

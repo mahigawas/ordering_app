@@ -18,6 +18,7 @@ ehthumbs.db
 
 # Exclude log files
 node_modules
+npm-debug.log
 
 # Folder config file
 Desktop.ini
