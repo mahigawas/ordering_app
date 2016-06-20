@@ -1,14 +1,15 @@
 <ion-view>
-    <ion-nav-bar class="bar-stable bar-shadow">
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
         <ion-nav-buttons side="left">
-            <button class="button top-btn" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/icon-back.png"></button>
+            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{HeaderTitle}}</ion-nav-title>
 
         <ion-nav-buttons side="right">
-            <button class="button top-btn" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/icon-back.png"></button>
+            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
+
     </ion-nav-bar>
 
     <ion-content class="color-bg">
@@ -24,10 +25,21 @@
                 <div class="col col-40"> </div>
             </div>
         </div>
-        <ion-item class="detail-item" ng-repeat="item in resMenulist" ng-click="goDetailMenu(item)">
+        <!-- <ion-item class="detail-item" ng-repeat="item in resMenulist" ng-click="goDetailMenu(item)">
             <img ng-src="http://ordering.talabatey.com/panel/images/categories/{{item.id}}/1/small.jpg", ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right' : 'float-left'">
             <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right mg-top-sm' : 'float-left mg-top-sm'">{{item.name}}</span> <div ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-left icon-more-next' : 'float-right icon-more-next'"></div>
             <div class="bottom-line-grey"></div>            
-        </ion-item>
+        </ion-item> -->
+        <section ng-repeat="item in resMenulist" class="" id="select_category_box">
+          <ul class="row remove_margin" >
+            <li ng-click="goDetailMenu(item)" class="col-xs-6 remove_padding">
+              <a class = "thumbnail"> 
+                <!-- <span class="categoryimg" style="background-image: url('images/category1.png');"></span>  -->
+                <img class="categoryimg" ng-src="http://ordering.talabatey.com/panel/images/categories/{{item.id}}/1/small.jpg">      
+                <span class="categoryname">{{item.name}}</span>
+              </a>
+            </li>
+          </ul>
+        </section>
     </ion-content>
 </ion-view>

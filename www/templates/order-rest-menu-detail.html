@@ -1,23 +1,38 @@
 <ion-view>
-    <ion-nav-bar class="bar-stable bar-shadow">
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
         <ion-nav-buttons side="left">
-            <button class="button button-assertive" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) == -1">{{'Back to main menu' | translate}}</button>
+            <!-- <button class="button button-assertive" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) == -1">{{'Back to main menu' | translate}}</button> -->
+            <button type="button" class="btn btn-close" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{HeaderTitle}}</ion-nav-title>
 
         <ion-nav-buttons side="right">
-            <button class="button button-assertive" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{'Back to main menu' | translate}}</button>
+            <!-- <button class="button button-assertive" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{'Back to main menu' | translate}}</button> -->
+             <button type="button" class="btn  btn-close" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
 
     <ion-content class="color-bg">
         <ion-item class="detail-item" ng-repeat="item in resSubMenulist" ng-click="onProductOption(item)">
-            <img ng-src="http://ordering.talabatey.com/panel/images/dishes/{{item.id}}/1/small.jpg", ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right' : 'float-left'">
+           <!--  <img ng-src="http://ordering.talabatey.com/panel/images/dishes/{{item.id}}/1/small.jpg", ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right' : 'float-left'">
             <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right mg-top-sm' : 'float-left mg-top-sm'">{{item.name}}</span>
             <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{item.price}}</span>
             <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{'IQD' | translate}}&nbsp</span>
-            <div class="bottom-line-grey"></div>
+            <div class="bottom-line-grey"></div> -->
+
+            <div class="select_dish_image">
+                <img ng-src="http://ordering.talabatey.com/panel/images/dishes/{{item.id}}/1/small.jpg", ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right' : 'float-left'">
+              </div>
+              <div class="select_dish_np">
+                <div class="select_dish_name">
+                  <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right mg-top-sm' : 'float-left mg-top-sm'">{{item.name}}</span>
+                </div>
+                <div class="select_dish_price">
+                    <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{'IQD' | translate}}&nbsp{{item.price}}</span>
+                    <!-- <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{'IQD' | translate}}&nbsp</span> -->
+                </div>
+              </div>
         </ion-item>
     </ion-content>
     <ion-footer-bar class="color-main-bg footer-style">
