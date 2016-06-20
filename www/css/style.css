@@ -499,7 +499,7 @@ html, body {
     padding-top: 20px;
 }
 .navbar {
-    min-height: 65px;
+    min-height: 45px;
 }
 .navbar .container{
     padding: 0 10px ;
@@ -517,16 +517,18 @@ html, body {
 .btn-close {
     background-color: #bf222d;
     border-radius: 10px;
-    height: 36px;
-    /*margin-top: 15px;*/
+    height: 30px;
+    margin-top: -12px;
     padding: 5px;
-    width: 36px;
+    width: 30px;
+    border-color: transparent;
 }
 
 
 .btn-close img {
   height: auto;
     width: 100%;
+    display: block;
 }
 section{
   margin: 0 10px 10px 10px;
@@ -837,6 +839,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 	padding: 10px;
+  width: 40%;
 }
 #size_box_button .red_box span{
 	vertical-align: middle;
@@ -849,9 +852,9 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	color: #333;
 }
 #size_box_button .white_box{
-	width: 55%;
+	width: 60%;
 	margin-right: 10px;
-
+  font-size: 12px;
 
 
 }
@@ -950,3 +953,4 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	}
 
 }
+#size_box_button { margin: 0; }

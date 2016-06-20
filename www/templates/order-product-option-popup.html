@@ -1,17 +1,14 @@
 <ion-modal-view>
+    <!-- <ion-header-bar class="bar-stable bar-shadow fix-buttons"> -->
     <ion-header-bar class="navbar navbar-default navbar-fixed-top">
-        <ion-nav-buttons side="left">
-          <button type="button" class="btn btn-close" ng-click="offProductOption()"><img src="img/btnclose.png"></button>
-        </ion-nav-buttons>
+             <button type="button" class="btn btn-close" ng-click="offProductOption()"><img src="img/btnclose.png"></button>
+    
         <!-- <button class="button top-btn" ng-click="offProductOption()"><img src="img/icon-close.png"></button> -->
         <ion-title class="font-large-x">{{productOptionList.name}}</ion-title>
-        <ion-nav-buttons side="right">
-            <button class="button top-btn" ng-click="offProductOption()"> </button>
-        </ion-nav-buttons>
+        <!-- <button class="button top-btn" ng-click="offProductOption()"> </button> -->
     </ion-header-bar>
     <ion-content class="color-bg">
-     <section class="white_box" id="size_box">
-         <div ng-repeat="option in productOptionList.options">
+        <div ng-repeat="option in productOptionList.options">
             <div ng-show="C_OState.optional != option.maxsel && option.conditional == 'no'">
                 <ion-item class="item-divider">
                     <span class="divider-padding no-padding-h">{{ 'Please choose your' | translate }} {{option.name}}</span>
@@ -38,29 +35,20 @@
                 </ion-radio>
             </div>
         </div>
-       
         <ion-item>
-            <div class="row">
-                <div class="col-xs-12">
-                  
-                  <p class="text-red">{{ 'Special Instructions' | translate }}</p>
-                  <textarea class="form-control" rows="4" id="" placeholder="{{ 'Add any special instructions' | translate }}" ng-model="myDish.comments"></textarea>
-                </div>
-              </div> 
-        </ion-item> 
-      </section>
-        
-        <ion-item class="row color-main-bg bottom-cont">
-           
+        <span class="text-red">{{ 'Special Instructions' | translate }}</span>
+            <textarea class="form-control special-inbox" rows="4" placeholder="{{ 'Add any special instructions' | translate }}" ng-model="myDish.comments"></textarea>
+        </ion-item>
+        <ion-item class="">
             <section id="size_box_button">
               <div class="row remove_margin">
                 <div class="col-xs-7 white_box">
-                  <button class="btn btn-red" type="button" ng-click="onMinusQuantity()">-</button>
-                  <button class="btn btn-red" type="button" ng-click="onPlusQuantity()">+</button>
+                  <button class="btn btn-red" ng-click="onMinusQuantity()" type="button">-</button>
+                  <button class="btn btn-red" ng-click="onPlusQuantity()" type="button">+</button>
                    <span>{{myDish.total}} {{'IQD' | translate}}</span>
                 </div>
-                <div class="col-xs-5 red_box">
-                  <button class="btn btn-white" ng-click="onAddToCart(productOptionList)" type="button">1</button>
+                <div class="col-xs-5 red_box"  ng-click="onAddToCart(productOptionList)">
+                  <button class="btn btn-white" type="button">{{myDish.quantity}}</button>
                   <span>{{ 'Add' | translate }}</span>
                 </div>
               </div>
