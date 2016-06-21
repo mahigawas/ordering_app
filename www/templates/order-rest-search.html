@@ -16,13 +16,13 @@
     </ion-nav-bar> --> 
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
         <ion-nav-buttons side="left">
-            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
+            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{ 'Restaurant Search' | translate }}</ion-nav-title>
 
         <ion-nav-buttons side="right">
-            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
+            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
 
     </ion-nav-bar>
