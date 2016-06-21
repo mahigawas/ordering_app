@@ -30,15 +30,16 @@
             <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right mg-top-sm' : 'float-left mg-top-sm'">{{item.name}}</span> <div ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-left icon-more-next' : 'float-right icon-more-next'"></div>
             <div class="bottom-line-grey"></div>            
         </ion-item> -->
-        <section ng-repeat="item in resMenulist" class="" id="select_category_box">
-          <ul class="row remove_margin" >
-            <li ng-click="goDetailMenu(item)" class="col-xs-6 remove_padding">
+        <section  class="" id="select_category_box">
+          <ul class="row remove_margin">
+            <li ng-click="goDetailMenu(item)" ng-repeat="item in resMenulist" class="remove_padding">
               <a class = "thumbnail"> 
                 <!-- <span class="categoryimg" style="background-image: url('images/category1.png');"></span>  -->
                 <img class="categoryimg" ng-src="http://ordering.talabatey.com/panel/images/categories/{{item.id}}/1/small.jpg">      
                 <span class="categoryname">{{item.name}}</span>
               </a>
             </li>
+
           </ul>
         </section>
     </ion-content>

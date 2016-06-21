@@ -713,9 +713,25 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 #select_dish_box .select_dish_price span{
 	color: #ef404c;
 }
-#select_dish_box .select_dish_np{
-	border-bottom: 1px solid #d6d6d6;
-	margin-left: 10px;
+.select_dish_np{
+   padding-left: 45px;
+   padding-top: 5px;
+}
+
+.select_dish_np .select_dish_name{
+   text-overflow: ellipsis;
+   overflow: hidden;
+   white-space: nowrap;
+   display: inline-block;
+    vertical-align: middle;
+    width: 83%;
+}
+.select_dish_np .select_dish_name .mg-top-sm {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 82%;
 }
 
 .btn-back {
@@ -735,22 +751,27 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
 	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
 }
-.thumbnail .categoryname{
-	margin-bottom: 2px;
-	margin-top: 2px;
-	color: #333333;
-	text-transform: uppercase;
-	display: block;
-	text-align: center;
+.thumbnail .categoryname {
+    background-color: #fff;
+    color: #333333;
+    display: block;
+    margin-bottom: 2px;
+    overflow: hidden;
+    padding: 5px 7px;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 #select_category_box li {
-    float: left;
-    margin-right: 16px;
-    width: 47%;
+    display: inline-block;
+    margin-right: 20px;
+    width: 46%;
+    margin-bottom: 15px;
 }
-#select_category_box li:last-child {
-	margin-right: 0;
-	}
+#select_category_box li:nth-child(2n) {
+    margin-right: 0;
+}
 #select_category_box ul li a .categoryimg{
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -769,7 +790,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 #select_category_box ul{
 	margin-bottom: 0;
-
+  display: inline-block;
 
 }
 a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
@@ -855,9 +876,9 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	width: 60%;
 	margin-right: 10px;
   font-size: 12px;
-
-
 }
+
+
 
 .right_to_left{
   direction: rtl;
@@ -967,7 +988,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 }
 
 .select_dish_price {
-    display: table-cell;
+    display: inline-block;
     text-align: right;
     vertical-align: middle;
     width: 15%;
