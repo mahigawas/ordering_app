@@ -1,6 +1,6 @@
 
 <ion-view>
-    <ion-nav-bar class="bar-stable bar-shadow">
+    <!-- <ion-nav-bar class="bar-stable bar-shadow">
         <ion-nav-buttons side="left">
             <button class="button top-btn" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/icon-back.png"></button>
         </ion-nav-buttons>
@@ -12,14 +12,27 @@
         </ion-nav-title>
         <!-- <ion-nav-buttons side="right">
             <button class="button top-btn mg-top-btn-right" ng-click="showFilterBar()"><img src="img/icon-search.png"></button>
-        </ion-nav-buttons> -->
+        </ion-nav-buttons>
+    </ion-nav-bar> --> 
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
+        <ion-nav-buttons side="left">
+            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-title>{{ 'Restaurant Search' | translate }}</ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="backToRestaurant()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
+        </ion-nav-buttons>
+
     </ion-nav-bar>
-    <ion-content class="color-bg">
+    <ion-content class="color-bg padding">
         <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
         <!-- <ion-item  class="location-cont-item color-font-gray font-mid"><span>{{nearCount}} {{ 'Restaurants near' | translate }} {{nearAddress}}</span></ion-item> -->
-        <ion-item class="search-item" ng-repeat="item in resturantlist | filter : item.distance track by $id(item)">
+        <ion-item class="search-item" id="select_restaurant_box" ng-repeat="item in resturantlist | filter : item.distance track by $id(item)">
         <!--<ion-item class="search-item" menu-close ng-repeat="item in resturantlist track by $id(item)">-->
-            <div class="rest-item font-small" ng-click="onRestaurantItem(item)">
+
+            <!-- <div class="rest-item font-small" ng-click="onRestaurantItem(item)">
                 <div>
                     <img ng-src="http://ordering.talabatey.com/{{item.headerurl}}">
                     <div class="row logo-cont">
@@ -40,10 +53,10 @@
                 <h4 class="rating font-large-x color-font-black pd-left-5">{{item.name}}</h4>
                 <ul class="color-font-gray">
                     <li>
- <!--                        <div class="cash float-left"></div>
+                        <div class="cash float-left"></div>
                         <div class="visa float-left"></div>
                         <div class="debit float-left"></div>
-                        <div class="paypal float-left"></div> -->
+                        <div class="paypal float-left"></div>
                         <span class="rating float-right">({{item.review.rating}} {{'Rating' | translate}})</span>
                         <div ng-repeat="star in rateAry[$index]">
                             <div class="{{star.rate}} float-right"></div>
@@ -55,11 +68,33 @@
                     </li>
                     <li>
                         <span class="rating float-left">{{ 'Promotion:' | translate }} {{item.promotion}} </span>
-                        <!-- <span class="rating float-right">{{ 'Distance:' | translate }} {{item.distance.toFixed(2) + '' + item.distanceformat}} </span> -->
+                        <!-- <span class="rating float-right">{{ 'Distance:' | translate }} {{item.distance.toFixed(2) + '' + item.distanceformat}} </span>
                     </li>
                 </ul>
                 <div class="close-mask" ng-if="openState == item.open"></div>
+            </div> --> 
+        <div class="rest-item font-small" ng-click="onRestaurantItem(item)">
+            <!-- <span  class="categoryimg" style="background-image: url('img/restaurant1.png');"></span> --> 
+            <img class="categoryimg" ng-src="http://ordering.talabatey.com/{{item.headerurl}}">
+            <div class="restaurant-details">
+              <div class="left-div">
+                <h5>{{item.name}}</h5>
+                <p>{{ 'Delivery fee:' | translate }} {{ item.shipping }} {{'IQD' | translate}}</p>
+                <p>{{ 'Promotion:' | translate }} {{item.promotion}}</p>
+              </div>
+              <div class="right-div">
+                <p class="star-div">
+                    <span class="star"><img src="img/star.png"></span>
+                    <span class="star"><img src="img/star.png"></span>
+                    <span class="star"><img src="img/star.png"></span>
+                    <span class="star"><img src="img/star.png"></span>
+                    <span class="star"><img src="img/star.png"></span>
+                </p>
+                <p>({{item.review.rating}} {{'Rating' | translate}})</p>
+                <p>{{ 'Minimum order' | translate }} {{ item.minimum }} {{'IQD' | translate}}</p>
+              </div>
             </div>
+       </div>
         </ion-item>
     </ion-content>
 </ion-view>

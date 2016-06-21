@@ -710,14 +710,28 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     width: 15%;
 }*/
 
-#select_dish_box .select_dish_price span{
+.select_dish_price span{
 	color: #ef404c;
+  font-size: 13px;
 }
 .select_dish_np{
    padding-left: 45px;
    padding-top: 5px;
+   position: relative;
 }
-
+.select_dish_np::after {
+    background-color: #d6d6d6;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 42px;
+    margin-bottom: -9px;
+    margin-top: 0;
+    position: absolute;
+    right: 0;
+    width: 231px;
+}
 .select_dish_np .select_dish_name{
    text-overflow: ellipsis;
    overflow: hidden;
@@ -772,7 +786,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 #select_category_box li:nth-child(2n) {
     margin-right: 0;
 }
-#select_category_box ul li a .categoryimg{
+#select_restaurant_box .categoryimg{
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 130px;
@@ -787,6 +801,14 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 }
+#select_category_box ul li a .categoryimg img{
+  background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 3px 3px 0 0;
+    display: inline-block;
+    height: 130px;
+    width: 100%
+}
 
 #select_category_box ul{
 	margin-bottom: 0;
@@ -795,15 +817,10 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 }
 a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     border-color: transparent;
-
-
-
     text-decoration: none;
 }
 
 .checkbox label, .radio label{
-
-
 	padding-left: 0;
 }
 #size_box ul li{
@@ -877,9 +894,59 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	margin-right: 10px;
   font-size: 12px;
 }
-
-
-
+#select_restaurant_box .restaurant-details {
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#select_restaurant_box .restaurant-details h5 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 12px;
+    padding-top: 8px;
+}
+#select_restaurant_box .restaurant-details p {
+    font-size: 11px;
+    margin: 0;
+}
+#select_restaurant_box .restaurant-details .right-div {
+    text-align: right;
+    width: 50%;
+    display: inline-block;
+}
+#select_restaurant_box .restaurant-details .left-div {
+    width: 50%;
+    display: inline-block;
+}
+#select_restaurant_box .restaurant-details p {
+    font-size: 11px;
+    margin: 0;
+}
+.star-div {
+    margin-bottom: 8px !important;
+}
+.star {
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+    padding-bottom: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.star img {
+    height: 19px;
+    margin: 2px 0 7px;
+    padding: 7px 0 0;
+    width: 14px;
+}
+#select_restaurant_box .thumbnail {
+    margin-bottom: 10px;
+}
+.thumbnail {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
 .right_to_left{
   direction: rtl;
   unicode-bidi: bidi-override;
@@ -951,7 +1018,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	    vertical-align: middle;
 	    width: 100%;
 	}*/
-	#select_category_box ul li a .categoryimg{
+	#select_restaurant_box .categoryimg{
 		background-size: cover;
 		background-repeat: no-repeat;
 		height: 180px;
