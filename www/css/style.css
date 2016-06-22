@@ -600,6 +600,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     font-size: 22px;
     padding: 7px 12px;
     width: 100%;
+    border: 1px solid transparent;
 }
 
 .menu{
@@ -947,6 +948,53 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     padding: 0;
 }
+
+#order_details_box.white_box {
+    height: 98%;
+    padding: 0;
+}
+table {
+    font-size: 13px;
+    margin: 0 0 20px;
+    padding: 0;
+    width: 100%;
+}
+#order_details_box .table thead tr th {
+    background-color: #ccc;
+    font-family: "RobotoRegular";
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0;
+    text-transform: none;
+    border: 1px solid #d6d6d6;
+}
+#order_details_box .table tbody tr td {
+    font-size: 14px;
+    vertical-align: middle;
+    border: 1px solid #d6d6d6;
+}
+#order_details_box .table tbody tr td p {
+    margin: 0;
+}
+.btn-viewmore {
+    background-color: #ef404c;
+    background-image: linear-gradient(to top, #a8202a, #f54451);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 11px;
+    padding: 5px 12px;
+    width: 100%;
+    border: transparent;
+    max-width: 60%;
+}
+.table-bordered {
+    border: 1px solid #ddd;
+}
+.table {
+    margin-bottom: 20px;
+    max-width: 100%;
+    width: 100%;
+}
 .right_to_left{
   direction: rtl;
   unicode-bidi: bidi-override;
@@ -988,7 +1036,9 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
   border-color: #d6d6d6; /* rgb(166, 166, 166); */
   text-align: start;
 }
-
+.order-cont {
+    padding: 1.5em 0;
+}
 /******************Language Setting Styles Ends************************/
 
 @media (min-width: 401px) and (max-width: 767px){
@@ -1038,9 +1088,8 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	    margin-right: 15px;
 	    width: 48%;
 	}
-
 }
-#size_box_button { margin: 0; }
+/*#size_box_button { margin: 0; }
 
 .select_dish_image img {
     border-radius: 6px;
@@ -1059,4 +1108,4 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     text-align: right;
     vertical-align: middle;
     width: 15%;
-}
+}*/
