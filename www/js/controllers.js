@@ -1424,8 +1424,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 reservepaymethoddetails : {
                     "payu":true,
                     "cash":true,
-                    "card":true,
-                    "paypal":true,
+                    "card":false,
+                    "paypal":false,
                     "paypaladaptive":true,
                     "authorize":false,
                     "braintree":false,
@@ -1477,8 +1477,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 },
                 paymethoddetail : {
                     "cash":true,
-                    "card":true,
-                    "paypal":true,
+                    "card":false,
+                    "paypal":false,
                     "paypaladaptive":false,
                     "authorize":false,
                     "braintree":false,
