@@ -1,14 +1,23 @@
 <ion-view>
-    <ion-nav-bar class="bar-stable bar-shadow fix-buttons">
-        <ion-nav-buttons side="left">
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
+        <!-- <ion-nav-buttons side="left">
             <button class="button top-btn" ng-click="onClickDetail()"><img src="img/icon-close.png"></button>
         </ion-nav-buttons>
         <ion-nav-title>{{ 'Checkout' | translate }}</ion-nav-title>
         <ion-nav-buttons side="right">
             <button class="button top-btn" ng-click="onClickDetail()"></button>
+        </ion-nav-buttons> -->
+        <ion-nav-buttons side="left">
+            <button class="btn btn-close" ng-click="onClickDetail()"><img src="img/btnclose.png"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-title>{{ 'Checkout' | translate }}</ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="btn btn-close" ng-click="onClickDetail()"><img src="img/btnclose.png"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-content class="color-bg">
+    <ion-content class="color-bg padding">
 <!--         <ion-item class="item-divider">
             <span class="divider-padding no-padding-h">{{ 'Delivery Address' | translate }}</span>
         </ion-item>
@@ -66,7 +75,7 @@
                 <div class="color-font-placeholder pd-top-4">100% of the tip goes to your driver</div>
             </div>
         </ion-item> -->
-        <ion-item class="item-divider">
+        <!-- <ion-item class="item-divider">
             <span class="divider-padding no-padding-h">{{ 'Order Summary' | translate}}</span>
         </ion-item>
         <ion-item class="pd-top-4 no-border pd-none-b"
@@ -82,17 +91,17 @@
         </ion-item>
         <ion-item class="pd-top-4 no-border pd-none-b">
             <div class="calc-item">
-                <p class="color-font-gray float-left">{{'Subtotal' | translate}} {{'IQD' | translate}}</p>
-                <p class="color-main font-small float-right">{{ c_unit }} {{ subTotalPrice.toFixed(2) }} {{'IQD' | translate}}</p>
-            </div>
+                <p class="color-font-gray">{{'Subtotal' | translate}} {{'IQD' | translate}}</p>
+                <p class="color-main font-small">{{ c_unit }} {{ subTotalPrice.toFixed(2) }} {{'IQD' | translate}}</p>
+            </div> -->
 <!--             <div class="calc-item">
                 <p class="color-font-gray float-left">Tax</p>
                 <p class="color-main font-small float-right">{{ c_unit }} {{ curBusiness.tax }}</p>
             </div> -->
-            <div class="calc-item">
-                <p class="color-font-gray float-left">{{ 'Delivery Fee' | translate}}</p>
-                <p class="color-main font-small float-right">{{ deliveryFee }} {{'IQD' | translate}}</p>
-            </div>
+            <!-- <div class="calc-item">
+                <p class="color-font-gray">{{ 'Delivery Fee' | translate}}</p>
+                <p class="color-main font-small">{{ deliveryFee }} {{'IQD' | translate}}</p>
+            </div> -->
 <!--             <div class="calc-item">
                 <p class="color-font-gray float-left">Driver Tip</p>
                 <p class="color-main font-small float-right"> {{ c_unit }} {{data.driveTips}}</p>
@@ -101,14 +110,40 @@
                 <p class="color-font-gray float-left">Service Fee ({{ curBusiness.servicefee }}%)</p>
                 <p class="color-main font-small float-right"> {{ c_unit }} {{curBusiness.servicefeeTotal}}</p>
             </div> -->
-            <div class="h-line-grey mg-none-b"></div>
+            <!-- <div class="h-line-grey mg-none-b"></div>
         </ion-item>
         <ion-item class="pd-top-4 no-border pd-none-b total-item">
             <p class="font-large color-font-dark float-left">{{ 'Total' | translate }}</p>
             <p class="font-small color-main float-right">{{orderTotal.toFixed(2)}} {{'IQD' | translate}}</p>
-        </ion-item>
-    </ion-content>
-    <ion-footer-bar class="color-main-bg footer-style">
-        <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="placeOrderNow()">{{ 'PLACE ORDER' | translate}}</div>
-    </ion-footer-bar>
+        </ion-item>-->
+        
+    <div class="white_box" id="checkout_box">
+      <div class="row">
+      <ul>
+        <li class="text-red">
+          Order Summary
+        </li>
+        <li>
+          <span>Subtotal</span>
+          <span class="float-right text-red">3000.00</span>
+        </li>
+        <li>
+          <span>Delivery Fee</span>
+          <span class="float-right text-red">5000.00</span>
+        </li>
+        <li>
+          <span class="text-red bold">Total</span>
+          <span class="float-right text-red">3005.00</span>
+        </li>
+      </ul>
+
+    </div>
+  </div>  
+  <button type="button" class="btn btn-common place-order-button" ng-click="placeOrderNow()">{{ 'PLACE ORDER' | translate}}</button>
+   
+    </ion-content> 
+
+   
+        <!-- <div class="button find-btn font-large btn-bar-bottom color-font-white button-positive" ng-click="placeOrderNow()">{{ 'PLACE ORDER' | translate}}</div> -->
+        
 </ion-view>

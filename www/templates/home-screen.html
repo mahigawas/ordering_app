@@ -4,100 +4,42 @@
         </button>
     </ion-nav-buttons>
 </ion-nav-bar>-->
-<ion-header-bar class="navbar navbar-default navbar-fixed-top">
-    <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn menu-icon" menu-toggle="left" ng-show="['ar', 'kr'].indexOf(lang) < 0">
+<ion-header-bar class="top-bar">
+    <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn" menu-toggle="left" ng-show="['ar', 'kr'].indexOf(lang) < 0">
     </button>
-    <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn menu-icon" menu-toggle="right" ng-show="['ar', 'kr'].indexOf(lang) > -1">
+    <button class="button button-icon button-clear ion-navicon-round w-4e mg-top-btn" menu-toggle="right" ng-show="['ar', 'kr'].indexOf(lang) > -1">
     </button>
 </ion-header-bar>
 
-<ion-nav-view class="padding" name="homeContainer">
-<!-- <ion-content class="padding"> -->
-    <div class="list red_box" id="search_restaurant_box">
-      <div class="white_box" >
-       <img src="img/logo.png">
+<ion-nav-view class="form-content" name="homeContainer">
+    <div class="list search-form">
+        <ion-item>
+            <img src="img/hungry.png">
+        </ion-item>
         <form ng-submit="">
             <ion-item class="location-cont">
-                <div class="" style="border-bottom-left-radius: 0;border-bottom-right-radius: 0">
-                  
-                    <select class="select-ar" ng-model="myOrder.cityId"
+                <div class="gp-container" style="padding-bottom: 5px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
+                    <select class="select-item" ng-model="myOrder.cityId"
                             ng-options="item.id as item.name for item in cities"
                             default-option="{{'Select Your City' | translate }}" ng-change="selectCity()">
                     </select>
                 </div>
-                <div class="" style="padding-top: 5px;border-top-left-radius: 0;border-top-right-radius: 0">
-                
-                    <button class="popuptext-ar" modal-select="" ng-if="isArabic" modal-class="right_to_left" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}" hide-reset="true">
+                <div class="gp-container" style="padding-top: 5px;border-top-left-radius: 0;border-top-right-radius: 0">
+                    <button class="select-item" modal-select="" ng-if="isArabic" modal-class="right_to_left" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}" hide-reset="true">
                         {{myOrder.neighborId.name || ('Select your Area' | translate)}}
                         <div class="option">
                             {{option.name | translate}}
                         </div>
                     </button>
-                    <button class="popuptext" modal-select="" ng-if="!isArabic" modal-class="left_to_right" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}" hide-reset="true">
+                    <button class="select-item" modal-select="" ng-if="!isArabic" modal-class="left_to_right" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}" hide-reset="true">
                         {{myOrder.neighborId.name || ('Select your Area' | translate)}}
                         <div class="option">
                             {{option.name | translate}}
                         </div>
                     </button>
-
-
                 </div>
-                <button class="button find-btn button-positive" on-swipe-right="onSwipeRight()" ng-click="findRest()">
-                {{'FIND RESTAURANTS' | translate }}
-            </button>
             </ion-item>
         </form>
-
-        <!-- <section class="red_box" id="search_restaurant_box">
-  <div class="white_box">
-    <img src="images/logo.png">
-    <h4>Start your order</h4>
-    <ul>
-      <li>
-        <span id="circle"></span>
-        <select>          
-            <option value="Select your order">Select your order</option>
-            <option value="Arbil">Arbil</option>
-            <option value="Baghdad">Baghdad</option>
-         
-        </select>
-      </li>
-      <li class="popuptext">
-        <span id="circle1"><p data-toggle="modal" data-target="#myModal">Select you area</p></span>
-        <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-                  <div class="modal-content">
-              <div class="modal-header">
-                
-                <h5 class="modal-title">Select your Area</h5>
-              </div>
-              <div class="modal-body">
-                <input type="text" class="  search-query form-control" placeholder="Search" />
-                <ul>
-                  <li>Slekh</li>
-                  <li>Kambsara</li>
-                  <li>Amriya</li>
-                  <li>Al Amin</li>
-                  <li>Kambsara</li>
-                  <li>Slekh</li>
-                  <li>Kambsara</li>
-                  <li>Amriya</li>
-                </ul>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">Cancel</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  
-  
-</section> -->
         <!-- <div class="drop-btn"></div>
                     <button class="button button-positive" modal-select="" ng-model="someModel" options="selectables" modal-title="Select a person">
   Select it
@@ -116,11 +58,13 @@
                 <span class="font-large-x">{{'Use my current location' | translate }}</span>
             </a>
         </ion-item> -->
-        
+        <ion-item>
+            <button class="button find-btn button-positive" on-swipe-right="onSwipeRight()" ng-click="findRest()">
+                {{'FIND RESTAURANTS' | translate }}
+            </button>
+        </ion-item>
         <!--<ion-item>
             <input class="button button-block button-positive" type="button" value="PayPal Test" ng-click="onClickPaypal()" />
         </ion-item>-->
-        </div>
     </div>
-    <!-- </ion-content> -->
 </ion-nav-view>

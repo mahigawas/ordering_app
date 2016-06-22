@@ -136,6 +136,13 @@
 #search_restaurant_box  .white_box form .location-cont .popuptext-ar{
   padding-right: 17px;
 }
+.right_to_left #select_category_box ul li{
+    margin-left: 6px;
+    margin-right: 0;
+}
+.right_to_left #select_category_box ul li:nth-child(n) {
+    margin-right: 5px;
+}
 #circle-ar {
     background: #d6d6d6 none repeat scroll 0 0;
     border-radius: 50px;

@@ -851,14 +851,15 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 }
 .btn-red{
 	background-color: #ef404c;
-    background-image: linear-gradient(to top, #a8202a, #f54451);
-    color: #fff;
-    font-size: 22px;
-    padding: 0;
-    width: 23%;
-    -webkit-box-shadow: 0 4px 5px rgba(0,0,0,.35);
-	-moz-box-shadow: 0 4px 5px rgba(0,0,0,.35);
-	box-shadow: 0 4px 5px rgba(0,0,0,.35);
+  background-image: linear-gradient(to top, #a8202a, #f54451);
+  color: #fff;
+  font-size: 22px;
+  padding: 0;
+  width: 23%;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+  border: medium none transparent;
 }
 .btn-white {
     background-color: #fff;
@@ -866,7 +867,11 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     color: #ef404c;
     font-size: 20px;
     padding: 2px;
-    width: 31%;
+    width: 36%;
+    border: transparent;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35);
 }
 .red_box{
 	-webkit-border-radius: 8px;
@@ -877,12 +882,12 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 	padding: 10px;
- /* width: 40%;*/
+  width: 40%;
 }
 #size_box_button .red_box span{
 	vertical-align: middle;
 	text-align: center;
-	padding-left: 20px;
+	padding-left: 15px;
 	color: #fff;
 }
 #size_box_button .white_box span{
@@ -993,6 +998,9 @@ table {
     margin-bottom: 20px;
     max-width: 100%;
     width: 100%;
+}
+.bold {
+    font-weight: 600;
 }
 .right_to_left{
   direction: rtl;
@@ -1126,15 +1134,21 @@ table {
     text-align: right;
     padding-left: 0
 }
+#checkout_box{
+  height: 100%;
+}
 #checkout_box ul {
-    height: 322px;
+    height: 340px;
     overflow-x: scroll;
+    width: 100%;
 }
 #checkout_box ul li {
     border-bottom: 1px solid #d6d6d6;
+    float: left;
     font-size: 14px;
     margin-bottom: 5px;
     padding-bottom: 7px;
+    width: 100%;
 }
 #checkout_box ul li:last-child{
   border-bottom: none;
@@ -1180,7 +1194,16 @@ table {
     border-radius: 31px;
     font-size: 16px;
     font-weight: 500;
-    margin-top: 27px;
+}
+.color-bg .scroll {
+    height: 100%
+}
+.color-bg .scroll .place-order-button {
+    bottom: 10px;
+    left: 10px;
+    position: absolute;
+    right: 10px;
+    width: 94%;
 }
 /******************Language Setting Styles Ends************************/
 
