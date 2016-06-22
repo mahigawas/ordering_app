@@ -1,20 +1,14 @@
 <ion-view>
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
-        <!-- <ion-nav-buttons side="left">
-            <button class="button top-btn" ng-click="onClickDetail()"><img src="img/icon-close.png"></button>
-        </ion-nav-buttons>
-        <ion-nav-title>{{ 'Checkout' | translate }}</ion-nav-title>
-        <ion-nav-buttons side="right">
-            <button class="button top-btn" ng-click="onClickDetail()"></button>
-        </ion-nav-buttons> -->
+        
         <ion-nav-buttons side="left">
-            <button class="btn btn-close" ng-click="onClickDetail()"><img src="img/btnclose.png"></button>
+            <button class="btn btn-close" ng-click="onClickDetail()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnclose.png"></button>
         </ion-nav-buttons>
 
-        <ion-nav-title>{{ 'Checkout' | translate }}</ion-nav-title>
+        <ion-nav-title>{{'Checkout' | translate}}</ion-nav-title>
 
         <ion-nav-buttons side="right">
-            <button class="btn btn-close" ng-click="onClickDetail()"><img src="img/btnclose.png"></button>
+            <button class="btn btn-close" ng-click="onClickDetail()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnclose.png"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="color-bg padding">
@@ -119,21 +113,21 @@
         
     <div class="white_box" id="checkout_box">
       <div class="row">
-      <ul>
+      <ul >
         <li class="text-red">
-          Order Summary
+          {{ 'Order Summary' | translate}}
+        </li>
+        <li >
+          <span>{{'Subtotal' | translate}} {{'IQD' | translate}}</span>
+          <span class="float-right text-red">{{ c_unit }} {{ subTotalPrice.toFixed(2) }} {{'IQD' | translate}}</span>
         </li>
         <li>
-          <span>Subtotal</span>
-          <span class="float-right text-red">3000.00</span>
+          <span>{{ 'Delivery Fee' | translate}}</span>
+          <span class="float-right text-red">{{ deliveryFee }} {{'IQD' | translate}}</span>
         </li>
         <li>
-          <span>Delivery Fee</span>
-          <span class="float-right text-red">5000.00</span>
-        </li>
-        <li>
-          <span class="text-red bold">Total</span>
-          <span class="float-right text-red">3005.00</span>
+          <span class="text-red bold">{{ 'Total' | translate }}</span>
+          <span class="float-right text-red">{{orderTotal.toFixed(2)}} {{'IQD' | translate}}</span>
         </li>
       </ul>
 

@@ -1,11 +1,20 @@
 <ion-view>
-    <ion-nav-bar class="bar-stable bar-shadow">
-        <ion-nav-buttons side="left">
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
+        <!-- <ion-nav-buttons side="left">
             <button class="button top-btn" ui-sref="ordering.detailMenu"><img src="img/icon-back.png"></button>
         </ion-nav-buttons>
         <ion-nav-title>{{ 'Order Details' | translate }}</ion-nav-title>
         <ion-nav-buttons side="right">
             <button class="button button-assertive" ui-sref="ordering.detailRest">{{'Back to main menu' | translate}}</button>
+        </ion-nav-buttons> -->
+        <ion-nav-buttons side="left">
+            <button class="btn btn-close" ui-sref="ordering.detailMenu"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-title>{{ 'Order Details' | translate }}</ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="btn btn-close" ui-sref="ordering.detailMenu" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="order-view-cont color-bg">
