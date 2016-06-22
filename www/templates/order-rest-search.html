@@ -15,12 +15,19 @@
         </ion-nav-buttons>
     </ion-nav-bar> --> 
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
-        <ion-nav-buttons side="left">
-<<<<<<< HEAD
+       <!--  <ion-nav-buttons side="left">
             <button class="btn btn-close" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
-=======
+
             <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
->>>>>>> e1a6d18036f4fb7d01af7528add09a6551f78eb3
+        </ion-nav-buttons>
+
+        <ion-nav-title>{{ 'Restaurant Search' | translate }}</ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
+        </ion-nav-buttons> -->
+        <ion-nav-buttons side="left">
+            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{ 'Restaurant Search' | translate }}</ion-nav-title>
@@ -30,6 +37,8 @@
         </ion-nav-buttons>
 
     </ion-nav-bar>
+
+
     <ion-content class="color-bg padding">
         <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
         <!-- <ion-item  class="location-cont-item color-font-gray font-mid"><span>{{nearCount}} {{ 'Restaurants near' | translate }} {{nearAddress}}</span></ion-item> -->

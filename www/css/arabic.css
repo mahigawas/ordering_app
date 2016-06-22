@@ -130,6 +130,32 @@
 .arabic-price{
 	display: inline-block;
 }
+#search_restaurant_box  .white_box form .location-cont .select-ar{
+  padding-right: 13px;
+}
+#search_restaurant_box  .white_box form .location-cont .popuptext-ar{
+  padding-right: 17px;
+}
+#circle-ar {
+    background: #d6d6d6 none repeat scroll 0 0;
+    border-radius: 50px;
+    bottom: 157px;
+    height: 15px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0;
+    width: 15px;
+}
+#circle1-ar {
+    background: #d6d6d6 none repeat scroll 0 0;
+    border-radius: 50px;
+    bottom: 99px;
+    height: 15px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0;
+    width: 15px;
+}
 @media (min-width: 401px) and (max-width: 767px){
 	.btn-arabic{
 		float: right;

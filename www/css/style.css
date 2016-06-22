@@ -1035,20 +1035,18 @@ table {
   border-color: #d6d6d6; /* rgb(166, 166, 166); */
   text-align: start;
 }
-<<<<<<< HEAD
 .order-cont {
     padding: 1.5em 0;
 }
-=======
 
 #search_restaurant_box.red_box{
-  height: 98%;
+  height: 92%;
   background-color: #ef404c;
-    border-radius: 4px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-    padding: 10px;
-    position: relative;
-    margin-top: 41px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  padding: 10px;
+  position: relative;
+  margin-top: 41px;
 }
 #search_restaurant_box .white_box img{
   height: 50px;
@@ -1073,10 +1071,17 @@ table {
   text-transform: uppercase;
   margin-top: 15px;
 }
+#search_restaurant_box  .white_box form .location-cont{
+  margin-top: 20px;
+}
+
+.ion-navicon-round::before {
+    color: #fff;
+}
 #circle { 
   background: #d6d6d6 none repeat scroll 0 0;
     border-radius: 50px;
-    bottom: 80px;
+    bottom: 157px;;
     height: 15px;
     left: 0;
     margin-left: 10px;
@@ -1086,13 +1091,14 @@ table {
 #circle1 { 
   background: #d6d6d6 none repeat scroll 0 0;
     border-radius: 50px;
-    bottom: 37px;
+    bottom: 99px;
     height: 15px;
     left: 0;
     margin-left: 10px;
     position: absolute;
     width: 15px;
 }
+
 #search_restaurant_box .white_box ul li select{
   padding-left: 17px;
 }
@@ -1137,10 +1143,8 @@ table {
 #search_restaurant_box .white_box ul li p{
   margin: 6px 0 0 0;
   line-height: 0;
-  width: 135px;
-  
+  width: 135px;  
 }
-
 .menu-icon{
  cursor: pointer;
  padding-top: 13px;
@@ -1151,8 +1155,33 @@ table {
  background-color: transparent;
  border:transparent;
 }
+#size_box_button { margin: 0; }
 
->>>>>>> e1a6d18036f4fb7d01af7528add09a6551f78eb3
+.select_dish_image img {
+    border-radius: 6px;
+    height: 37px;
+    width: auto;
+}
+
+.select_dish_name {
+    display: table-cell;
+    vertical-align: middle;
+    width: 60%;
+}
+
+.select_dish_price {
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    width: 15%;
+
+}
+.button.find-btn.button-positive.ng-binding.disable-user-behavior {
+    border-radius: 31px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 27px;
+}
 /******************Language Setting Styles Ends************************/
 
 @media (min-width: 401px) and (max-width: 767px){
@@ -1203,30 +1232,4 @@ table {
 	    width: 48%;
 	}
 }
-/*#size_box_button { margin: 0; }
 
-.select_dish_image img {
-    border-radius: 6px;
-    height: 37px;
-    width: auto;
-}
-
-.select_dish_name {
-    display: table-cell;
-    vertical-align: middle;
-    width: 60%;
-}
-
-.select_dish_price {
-    display: inline-block;
-    text-align: right;
-    vertical-align: middle;
-    width: 15%;
-<<<<<<< HEAD
-}*/
-=======
-}
-
-
-
->>>>>>> e1a6d18036f4fb7d01af7528add09a6551f78eb3

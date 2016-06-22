@@ -18,13 +18,15 @@
        <img src="img/logo.png">
         <form ng-submit="">
             <ion-item class="location-cont">
-                <div class="gp-container" style="padding-bottom: 5px;border-bottom-left-radius: 0;border-bottom-right-radius: 0">
-                    <select class="" ng-model="myOrder.cityId"
+                <div class="" style="border-bottom-left-radius: 0;border-bottom-right-radius: 0">
+                  
+                    <select class="select-ar" ng-model="myOrder.cityId"
                             ng-options="item.id as item.name for item in cities"
                             default-option="{{'Select Your City' | translate }}" ng-change="selectCity()">
                     </select>
                 </div>
-                <div class="gp-container" style="padding-top: 5px;border-top-left-radius: 0;border-top-right-radius: 0">
+                <div class="" style="padding-top: 5px;border-top-left-radius: 0;border-top-right-radius: 0">
+                
                     <button class="popuptext-ar" modal-select="" ng-if="isArabic" modal-class="right_to_left" ng-model="myOrder.neighborId" options-expression="item in neighborMenuList" has-search="true" modal-title="{{'Select your Area' | translate}}" hide-reset="true">
                         {{myOrder.neighborId.name || ('Select your Area' | translate)}}
                         <div class="option">
