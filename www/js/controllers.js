@@ -721,6 +721,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 }
             });
         }
+
+        $scope.gotoHome = function(){
+            $ionicHistory.clearCache().then(function(){$state.go('sideMenu.homeScreen')});
+        };
     })
 
     .controller('orderDetailCtrl', function($scope, $state, $filter, gUserData, gSingleOrderData){

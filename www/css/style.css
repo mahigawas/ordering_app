@@ -960,11 +960,17 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     height: 98%;
     padding: 0;
 }
+#order_details_box {
+    overflow-y: scroll;
+}
 table {
     font-size: 13px;
     margin: 0 0 20px;
     padding: 0;
     width: 100%;
+}
+#order_details_box .table {
+  width:  450px;
 }
 #order_details_box .table thead tr th {
     background-color: #ccc;

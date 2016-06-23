@@ -1,22 +1,15 @@
 <ion-view>
-    <!-- <ion-nav-bar class="bar-stable bar-shadow">
-        <ion-nav-buttons side="left">
-            <button class="button top-btn" menu-toggle="left"><img src="img/btnback.png" ng-show="['ar', 'kr'].indexOf(lang) < 0"></button>
-            <button class="button top-btn" menu-toggle="right"><img src="img/btnback.png" ng-show="['ar', 'kr'].indexOf(lang) > -1"></button>
-        </ion-nav-buttons>
-        <ion-nav-title>{{ 'My Orders' | translate }}</ion-nav-title>
-      <ion-nav-buttons side="right">
-        <button class="button top-btn"></button>
-      </ion-nav-buttons>
-    </ion-nav-bar> -->
-
+  
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
-        <ion-nav-buttons side="left">
-           <button class="btn btn-close" menu-toggle="left", ng-show="['ar', 'kr'].indexOf(lang) < 0"><img src="img/btnback.png"></button>
-            
+       <ion-nav-buttons side="left">
+            <button class="btn btn-close"  ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{ 'My Orders' | translate }}</ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="btn btn-close"  ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
+        </ion-nav-buttons>
 
     </ion-nav-bar>
     <!-- <ion-content class="order-cont">
@@ -39,26 +32,27 @@
         </ion-item>
     </ion-content> -->
     <ion-content class="order-cont">
-    <section class="white_box" id="order_details_box">
+    <section class="" id="order_details_box">
         <table class="table table-bordered">
             <thead>
               <tr>
                 <th>#</th>
                 <th>{{ 'Date' | translate }}</th>
                 <th>{{ 'Business' | translate }}</th>
+                <th></th>
               </tr>
             </thead>        
-            <ion-item ng-repeat="order in myOrders" ng-model="orderModel">
+            
                 <tbody>
-                  <tr>
-                    <td>{{ order.id }}</td>
-                    <td><p>{{ order.date }}</p>
-                    <p>{{ order.busname }}</p></td>
+                  <tr ng-repeat="order in myOrders" ng-model="orderModel">
+                    <td>1</td>
+                    <td><p>{{ order.date }}</p></td>
+                    <td><p>{{ order.busname }}</p></td>
                     <td class="text-center"><button class="btn btn-viewmore" ng-click="orderViewMore(order.id)" type="button">{{ 'View more' | translate }}</button></td>
                   </tr>
                   
                 </tbody>
-            </ion-item>
+            
         </table>
     </section>
     </ion-content>
