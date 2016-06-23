@@ -6,7 +6,6 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
     .controller('sideMenuCtrl', function($scope, $state, $http, $ionicModal, $ionicPopup, $ionicSideMenuDelegate, $ionicPlatform, gUserData, $ionicHistory,gStates, $filter, $rootScope, Logout){
 
-        
         $scope.openFacebook = function() {
             window.open('https://www.facebook.com/TalabateyIQ/?fref=ts', '_blank');
        }
@@ -515,7 +514,6 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             }, 100);
         }
 
-        
     })
 
     .controller('profileCtrl', function($scope, $state, $ionicLoading, $ionicPopup, gMyLatLng, UpdateUserApi, gUserData, $http, gStates, $filter){
