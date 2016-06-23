@@ -90,19 +90,19 @@
             <!-- <span  class="categoryimg" style="background-image: url('img/restaurant1.png');"></span> --> 
             <img class="categoryimg" ng-src="http://ordering.talabatey.com/{{item.headerurl}}">
             <div class="restaurant-details">
-              <div class="left-div">
-                <h5>{{item.name}}</h5>
+              <h5>{{item.name}}</h5>
+              <div class="left-div">                
                 <p>{{ 'Delivery fee:' | translate }} {{ item.shipping }} {{'IQD' | translate}}</p>
-                <p>{{ 'Promotion:' | translate }} {{item.promotion}}</p>
+                <p>{{ 'Delivery time is 60 min' | translate }} {{item.promotion}}</p>
               </div>
               <div class="right-div">
-                <p class="star-div">
+                <!-- <p class="star-div">
                     <span class="star"><img src="img/star.png"></span>
                     <span class="star"><img src="img/star.png"></span>
                     <span class="star"><img src="img/star.png"></span>
                     <span class="star"><img src="img/star.png"></span>
                     <span class="star"><img src="img/star.png"></span>
-                </p>
+                </p> -->
                 <p>({{item.review.rating}} {{'Rating' | translate}})</p>
                 <p>{{ 'Minimum order' | translate }} {{ item.minimum }} {{'IQD' | translate}}</p>
               </div>
