@@ -927,7 +927,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
     display: inline-block;
 }
 #select_restaurant_box .restaurant-details p {
-    font-size: 11px;
+    font-size: 12px;
     margin: 0;
 }
 .star-div {
@@ -1212,6 +1212,7 @@ table {
     padding: 3px 2px;
     white-space: normal;
     margin-bottom: 6px;
+    display: inline;
 }
 #checkout_box ul li .item .badge-cont{
   padding: 1px 8px;

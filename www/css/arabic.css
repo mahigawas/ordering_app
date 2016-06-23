@@ -170,8 +170,32 @@
     margin-right: 10px;
     width: 46%;
 }
-
-
+.right_to_left .modal-backdrop #size_box_button .white_box{
+    margin-left: 10px;
+    margin-right: 0;
+}
+.right_to_left #checkout_box ul li .ar{
+    float: left;
+}
+.confirm-dlg button {
+    width: 100%;
+}
+.right_to_left .select_dish_np::after{
+    background-color: #d6d6d6;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: -9px;
+    margin-top: 0;
+    position: absolute;
+    right: 42px;
+    width: 100%;
+}
+.right_to_left .modal-backdrop .btn-homepage{
+    font-size: 15px;
+    padding: 16px 0;
+}
 @media (min-width: 401px) and (max-width: 767px){
 	.btn-arabic{
 		float: right;

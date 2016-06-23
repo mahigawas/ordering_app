@@ -29,17 +29,17 @@
                   <ion-item class="no-border" ng-repeat="dish in curMyDishes track by $index">
                       <span class="badge-cont">{{dish.quantity}}</span>
                       <span class="order-name">{{dish.name}}</span>
-                      <span class="float-right text-red">{{(dish.total).toFixed(2)}} {{'IQD' | translate}}</span>
+                      <span class="float-right text-red ar">{{(dish.total).toFixed(2)}} {{'IQD' | translate}}</span>
                   </ion-item>
                 </li>
                 
                 <li>
                   <span>{{ 'Delivery Fee' | translate }} </span>
-                  <span class="float-right text-red">{{ deliveryFee }} {{'IQD' | translate}}</span>
+                  <span class="float-right text-red ar">{{ deliveryFee }} {{'IQD' | translate}}</span>
                 </li>
                 <li>
                   <span class="text-red bold">{{ 'Total' | translate }} {{'IQD' | translate}}</span>
-                  <span class="float-right text-red">{{(calcTotalPrice).toFixed(2)}} {{'IQD' | translate}}</span>
+                  <span class="float-right text-red ar">{{(calcTotalPrice).toFixed(2)}} {{'IQD' | translate}}</span>
                 </li>
               </ul>
 
