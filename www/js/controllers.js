@@ -2025,7 +2025,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             }).then(function (res) {     //first function "success"
                 LOGIN_STATE = true;
                 a = $ionicPopup.alert({
-                    title : 'OrderingApp',
+                    title : $filter('translate')('OrderingApp'),
                     template : $filter('translate')('Thanks')+ ' ' + $scope.signUpUser.name + ', ' + $filter('translate')('your registration is done successfully'),
                     okText: $filter('translate')('OK'),
                     cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
@@ -2040,7 +2040,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             }, function (err) {          //second function "error"
                 $ionicPopup.alert({
                     title : $filter('translate')('OrderingApp'),
-                    template : $filter('translate')('Register Failed! please try again later.')
+                    template : $filter('translate')('Register Failed! please try again later.'),
+                    okText: $filter('translate')('OK')
                 })
             });
 
