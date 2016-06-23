@@ -1205,6 +1205,22 @@ table {
     right: 10px;
     width: 94%;
 }
+#checkout_box ul li .item {
+    font-size: 14px;
+    padding: 3px 2px;
+    white-space: normal;
+}
+#checkout_box ul li .item .badge-cont{
+  padding: 1px 8px;
+}
+#checkout_box ul li .item .order-name {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 55%;
+}
 /******************Language Setting Styles Ends************************/
 
 @media (min-width: 401px) and (max-width: 767px){
