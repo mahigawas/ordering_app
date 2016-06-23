@@ -730,7 +730,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     margin-top: 0;
     position: absolute;
     right: 0;
-    width: 231px;
+    width: 100%;
 }
 .select_dish_np .select_dish_name{
    text-overflow: ellipsis;
@@ -906,9 +906,12 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 }
 #select_restaurant_box .restaurant-details h5 {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 12px;
     padding-top: 8px;
+    color: #ef404c;
+    white-space: normal;
+    overflow: visible;
 }
 #select_restaurant_box .restaurant-details p {
     font-size: 11px;
@@ -1025,9 +1028,8 @@ table {
 }
 
 .active-language {
-  background-color: green
+  background-color: #f45353;
 }
-
 .select-item {
   width: 100%;
   border-radius: 5px;
@@ -1209,6 +1211,7 @@ table {
     font-size: 14px;
     padding: 3px 2px;
     white-space: normal;
+    margin-bottom: 6px;
 }
 #checkout_box ul li .item .badge-cont{
   padding: 1px 8px;
