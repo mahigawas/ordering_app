@@ -1212,6 +1212,7 @@ table {
     padding: 3px 2px;
     white-space: normal;
     margin-bottom: 6px;
+    display: inline;
 }
 #checkout_box ul li .item .badge-cont{
   padding: 1px 8px;
