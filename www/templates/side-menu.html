@@ -107,10 +107,11 @@
                         <li><img src="img/icon-order.png"><a menu-close ng-click="onGoMyOrder()">{{ 'My Orders' | translate }}</a></li>
                         <li><img src="img/icon-registration.png"><a  menu-close ng-href= "#/side-menu/our-restaurants">{{ 'Our Restaurants' | translate }}</a></li>
                         <li><img src="img/icon-setting.png"><a menu-close ng-href="#/side-menu/language-settings">{{ 'Language Settings' | translate }}</a></li>
-                        <li><img src="img/icon-about.png"><a menu-close ng-href= "http://www.talabatey.com">{{ 'About Us' | translate }}</a></li>
-                        <li><img src="img/icon-fb.png"><a menu-close href= "https://www.facebook.com/TalabateyIQ/?fref=ts">{{ 'Facebook' | translate }}</a></li>
-                        <li><img src="img/icon-youtube.png"><a menu-close href= "https://www.youtube.com/channel/UCfYFecRakE9CWCfABGHUyYg">{{ 'Youtube' | translate }}</a></li>
+                        <li><img src="img/icon-about.png"><a menu-close ng-click="openAboutUs()">{{ 'About Us' | translate }}</a></li>
+                        <li><img src="img/icon-fb.png"><a menu-close ng-click="openFacebook()">{{ 'Facebook' | translate }}</a></li>
+                        <li><img src="img/icon-youtube.png"><a menu-close ng-click="openYouTube()">{{ 'Youtube' | translate }}</a></li>
                         <li ng-if="getLogState() == true"><img src="img/icon-logout.png"><a ng-click="onSignOut()">{{ 'Logout' | translate }}</a></li>
+
 
                        <!--  <a class="item" menu-close ng-href="#/side-menu/home-screen">
                             <div class="icon-text icon-home">
