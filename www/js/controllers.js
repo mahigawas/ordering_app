@@ -374,8 +374,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     });
                 }
             });*/
-
             $scope.curArea = $scope.selectArea($scope.myOrder.neighborId.id);
+            //console.log(JSON.stringify($scope.myOrder.neighborId));
+            //gUserData.setData($scope.myOrder.neighborId);
+            localStorage.setItem("currentArea", $scope.myOrder.neighborId.name);
             $scope.findRestaurant();
         };
 
@@ -1424,8 +1426,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 reservepaymethoddetails : {
                     "payu":true,
                     "cash":true,
-                    "card":true,
-                    "paypal":true,
+                    "card":false,
+                    "paypal":false,
                     "paypaladaptive":true,
                     "authorize":false,
                     "braintree":false,
@@ -1477,8 +1479,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 },
                 paymethoddetail : {
                     "cash":true,
-                    "card":true,
-                    "paypal":true,
+                    "card":false,
+                    "paypal":false,
                     "paypaladaptive":false,
                     "authorize":false,
                     "braintree":false,
@@ -2221,7 +2223,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
             //$scope.curStreet = $scope.curBusinessInfo.street + ', ' + gNearService.getData().nearAddress;
             $scope.curStreet = gNearService.getData().nearAddress;
-            $scope.order_buyer.address = $scope.curStreet;
+            if ($scope.order_buyer.address === null || $scope.order_buyer.address === undefined) {
+                $scope.order_buyer.address = localStorage.getItem("currentArea");
+            }
+
             $scope.taxPrice = parseFloat($scope.curBusiness.tax);
 
             $scope.driverTipsList = [
@@ -2388,7 +2393,6 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             //     $scope.fieldDetect('Please Select your Payment Method');
             //     return;
             // }
-
             // Update Buyer Info=
             $scope.curBusiness.buyer.name = $scope.order_buyer.name;
             $scope.curBusiness.buyer.email = $scope.order_buyer.email;
