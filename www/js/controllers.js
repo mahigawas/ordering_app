@@ -347,16 +347,18 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
           var vCountry = $scope.myOrder.neighborId;
             if(vCountry == '' || vCountry == null){
                 $ionicPopup.alert({
-                    title : 'OrderingApp',
-                    template : 'Please Select your Area'
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Please Select your Area'),
+                    okText: $filter('translate')('OK')
                 });
                 return;
             }
             var vCity = $scope.myOrder.cityId;
             if(vCity == ''){
                 $ionicPopup.alert({
-                    title : 'OrderingApp',
-                    template : 'Please Select your City'
+                    title : $filter('translate')('OrderingApp'),
+                    template : $filter('translate')('Please Select your City'),
+                    okText: $filter('translate')('OK')
                 });
                 return;
             }

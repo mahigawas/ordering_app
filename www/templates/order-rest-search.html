@@ -1,31 +1,8 @@
 
 <ion-view>
-    <!-- <ion-nav-bar class="bar-stable bar-shadow">
-        <ion-nav-buttons side="left">
-            <button class="button top-btn" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/icon-back.png"></button>
-        </ion-nav-buttons>
-        <ion-nav-buttons side="right">
-            <button class="button top-btn" ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/icon-back.png"></button>
-        </ion-nav-buttons>
-        <ion-nav-title>
-            {{ 'Restaurant Search' | translate }}
-        </ion-nav-title>
-        <!-- <ion-nav-buttons side="right">
-            <button class="button top-btn mg-top-btn-right" ng-click="showFilterBar()"><img src="img/icon-search.png"></button>
-        </ion-nav-buttons>
-    </ion-nav-bar> --> 
+   
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
-       <!--  <ion-nav-buttons side="left">
-            <button class="btn btn-close" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
-
-            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
-        </ion-nav-buttons>
-
-        <ion-nav-title>{{ 'Restaurant Search' | translate }}</ion-nav-title>
-
-        <ion-nav-buttons side="right">
-            <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
-        </ion-nav-buttons> -->
+      
         <ion-nav-buttons side="left">
             <button class="btn btn-close" on-swipe-left="onSwipeLeft()" ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
         </ion-nav-buttons>
@@ -65,29 +42,20 @@
 
                 <h4 class="rating font-large-x color-font-black pd-left-5">{{item.name}}</h4>
                 <ul class="color-font-gray">
-                    <li>
-                        <div class="cash float-left"></div>
-                        <div class="visa float-left"></div>
-                        <div class="debit float-left"></div>
-                        <div class="paypal float-left"></div>
-                        <span class="rating float-right">({{item.review.rating}} {{'Rating' | translate}})</span>
-                        <div ng-repeat="star in rateAry[$index]">
-                            <div class="{{star.rate}} float-right"></div>
-                        </div>
-                    </li>
+                    
                     <li>
                         <span class="rating float-left">{{ 'Delivery fee:' | translate }} {{ item.shipping }} {{'IQD' | translate}}</span>
                         <span class="rating float-right">{{ 'Minimum order' | translate }} {{ item.minimum }} {{'IQD' | translate}}</span>
                     </li>
                     <li>
-                        <span class="rating float-left">{{ 'Promotion:' | translate }} {{item.promotion}} </span>
-                        <!-- <span class="rating float-right">{{ 'Distance:' | translate }} {{item.distance.toFixed(2) + '' + item.distanceformat}} </span>
+                        <span class="rating float-left">{{ 'Delivery time is 60 min' | translate }} {{item.promotion}} </span>
+                        <!-- <span class="rating float-right">{{ 'Distance:' | translate }} {{item.distance.toFixed(2) + '' + item.distanceformat}} </span>->
                     </li>
                 </ul>
                 <div class="close-mask" ng-if="openState == item.open"></div>
-            </div> --> 
+            </div>  --> 
         <div class="rest-item font-small" ng-click="onRestaurantItem(item)">
-            <!-- <span  class="categoryimg" style="background-image: url('img/restaurant1.png');"></span> --> 
+           
             <img class="categoryimg" ng-src="http://ordering.talabatey.com/{{item.headerurl}}">
             <div class="restaurant-details">
               <h5>{{item.name}}</h5>
@@ -96,17 +64,11 @@
                 <p>{{ 'Delivery time is 60 min' | translate }} {{item.promotion}}</p>
               </div>
               <div class="right-div">
-                <!-- <p class="star-div">
-                    <span class="star"><img src="img/star.png"></span>
-                    <span class="star"><img src="img/star.png"></span>
-                    <span class="star"><img src="img/star.png"></span>
-                    <span class="star"><img src="img/star.png"></span>
-                    <span class="star"><img src="img/star.png"></span>
-                </p> -->
-                
+               
                 <p>{{ 'Minimum order' | translate }} {{ item.minimum }} {{'IQD' | translate}}</p>
               </div>
             </div>
+            <div class="close-mask" ng-if="openState == item.open"></div>
        </div>
         </ion-item>
     </ion-content>

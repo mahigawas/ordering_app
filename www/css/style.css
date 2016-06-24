@@ -1164,8 +1164,8 @@ table {
     border-bottom: 1px solid #d6d6d6;
     float: left;
     font-size: 14px;
-    margin-bottom: 5px;
-    padding-bottom: 7px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
     width: 100%;
 }
 #checkout_box ul li:last-child{
@@ -1220,7 +1220,7 @@ table {
     bottom: 10px;
     left: 10px;
     position: absolute;
-    right: 10px;
+    /*right: 10px;*/
     width: 94%;
 }
 #checkout_box ul li .item {
@@ -1228,7 +1228,7 @@ table {
     padding: 3px 2px;
     white-space: normal;
     margin-bottom: 6px;
-    display: inline;
+    /*display: inline;*/
 }
 #checkout_box ul li .item .badge-cont{
   padding: 1px 8px;
