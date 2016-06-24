@@ -5,28 +5,21 @@
 angular.module('orderingApp.controllers',['ngOpenFB'])
 
     .controller('sideMenuCtrl', function($scope, $state, $http, $ionicModal, $ionicPopup, $ionicSideMenuDelegate, $ionicPlatform, gUserData, $ionicHistory,gStates, $filter, $rootScope, Logout){
-
-        $scope.openFacebook = function() {
-            window.open('https://www.facebook.com/TalabateyIQ/?fref=ts', '_blank');
-       }
-       $scope.openYouTube = function() {
-         window.open('https://www.youtube.com/channel/UCfYFecRakE9CWCfABGHUyYg', '_blank');
-       }
-       $scope.openAboutUs = function() {
-         window.open('http://www.talabatey.com', '_blank');
-       }
         $scope.$on('$ionicView.enter',function(){
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
             $scope.state.loginState = LOGIN_STATE;
         });
+        
         $scope.state = {
             loginState : LOGIN_STATE
         };
+
         $scope.getLogState = function () {
             return LOGIN_STATE;
         };
+
         $scope.onGoMyProfile = function(){
             gStates.setState(STATE.PROFILE);
             if (!LOGIN_STATE){
@@ -49,6 +42,16 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 $state.go('sideMenu.myOrder');
             }
         };
+
+        $scope.openFacebook = function() {
+            window.open('https://www.facebook.com/TalabateyIQ/?fref=ts', '_blank');
+       }
+       $scope.openYouTube = function() {
+         window.open('https://www.youtube.com/channel/UCfYFecRakE9CWCfABGHUyYg', '_blank');
+       }
+       $scope.openAboutUs = function() {
+         window.open('http://www.talabatey.com', '_blank');
+       }
 
         $scope.onSignOut = function () {
             var promptPopup = $ionicPopup.confirm({

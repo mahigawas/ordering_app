@@ -529,6 +529,16 @@ html, body {
     width: 100%;
     display: block;
 }
+
+.btn-close-back {
+    background-color: #bf222d;
+    border-radius: 10px;
+    height: 30px;
+    margin-top: 0px;
+    padding: 5px;
+    color: #fff;
+    border-color: transparent;
+}
 section{
   margin: 0 10px 10px 10px;
 }
