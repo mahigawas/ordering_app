@@ -41,12 +41,14 @@
                   <span class="text-red bold">{{ 'Total' | translate }} {{'IQD' | translate}}</span>
                   <span class="float-right text-red ar">{{(calcTotalPrice).toFixed(2)}} {{'IQD' | translate}}</span>
                 </li>
+                <li>
+                    <button type="button" class="btn btn-common" ng-click="onFinalCheckOut()" ng-if="subTotal >= minimumPrice">{{'ORDER NOW' | translate}}</button> 
+                    <button type="button" class="btn btn-common" ng-if="subTotal < minimumPrice">{{ 'MIN ORDER' | translate }} : {{ minimumPrice.toFixed(2) }}</button>
+                </li>
               </ul>
 
             </div>
         </div> 
-        <button type="button" class="btn btn-common place-order-button" ng-click="onFinalCheckOut()" ng-if="subTotal >= minimumPrice">{{'ORDER NOW' | translate}}</button> 
-        <button type="button" class="btn btn-common place-order-button" ng-if="subTotal < minimumPrice">{{ 'MIN ORDER' | translate }} : {{ minimumPrice.toFixed(2) }}</button>
         <!-- <ion-item>
             <p class="font-large-x font-center">{{curBusiness.name}}</p>
             <div class="h-line-grey"></div>

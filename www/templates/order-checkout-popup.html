@@ -129,11 +129,14 @@
           <span class="text-red bold">{{ 'Total' | translate }}</span>
           <span class="float-right text-red ar">{{orderTotal.toFixed(2)}} {{'IQD' | translate}}</span>
         </li>
+        <li>
+            <button type="button" class="btn btn-common" ng-click="placeOrderNow()">{{ 'PLACE ORDER' | translate}}</button>
+        </li>
       </ul>
 
     </div>
   </div>  
-  <button type="button" class="btn btn-common place-order-button" ng-click="placeOrderNow()">{{ 'PLACE ORDER' | translate}}</button>
+
    
     </ion-content> 
 
