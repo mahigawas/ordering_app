@@ -362,6 +362,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 });
                 return;
             }
+            console.log($scope.myOrder.neighborId.name);
+            localStorage.setItem("currentArea", $scope.myOrder.neighborId.name);
             $scope.show($ionicLoading);
             /*var geoCoder = new google.maps.Geocoder();
             geoCoder.geocode( { 'address': vCountry}, function(results, status) {
@@ -391,7 +393,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             $scope.curArea = $scope.selectArea($scope.myOrder.neighborId.id);
             //console.log(JSON.stringify($scope.myOrder.neighborId));
             //gUserData.setData($scope.myOrder.neighborId);
-            localStorage.setItem("currentArea", $scope.myOrder.neighborId.name);
+            
+            
             $scope.findRestaurant();
         };
 
@@ -1355,7 +1358,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
     })
 
     .controller('checkOutCtrl',function($scope, $state, $rootScope, $ionicLoading, $ionicModal, $ionicPopup, $ionicHistory, $filter, gNearService,gDeliveryComment, gAllBusiness, gCurRestaurant, gOrder, gUserData, gBusinessData, CheckOutInfoApi, GetUserByIdApi, gStates){
-
+        
         $scope.show = function() {
             $ionicLoading.show({
                 template: '<p>{{ "GettingData..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
@@ -2244,6 +2247,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             $scope.curStreet = gNearService.getData().nearAddress;
             if ($scope.order_buyer.address === null || $scope.order_buyer.address === undefined) {
                 $scope.order_buyer.address = localStorage.getItem("currentArea");
+                console.log($scope.order_buyer.address);
             }
 
             $scope.taxPrice = parseFloat($scope.curBusiness.tax);

@@ -127,6 +127,16 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
         $ionicPlatform.registerBackButtonAction(function (event) {
             if ($ionicHistory.currentStateName() != 'sideMenu.homeScreen'){
+                var currState = $ionicHistory.currentStateName();
+
+                switch(currState) {
+                    case "ordering.checkOut":
+                    case "finalCheckOut":
+                    debugger; 
+                    break;
+                    default:
+                }
+
                 event.preventDefault();
             } else{
                 navigator.app.exitApp()

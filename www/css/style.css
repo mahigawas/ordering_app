@@ -1156,7 +1156,7 @@ table {
   height: 100%;
 }
 #checkout_box ul {
-    height: 340px;
+    /*height: 340px;*/
     overflow-x: scroll;
     width: 100%;
 }
