@@ -994,7 +994,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         }
     })
 
-    .controller('detailMenuCtrl', function($scope, $state, $ionicLoading, $ionicPopup, $ionicModal, ProductOptionApi, gOrder, gCurDishList, $filter, langSettings, $rootScope){
+    .controller('detailMenuCtrl', function($scope, $state, $ionicLoading, $ionicPopup, $ionicModal, ProductOptionApi, gOrder, gCurDishList, $filter, langSettings, $rootScope, $ionicHistory, gCurRestaurant){
         $scope.show = function() {
             $ionicLoading.show({
                 template: '<p>{{ "Searching..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
@@ -1168,8 +1168,31 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         $scope.offProductOption = function(){
             $scope.initMyDish();
-            $scope.modal.hide();                             //Close Product Option Screen
+            $scope.modal.hide();                             //Close Product Option Screen         
         };
+
+        $scope.cancelAllOrder = function(){
+            
+            var promptPopup = $ionicPopup.confirm({
+                title: $filter('translate')('OrderingApp'),
+                template: $filter('translate')('Do you want to cancel current order?'),
+                cancelType: 'button-stable',
+                okText: $filter('translate')('OK'),
+                cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
+                cancelText: $filter('translate')('Cancel')
+            });
+            promptPopup.then(function(res) {
+                if (res) {
+                    console.log('Pressed OK!');
+                    var ary = [];
+                    gOrder.setData(ary);
+                    $scope.initMyDish();
+                    $scope.modal.hide(); 
+                } else {
+                    console.log('Pressed CANCEL!');
+                }
+            });
+        }
 
         // Total Price Calculating ----------------------
         $scope.tempCPrice = [];
@@ -1326,8 +1349,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
             $scope.dishes.push($scope.myDish);
             gOrder.setData($scope.dishes);
-            $scope.offProductOption();
             $scope.initMyDish();
+            $scope.modal.hide();
         };
 
         //----------------------------------------------------------------------------
@@ -2304,7 +2327,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         // Order Confirm Part ------------------------
         $ionicModal.fromTemplateUrl('templates/order-confirm-popup.html', {
             scope: $scope,
-            animation: 'slide-in-up'
+            animation: 'slide-in-up',
+            hardwareBackButtonClose: false
         }).then(function(modal) {
             $scope.modal1 = modal;
         });

@@ -126,21 +126,19 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
         });
 
         $ionicPlatform.registerBackButtonAction(function (event) {
-            if ($ionicHistory.currentStateName() != 'sideMenu.homeScreen'){
-                var currState = $ionicHistory.currentStateName();
+
+            var currState = $ionicHistory.currentStateName();
 
                 switch(currState) {
+                    case "sideMenu.homeScreen":
+                    navigator.app.exitApp();
+                    break;
                     case "ordering.checkOut":
                     case "finalCheckOut":
-                    debugger; 
                     break;
                     default:
+                    $ionicHistory.backView();
                 }
-
-                event.preventDefault();
-            } else{
-                navigator.app.exitApp()
-            }
         }, 100);
 
     })
@@ -460,7 +458,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back resturnat' : 'Back Resturnat',
             'back categories' : 'Back Categories',
             'back to dishes' : 'Back To Dishes',
-            'Back' : 'Back'
+            'Back' : 'Back',
+            'Home' : 'Home'
 
         });
 
@@ -550,10 +549,10 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Start Order': 'ابدأ طلبك',
             'My Profile': 'معلوماتي',
             'My Orders': 'طلباتي',
-            'Logout': 'خروج',
+            'Logout': 'تسجيل الخروج',
             'Sign Up': 'سجل',
             'Hi': 'اهلا وسهلا ب',
-            'Please enter your registration code': 'الرجاء إدخال رمز التسجيل الخاص بك',
+            'Please enter your registration code': 'الرجاء ادخال رمز التسجيل الذي سيصلك برسالة نصية عل هاتفك',
             'Registration Code': 'رمز التسجيل',
             'SIGN UP': 'سجل',
             'Next': 'التالى',
@@ -616,7 +615,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back resturnat' : 'العودة للمطاعم',
             'back categories' : 'العودة للاصناف',
             'back to dishes' : 'العودة للاطباق',
-            'Back' : 'الرجوع'
+            'Back' : 'الرجوع',
+            'Home' : 'آلرئيسية'
         });
 
         $translateProvider.translations('kr', {
@@ -764,18 +764,19 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'PLACE ORDER': 'بكەە فەرمان بكات',
             'You will logout from app, are you sure ?': 'تۆ ويل [لۆگۆوت] لە بەرنامەەوە، ببە تۆ دڵنيا',
             'Please confirm your name and mobile number': 'تكايە ناوت و ژمارەى مۆبايل تەئكيد بكەوە',
-            'Thanks': 'شكرا',
+            'Thanks': 'تكايە چاوەڕوان بە',
             'your registration is done successfully': 'لقد تم اشتراكك بنجاح',
-            'Order No': 'أجل لا',
+            'Order No': 'رقم الطلب',
             'Back to main menu': 'العودة للقائمة الرئيسية',
-            'Please Select your Area' : 'الرجاء اختيار منطقتك',
-            'Please Select your City' : 'الرجاء اختيار منطقتك',
+            'Please Select your Area' : 'الرجاء اختيار منطقتك التي انت فيها',
+            'Please Select your City' : 'مدينتك اختيار منطقتك',
             'Delivery time is 60 min' : 'وقت التوصيل ٦٠ دقيقة',
             'Open & Close time' : 'وقت الفتح والاغلاق',
             'back resturnat' : 'العودة للمطاعم',
             'back categories' : 'العودة للاصناف',
             'back to dishes' : 'العودة للاطباق',
-            'Back' : 'الرجوع'
+            'Back' : 'الرجوع',
+            'Home' : 'آلرئيسية'
         });
         $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
         $translateProvider.useSanitizeValueStrategy(null)
