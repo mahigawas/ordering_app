@@ -216,7 +216,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 }
             },function (e) {
                 MyLoading.hide();
-                MyAlert.show(JSON.stringify(e));
+                //MyAlert.show(JSON.stringify(e));
             })
         }
 
@@ -226,10 +226,12 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     $scope.countries = s.country;
                     getCities($scope.countries[0].id);
                 }else {
-                    MyAlert.show("Error : " + s.message);
+                    MyLoading.hide();
+                    //MyAlert.show("Error : " + s.message);
                 }
             },function (e) {
-                MyAlert.show(JSON.stringify(e));
+                MyLoading.hide();
+                //MyAlert.show(JSON.stringify(e));
             })
         }
         function getCities(id) {
@@ -241,11 +243,12 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 if (s.status == true){
                     $scope.cities = s.city;
                 }else {
-                    MyAlert.show("Error : " + s.message);
+                    MyLoading.hide();
+                    //MyAlert.show("Error : " + s.message);
                 }
             },function (e) {
                 MyLoading.hide();
-                MyAlert.show(JSON.stringify(e));
+                //MyAlert.show(JSON.stringify(e));
             })
         }
 
@@ -2347,10 +2350,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
 
         $scope.fieldDetect = function( str ) {
-            $ionicPopup.alert({
+            /*$ionicPopup.alert({
                 title : $filter('translate')('OrderingApp'),
                 template : str
-            });
+            });*/
             $ionicScrollDelegate.scrollTop();
         };
 
