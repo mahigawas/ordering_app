@@ -1,13 +1,16 @@
 <ion-modal-view>
-    <!-- <ion-header-bar class="bar-stable bar-shadow fix-buttons"> -->
-    <ion-header-bar class="navbar navbar-default navbar-fixed-top">
-             <button type="button" class="btn btn-close" ng-click="offProductOption()"><img src="img/btnclose.png"></button>
-    
-        <!-- <button class="button top-btn" ng-click="offProductOption()"><img src="img/icon-close.png"></button> -->
-        <ion-title class="font-large-x">{{productOptionList.name}}</ion-title>
-        <!-- <button class="button top-btn" ng-click="offProductOption()"> </button> -->
-    </ion-header-bar>
-    <ion-content class="color-bg">
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
+       <ion-nav-buttons side="left">
+            <button class="btn btn-back-text"  ng-click="offProductOption()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'back to dishes' | translate }}</button>
+        </ion-nav-buttons>
+
+        <ion-nav-title>{{ productOptionList.name }}</ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="btn btn-back-text"  ng-click="offProductOption()" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'back to dishes' | translate }}</button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="color-bg margin-popup-order padding">
         <div ng-repeat="option in productOptionList.options">
             <div ng-show="C_OState.optional != option.maxsel && option.conditional == 'no'">
                 <ion-item class="item-divider">

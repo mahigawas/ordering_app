@@ -523,6 +523,17 @@ html, body {
     border-color: transparent;
 }
 
+.btn-back-text{
+  background-color: #bf222d;
+    border-radius: 10px;
+    height: 30px;
+    margin-top: 0px;
+    color: #fff;
+    border-color: transparent;
+    line-height: 5px !important;
+    font-size: 10px !important;
+}
+
 
 .btn-close img {
   height: auto;
@@ -1051,8 +1062,10 @@ table {
   border-radius: 5px;
   min-height: 40px;
   background-color: transparent;
-  color: white;
-  font-size: 18px;
+ /* color: white;
+  font-size: 18px;*/
+  color: red;
+  font-size: 15px;
   padding-left: 0.8em;
   -webkit-appearance: none;
   z-index: 2;
@@ -1244,6 +1257,10 @@ table {
 .btn-homepage{
     font-size: 17px;
     padding: 14px 0;
+}
+
+.margin-popup-order{
+  margin-top: 50px;
 }
 /******************Language Setting Styles Ends************************/
 

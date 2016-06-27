@@ -9,6 +9,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
+             $ionicSideMenuDelegate.canDragContent(false);
             $scope.state.loginState = LOGIN_STATE;
         });
         
@@ -883,7 +884,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             if (selRestaurant.open == false){
                 $ionicPopup.alert({
                     //title : 'OrderingApp',
-                    title : $filter('translate')('Open & Close Time'),
+                    title : $filter('translate')('Open & Close time'),
                     template : '\<center\>' + selRestaurant.opentime + ' - ' + selRestaurant.closetime + '\<\center\>',
                     okText: $filter('translate')('OK'),
                     cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'

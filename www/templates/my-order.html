@@ -2,35 +2,17 @@
   
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
        <ion-nav-buttons side="left">
-            <button class="btn btn-close"  ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
+            <button class="btn btn-back-text"  ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'Back' | translate }}</button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{ 'My Orders' | translate }}</ion-nav-title>
 
         <ion-nav-buttons side="right">
-            <button class="btn btn-close"  ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
+            <button class="btn btn-back-text"  ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'Back' | translate }}</button>
         </ion-nav-buttons>
 
     </ion-nav-bar>
-    <!-- <ion-content class="order-cont">
-        <ion-item class="order-kind">
-            <div class="row">
-                <div class="col col-10">#</div>
-                <div class="col col-30">{{ 'Date' | translate }}</div>
-                <div class="col col-50">{{ 'Business' | translate }}</div>
-            </div>
-        </ion-item>
-        <ion-item ng-repeat="order in myOrders" ng-model="orderModel">
-            <div class="row">
-                <div class="col col-10">{{ order.id }}</div>
-                <div class="col col-25 date-format">{{ order.date }}</div>
-                <div class="col col-30">{{ order.busname }}</div>
-                <div class="col col-25 view-btn-cont">
-                    <a class="button view-more" ng-click="orderViewMore(order.id)">{{ 'View more' | translate }}</a>
-                </div>
-            </div>
-        </ion-item>
-    </ion-content> -->
+   
     <ion-content class="order-cont">
     <section class="" >
         <div id="order_details_box">

@@ -205,6 +205,10 @@
 
 .select-item {
     padding-right: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 title, select, p, div, span, h1, h4{

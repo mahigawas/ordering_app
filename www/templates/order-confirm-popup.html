@@ -4,11 +4,14 @@
         
     </ion-header-bar>
     <ion-content class="order-view-cont color-bg pd-top-10">
-        
+        <ion-item class="font-center no-bg no-border">
+            <img src="img/logo.png">
+        </ion-item>
          <ion-item class="no-border no-bg">
             <div class="confirm-dlg">
                 <p class="font-large-x color-main">{{ 'You are awesome!' | translate }}</p>
                 <p class="font-mid">{{ 'Your order' | translate }} #{{placedData.id}} {{ 'was placed successfully' | translate }}</p>
+                <p class="font-mid">{{ 'Delivery time is 60 min' | translate }}</p>
                 <button class="btn btn-common btn-homepage" ng-click="offConfirm()">{{ 'Ok, go back to homepage' | translate }}</button>
             </div>
              

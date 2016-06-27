@@ -1,15 +1,13 @@
 <ion-view>
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
         <ion-nav-buttons side="left">
-            <!-- <button class="button button-assertive" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) == -1">{{'Back to main menu' | translate}}</button> -->
-            <button type="button" class="btn btn-close" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
+            <button type="button" class="btn btn-back-text" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'back categories' | translate }}</button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{HeaderTitle}}</ion-nav-title>
 
         <ion-nav-buttons side="right">
-            <!-- <button class="button button-assertive" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{'Back to main menu' | translate}}</button> -->
-             <button type="button" class="btn  btn-close" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
+             <button type="button" class="btn  btn-back-text" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'back categories' | translate }}</button>
         </ion-nav-buttons>
     </ion-nav-bar>
 

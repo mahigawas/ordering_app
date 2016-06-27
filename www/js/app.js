@@ -455,7 +455,12 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Back to main menu': 'Back to main menu',
             'Please Select your Area' : 'Please Select your Area',
             'Please Select your City' :'Please Select your City',
-            'Delivery time is 60 min' : 'Delivery time is 60 min'
+            'Delivery time is 60 min' : 'Delivery time is 60 min',
+            'Open & Close time' : 'Open & Close time',
+            'back resturnat' : 'Back Resturnat',
+            'back categories' : 'Back Categories',
+            'back to dishes' : 'Back To Dishes',
+            'Back' : 'Back'
 
         });
 
@@ -606,7 +611,12 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Back to main menu': 'العودة للقائمة الرئيسية',
             'Please Select your Area' : 'الرجاء اختيار منطقتك',
             'Please Select your City' : 'الرجاء اختيار منطقتك',
-            'Delivery time is 60 min' : 'وقت التوصيل ٦٠ دقيقة'
+            'Delivery time is 60 min' : 'وقت التوصيل ٦٠ دقيقة',
+            'Open & Close time' : 'وقت الفتح والاغلاق',
+            'back resturnat' : 'العودة للمطاعم',
+            'back categories' : 'العودة للاصناف',
+            'back to dishes' : 'العودة للاطباق',
+            'Back' : 'الرجوع'
         });
 
         $translateProvider.translations('kr', {
@@ -760,7 +770,12 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Back to main menu': 'العودة للقائمة الرئيسية',
             'Please Select your Area' : 'الرجاء اختيار منطقتك',
             'Please Select your City' : 'الرجاء اختيار منطقتك',
-            'Delivery time is 60 min' : 'وقت التوصيل ٦٠ دقيقة'
+            'Delivery time is 60 min' : 'وقت التوصيل ٦٠ دقيقة',
+            'Open & Close time' : 'وقت الفتح والاغلاق',
+            'back resturnat' : 'العودة للمطاعم',
+            'back categories' : 'العودة للاصناف',
+            'back to dishes' : 'العودة للاطباق',
+            'Back' : 'الرجوع'
         });
         $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
         $translateProvider.useSanitizeValueStrategy(null)
