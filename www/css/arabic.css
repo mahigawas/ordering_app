@@ -211,7 +211,9 @@
     text-transform: uppercase;
     white-space: nowrap;
 }
-
+.right_to_left .popup .popup-body h5{
+    font-family: 'Droid Arabic Kufi';
+}
 title, select, p, div, span, h1, h4{
     font-family: 'Droid Arabic Kufi', 'RobotoRegular';
 }
@@ -234,6 +236,18 @@ input {
 		float: right;
 	    margin-right: 15px;
 	}
+    .right_to_left #select_category_box ul li:nth-child(2n+2) {
+        float: right;
+        margin-left: 8px;
+        margin-right: 23px;
+        width: 46%;
+    }
+    .right_to_left #select_category_box ul li {
+        margin-right: 6px;
+    }
+    .rest-detail-item img {
+        height: 180px;        
+    }
 }
 
 
