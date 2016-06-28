@@ -45,13 +45,13 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
 
         $scope.openFacebook = function() {
-            window.open('https://www.facebook.com/TalabateyIQ/?fref=ts', '_blank');
+            window.open('https://www.facebook.com/TalabateyIQ/?fref=ts', '_blank', 'location=no');
        }
        $scope.openYouTube = function() {
-         window.open('https://www.youtube.com/channel/UCfYFecRakE9CWCfABGHUyYg', '_blank');
+         window.open('https://www.youtube.com/channel/UCfYFecRakE9CWCfABGHUyYg', '_blank', 'location=no');
        }
        $scope.openAboutUs = function() {
-         window.open('http://www.talabatey.com', '_blank');
+         window.open('http://www.talabatey.com', '_blank', 'location=no');
        }
 
         $scope.onSignOut = function () {
