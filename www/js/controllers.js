@@ -12,7 +12,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
              $ionicSideMenuDelegate.canDragContent(false);
             $scope.state.loginState = LOGIN_STATE;
         });
-        
+
         $scope.state = {
             loginState : LOGIN_STATE
         };
@@ -397,8 +397,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             $scope.curArea = $scope.selectArea($scope.myOrder.neighborId.id);
             //console.log(JSON.stringify($scope.myOrder.neighborId));
             //gUserData.setData($scope.myOrder.neighborId);
-            
-            
+
+
             $scope.findRestaurant();
         };
 
@@ -1012,16 +1012,15 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         $scope.resSubMenulist = gCurDishList.getData().info;
         $scope.selectedFood = {};
 
-        $ionicModal.fromTemplateUrl('templates/order-product-option-popup.html', {
-            scope: $scope,
-            animation: 'slide-in-up',
-            controller: 'pOptionCtrl'
-        }).then(function(modal) {
-            $scope.modal = modal;
-        });
-
         $scope.$on('$ionicView.beforeEnter', function(){
             $scope.initMyDish();
+            $ionicModal.fromTemplateUrl('templates/order-product-option-popup.html', {
+              scope: $scope,
+              animation: 'slide-in-up',
+              controller: 'pOptionCtrl'
+            }).then(function(modal) {
+              $scope.modal = modal;
+            });
         });
 
         //----------------------------------------------------------------------------
@@ -1171,11 +1170,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         $scope.offProductOption = function(){
             $scope.initMyDish();
-            $scope.modal.hide();                             //Close Product Option Screen         
+            $scope.modal.hide();                             //Close Product Option Screen
         };
 
         $scope.cancelAllOrder = function(){
-            
+
             var promptPopup = $ionicPopup.confirm({
                 title: $filter('translate')('OrderingApp'),
                 template: $filter('translate')('Do you want to cancel current order?'),
@@ -1190,7 +1189,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     var ary = [];
                     gOrder.setData(ary);
                     $scope.initMyDish();
-                    $scope.modal.hide(); 
+                    $scope.modal.hide();
                 } else {
                     console.log('Pressed CANCEL!');
                 }
@@ -1385,7 +1384,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
     })
 
     .controller('checkOutCtrl',function($scope, $state, $rootScope, $ionicLoading, $ionicModal, $ionicPopup, $ionicHistory, $filter, gNearService,gDeliveryComment, gAllBusiness, gCurRestaurant, gOrder, gUserData, gBusinessData, CheckOutInfoApi, GetUserByIdApi, gStates){
-        
+
         $scope.show = function() {
             $ionicLoading.show({
                 template: '<p>{{ "GettingData..." | translate }}</p><ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'
@@ -1652,9 +1651,9 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         };
         // Cancel Button Action ---------------------
-        
+
         $scope.cancelOrder = function(){
-            
+
             var promptPopup = $ionicPopup.confirm({
                 title: $filter('translate')('OrderingApp'),
                 template: $filter('translate')('Do you want to cancel current order?'),
@@ -1667,7 +1666,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 if (res) {
                     console.log('Pressed OK!');
                     var ary = [];
-                    gOrder.setData(ary); 
+                    gOrder.setData(ary);
                     $state.go('ordering.detailMenu');
 
                 } else {
