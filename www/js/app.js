@@ -125,23 +125,25 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             //});
         });
 
-        $ionicPlatform.registerBackButtonAction(function (event) {
+        document.addEventListener("backbutton", onBackKeyDown, false);
 
-            var currState = $ionicHistory.currentStateName();
+        function onBackKeyDown() {
 
-                switch(currState) {
-                    case "sideMenu.homeScreen":
-                    navigator.app.exitApp();
-                    break;
-                    case "ordering.checkOut":
-                    case "finalCheckOut":
-                    break;
-                    default:
-                    $ionicHistory.backView();
-                }
-        }, 100);
+          var currState = $ionicHistory.currentStateName();
+          switch(currState) {
+              case "sideMenu.homeScreen":
+              navigator.app.exitApp();
+              break;
+              case "ordering.checkOut":
+              case "finalCheckOut":
+              break;
+              default:
+              $ionicHistory.backView();
+          }
+        }
 
     })
+
 
     .config(function($stateProvider, $urlRouterProvider, $translateProvider, $resourceProvider) {
 
