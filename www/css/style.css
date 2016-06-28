@@ -25,115 +25,7 @@
  Fonts Url
  -------------------------------------------------------*/
 
-@font-face {
-    font-family: 'RobotoBlack';
-    src: url('../fonts/RobotoBlack.eot');
-    src: url('../fonts/RobotoBlack.eot') format('embedded-opentype'),
-         url('../fonts/RobotoBlack.woff2') format('woff2'),
-         url('../fonts/RobotoBlack.woff') format('woff'),
-         url('../fonts/RobotoBlack.ttf') format('truetype'),
-         url('../fonts/RobotoBlack.svg#RobotoBlack') format('svg');
-}
 
-@font-face {
-    font-family: 'RobotoBlackItalic';
-    src: url('../fonts/RobotoBlackItalic.eot');
-    src: url('../fonts/RobotoBlackItalic.eot') format('embedded-opentype'),
-         url('../fonts/RobotoBlackItalic.woff2') format('woff2'),
-         url('../fonts/RobotoBlackItalic.woff') format('woff'),
-         url('../fonts/RobotoBlackItalic.ttf') format('truetype'),
-         url('../fonts/RobotoBlackItalic.svg#RobotoBlackItalic') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoBold';
-    src: url('../fonts/RobotoBold.eot');
-    src: url('../fonts/RobotoBold.eot') format('embedded-opentype'),
-         url('../fonts/RobotoBold.woff2') format('woff2'),
-         url('../fonts/RobotoBold.woff') format('woff'),
-         url('../fonts/RobotoBold.ttf') format('truetype'),
-         url('../fonts/RobotoBold.svg#RobotoBold') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoBoldItalic';
-    src: url('../fonts/RobotoBoldItalic.eot');
-    src: url('../fonts/RobotoBoldItalic.eot') format('embedded-opentype'),
-         url('../fonts/RobotoBoldItalic.woff2') format('woff2'),
-         url('../fonts/RobotoBoldItalic.woff') format('woff'),
-         url('../fonts/RobotoBoldItalic.ttf') format('truetype'),
-         url('../fonts/RobotoBoldItalic.svg#RobotoBoldItalic') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoCondensedBold';
-    src: url('../fonts/RobotoCondensedBold.eot');
-    src: url('../fonts/RobotoCondensedBold.eot') format('embedded-opentype'),
-         url('../fonts/RobotoCondensedBold.woff2') format('woff2'),
-         url('../fonts/RobotoCondensedBold.woff') format('woff'),
-         url('../fonts/RobotoCondensedBold.ttf') format('truetype'),
-         url('../fonts/RobotoCondensedBold.svg#RobotoCondensedBold') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoCondensedBoldItalic';
-    src: url('../fonts/RobotoCondensedBoldItalic.eot');
-    src: url('../fonts/RobotoCondensedBoldItalic.eot') format('embedded-opentype'),
-         url('../fonts/RobotoCondensedBoldItalic.woff2') format('woff2'),
-         url('../fonts/RobotoCondensedBoldItalic.woff') format('woff'),
-         url('../fonts/RobotoCondensedBoldItalic.ttf') format('truetype'),
-         url('../fonts/RobotoCondensedBoldItalic.svg#RobotoCondensedBoldItalic') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoCondensedItalic';
-    src: url('../fonts/RobotoCondensedItalic.eot');
-    src: url('../fonts/RobotoCondensedItalic.eot') format('embedded-opentype'),
-         url('../fonts/RobotoCondensedItalic.woff2') format('woff2'),
-         url('../fonts/RobotoCondensedItalic.woff') format('woff'),
-         url('../fonts/RobotoCondensedItalic.ttf') format('truetype'),
-         url('../fonts/RobotoCondensedItalic.svg#RobotoCondensedItalic') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoCondensedLight';
-    src: url('../fonts/RobotoCondensedLight.eot');
-    src: url('../fonts/RobotoCondensedLight.eot') format('embedded-opentype'),
-         url('../fonts/RobotoCondensedLight.woff2') format('woff2'),
-         url('../fonts/RobotoCondensedLight.woff') format('woff'),
-         url('../fonts/RobotoCondensedLight.ttf') format('truetype'),
-         url('../fonts/RobotoCondensedLight.svg#RobotoCondensedLight') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoCondensedLightItalic';
-    src: url('../fonts/RobotoCondensedLightItalic.eot');
-    src: url('../fonts/RobotoCondensedLightItalic.eot') format('embedded-opentype'),
-         url('../fonts/RobotoCondensedLightItalic.woff2') format('woff2'),
-         url('../fonts/RobotoCondensedLightItalic.woff') format('woff'),
-         url('../fonts/RobotoCondensedLightItalic.ttf') format('truetype'),
-         url('../fonts/RobotoCondensedLightItalic.svg#RobotoCondensedLightItalic') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoCondensedRegular';
-    src: url('../fonts/RobotoCondensedRegular.eot');
-    src: url('../fonts/RobotoCondensedRegular.eot') format('embedded-opentype'),
-         url('../fonts/RobotoCondensedRegular.woff2') format('woff2'),
-         url('../fonts/RobotoCondensedRegular.woff') format('woff'),
-         url('../fonts/RobotoCondensedRegular.ttf') format('truetype'),
-         url('../fonts/RobotoCondensedRegular.svg#RobotoCondensedRegular') format('svg');
-}
-
-@font-face {
-    font-family: 'RobotoItalic';
-    src: url('../fonts/RobotoItalic.eot');
-    src: url('../fonts/RobotoItalic.eot') format('embedded-opentype'),
-         url('../fonts/RobotoItalic.woff2') format('woff2'),
-         url('../fonts/RobotoItalic.woff') format('woff'),
-         url('../fonts/RobotoItalic.ttf') format('truetype'),
-         url('../fonts/RobotoItalic.svg#RobotoItalic') format('svg');
-}
 
 @font-face {
     font-family: 'RobotoRegular';
@@ -298,7 +190,6 @@ ul ul, ol ol, ul ol, ol ul { margin-bottom: 0; }
 
 body {
     font-size:14px;
-    font-family:Arial, Helvetica, sans-serif;
     line-height:1.3em;
 }
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 { /*Heading Styles*/
@@ -532,6 +423,7 @@ html, body {
     border-color: transparent;
     line-height: 5px !important;
     font-size: 10px !important;
+    font-family: 'RobotoRegular';
 }
 
 
@@ -1170,7 +1062,6 @@ table {
 }
 #checkout_box ul {
     /*height: 340px;*/
-    overflow-x: scroll;
     width: 100%;
 }
 #checkout_box ul li {
@@ -1263,13 +1154,10 @@ table {
   margin-top: 50px;
 }
 
-.rest-detail-item {
-    display: table;
-    border-style: solid;
-    border-bottom: rgba(77, 86, 201, 0.8);
-    padding-bottom: 0.1em !important;
-    height: 23%;
-    margin-bottom: 15px;
+.rest-detail-item img{
+    height: 130px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 /*.collection-repeat-container > div{
@@ -1287,6 +1175,14 @@ table {
 
 .item-input-wrapper{
   background-color: #f8f8f8;
+}
+.logo-div{
+  margin-top: 55px;
+  width: 70%;
+}
+.order-view-cont ion-item {
+    padding-bottom: 0;
+    padding-top: 2.8em;
 }
 /******************Language Setting Styles Ends************************/
 
@@ -1337,5 +1233,6 @@ table {
 	    margin-right: 15px;
 	    width: 48%;
 	}
+
 }
 
