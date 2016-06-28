@@ -2214,7 +2214,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
     })
 
-    .controller('finalCheckOutCtrl', function($scope, $state, $ionicScrollDelegate, $ionicLoading, $ionicModal, $ionicPopup, $ionicHistory, $filter, gNearService, gAllBusiness, gCurRestaurant, gOrder, gUserData, gBusinessData, PlaceOrderApi, PlaceOrderApi2, gMyLatLng, PaypalService, UpdateUserApi) {
+    .controller('finalCheckOutCtrl', function($scope, $state, $ionicScrollDelegate, $ionicLoading, $ionicModal, $ionicPopup, $ionicHistory, $filter, gNearService, gAllBusiness, gCurRestaurant, gOrder, gUserData, gBusinessData, PlaceOrderApi, PlaceOrderApi2, gMyLatLng, PaypalService, UpdateUserApi, $rootScope) {
 
         $scope.show = function() {
             $ionicLoading.show({
@@ -2242,6 +2242,29 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
 
         //---------------------------------------------------------------------
+
+        $scope.cancelOrder = function(){
+
+            var promptPopup = $ionicPopup.confirm({
+                title: $filter('translate')('OrderingApp'),
+                template: $filter('translate')('Do you want to cancel current order?'),
+                cancelType: 'button-stable',
+                okText: $filter('translate')('OK'),
+                cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
+                cancelText: $filter('translate')('Cancel')
+            });
+            promptPopup.then(function(res) {
+                if (res) {
+                    console.log('Pressed OK!');
+                    var ary = [];
+                    gOrder.setData(ary);
+                    $state.go('ordering.detailMenu');
+
+                } else {
+                    console.log('Pressed CANCEL!');
+                }
+            });
+        }
 
         function initVariables(){
             $scope.data = {
