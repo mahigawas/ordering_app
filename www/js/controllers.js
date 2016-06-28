@@ -1653,30 +1653,26 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         };
         // Cancel Button Action ---------------------
 
-        $scope.onClickCancel = function () {
-            if (gOrder.getData().length == 0){
-                $state.go('restaurantSearch');
-            }else{
-                var promptPopup = $ionicPopup.confirm({
-                    title: $filter('translate')('OrderingApp'),
-                    template: $filter('translate')('Are you cancel current order?'),
-                    cancelType: 'button-stable',
-                    okText: $filter('translate')('OK'),
-                    cancelText: $filter('translate')('Cancel'),
-                    cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right'
-                });
-                promptPopup.then(function(res) {
-                    if (res) {
-                        console.log('Pressed OK!');
-                        var ary = [];
-                        gOrder.setData(ary);
-                        $ionicHistory.clearCache();
-                        $state.go('restaurantSearch');
-                    } else {
-                        console.log('Pressed CANCEL!');
-                    }
-                });
-            }
+        $scope.cancelAllOrder = function(){
+            
+            var promptPopup = $ionicPopup.confirm({
+                title: $filter('translate')('OrderingApp'),
+                template: $filter('translate')('Do you want to cancel current order?'),
+                cancelType: 'button-stable',
+                okText: $filter('translate')('OK'),
+                cssClass: ['ar', 'kr'].indexOf($rootScope.lang) > -1 ? 'right_to_left' : 'left_to_right',
+                cancelText: $filter('translate')('Cancel')
+            });
+            promptPopup.then(function(res) {
+                if (res) {
+                    console.log('Pressed OK!');
+                    var ary = [];
+                    gOrder.setData(ary);
+                    $state.go('ordering.detailMenu'); 
+                } else {
+                    console.log('Pressed CANCEL!');
+                }
+            });
         }
     })
 
