@@ -2010,7 +2010,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     hash = sha512('St49tOr03sXa82jAx83r' + $scope.signUpUser.mobile_number)
                     $http({
                         method: 'POST',
-                        url: 'http://order.talabatey.com/m_api/v1/requestcode/',
+                        url: 'http://ordering.talabatey.com/m_api/v1/requestcode/',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
                         transformRequest: function(obj) {
                             var str = [];
@@ -2053,7 +2053,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             hash = sha512('St49tOr03sXa82jAx83r' + $scope.signUpUser.mobile + $scope.signUpUser.registration_code)
             $http({
                 method: 'POST',
-                url: 'http://order.talabatey.com/m_api/v1/verify/',
+                url: 'http://ordering.talabatey.com/m_api/v1/verify/',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
                 transformRequest: function(obj) {
                     var str = [];
