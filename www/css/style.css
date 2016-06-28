@@ -1262,6 +1262,29 @@ table {
 .margin-popup-order{
   margin-top: 50px;
 }
+
+.rest-detail-item {
+    display: table;
+    border-style: solid;
+    border-bottom: rgba(77, 86, 201, 0.8);
+    padding-bottom: 0.1em !important;
+    height: 23%;
+    margin-bottom: 15px;
+}
+
+.select-item option {
+   background-color: #f45353;
+   color: #fff;
+}
+
+.collection-repeat-container > div{
+  background-color: #f45353;
+  color: #fff;
+}
+
+.popup-buttons .button {
+  padding:9px 5px; 
+}
 /******************Language Setting Styles Ends************************/
 
 @media (min-width: 401px) and (max-width: 767px){

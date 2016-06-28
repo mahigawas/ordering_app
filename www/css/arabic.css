@@ -196,11 +196,12 @@
     font-size: 15px;
     padding: 16px 0;
 }
-@media (min-width: 401px) and (max-width: 767px){
-	.btn-arabic{
-		float: right;
-	    margin-right: 15px;
-	}
+.right_to_left #select_category_box li {
+    display: inline-block;
+    margin-right: 20px;
+    width: 46%;
+    margin-bottom: 15px;
+    float: right;
 }
 
 .select-item {
@@ -212,14 +213,23 @@
 }
 
 title, select, p, div, span, h1, h4{
-	font-family: 'Droid Arabic Kufi', 'RobotoRegular';
+    font-family: 'Droid Arabic Kufi', 'RobotoRegular';
 }
 
 input {
-	font-family: 'Droid Arabic Kufi', 'RobotoRegular';
-	padding-right: 0.8em !important;
+    font-family: 'Droid Arabic Kufi', 'RobotoRegular';
+    padding-right: 0.8em !important;
 }
 
 .ng-binding.float-right.mg-top-sm {
-	padding-right: 1em !important;
+    padding-right: 1em !important;
 }
+
+@media (min-width: 401px) and (max-width: 767px){
+	.btn-arabic{
+		float: right;
+	    margin-right: 15px;
+	}
+}
+
+

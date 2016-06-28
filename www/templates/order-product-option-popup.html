@@ -2,14 +2,14 @@
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
        <ion-nav-buttons side="left">
             <button class="btn btn-back-text"  ng-click="offProductOption()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'back to dishes' | translate }}</button>
-            <button class="btn btn-close"  ng-click="cancelAllOrder()"  ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnclose.png"></button>
+            <button class="btn btn-back-text"  ng-click="cancelAllOrder()"  ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'cancel order' | translate }}</button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{ productOptionList.name }}</ion-nav-title>
 
         <ion-nav-buttons side="right">
             <button class="btn btn-back-text"  ng-click="offProductOption()" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'back to dishes' | translate }}</button>
-            <button class="btn btn-close"  ng-click="cancelAllOrder()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnclose.png"></button>
+            <button class="btn btn-back-text"  ng-click="cancelAllOrder()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'cancel order' | translate }}</button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="color-bg margin-popup-order padding">

@@ -459,7 +459,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back categories' : 'Back Categories',
             'back to dishes' : 'Back To Dishes',
             'Back' : 'Back',
-            'Home' : 'Home'
+            'Home' : 'Home',
+            'cancel order' : 'cancel order'
 
         });
 
@@ -616,7 +617,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back categories' : 'العودة للاصناف',
             'back to dishes' : 'العودة للاطباق',
             'Back' : 'الرجوع',
-            'Home' : 'آلرئيسية'
+            'Home' : 'آلرئيسية',
+            'cancel order' : 'الغاء الطلب'
         });
 
         $translateProvider.translations('kr', {
@@ -776,7 +778,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back categories' : 'العودة للاصناف',
             'back to dishes' : 'العودة للاطباق',
             'Back' : 'الرجوع',
-            'Home' : 'آلرئيسية'
+            'Home' : 'آلرئيسية',
+            'cancel order' : 'الغاء الطلب'
         });
         $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
         $translateProvider.useSanitizeValueStrategy(null)
