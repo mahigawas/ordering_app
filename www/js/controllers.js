@@ -1652,8 +1652,8 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         };
         // Cancel Button Action ---------------------
-
-        $scope.cancelAllOrder = function(){
+        
+        $scope.cancelOrder = function(){
             
             var promptPopup = $ionicPopup.confirm({
                 title: $filter('translate')('OrderingApp'),
@@ -1667,8 +1667,9 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                 if (res) {
                     console.log('Pressed OK!');
                     var ary = [];
-                    gOrder.setData(ary);
-                    $state.go('ordering.detailMenu'); 
+                    gOrder.setData(ary); 
+                    $state.go('ordering.detailMenu');
+
                 } else {
                     console.log('Pressed CANCEL!');
                 }

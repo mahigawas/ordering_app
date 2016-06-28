@@ -2,14 +2,14 @@
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
         <ion-nav-buttons side="left">
             <button class="btn btn-back-text" ui-sref="ordering.detailMenu"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'back to dishes' | translate }}</button>
-            <button class="btn btn-back-text"  ng-click="cancelAllOrder()"  ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'cancel order' | translate }}</button>
+            <button class="btn btn-back-text" ng-click="cancelOrder()"  ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'cancel order' | translate }}</button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{ 'Order Details' | translate }}</ion-nav-title>
 
         <ion-nav-buttons side="right">
             <button class="btn btn-back-text" ui-sref="ordering.detailMenu" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'back to dishes' | translate }}</button>
-            <button class="btn btn-back-text"  ng-click="cancelAllOrder()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'cancel order' | translate }}</button>
+            <button class="btn btn-back-text" ng-click="cancelOrder()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'cancel order' | translate }}</button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="order-view-cont padding color-bg">
