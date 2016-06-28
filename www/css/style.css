@@ -1061,10 +1061,10 @@ table {
   width: 100%;
   border-radius: 5px;
   min-height: 40px;
-  background-color: transparent;
+  background-color: #f45353;
  /* color: white;
   font-size: 18px;*/
-  color: red;
+  color: #fff;
   font-size: 15px;
   padding-left: 0.8em;
   -webkit-appearance: none;
@@ -1272,18 +1272,21 @@ table {
     margin-bottom: 15px;
 }
 
-.select-item option {
-   background-color: #f45353;
-   color: #fff;
-}
-
-.collection-repeat-container > div{
+/*.collection-repeat-container > div{
   background-color: #f45353;
   color: #fff;
-}
+}*/
 
 .popup-buttons .button {
   padding:9px 5px; 
+}
+
+.bar.item-input-inset .item-input-wrapper input {
+  padding-top: 35px;
+}
+
+.item-input-wrapper{
+  background-color: #f8f8f8;
 }
 /******************Language Setting Styles Ends************************/
 

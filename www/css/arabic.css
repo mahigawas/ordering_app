@@ -225,6 +225,10 @@ input {
     padding-right: 1em !important;
 }
 
+.font-ar{
+    font-family: 'Droid Arabic Kufi', 'RobotoRegular';
+}
+
 @media (min-width: 401px) and (max-width: 767px){
 	.btn-arabic{
 		float: right;
