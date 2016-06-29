@@ -125,22 +125,6 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             //});
         });
 
-        // document.addEventListener("backbutton", onBackKeyDown, false);
-
-        // function onBackKeyDown() {
-
-        //   var currState = $ionicHistory.currentStateName();
-        //   switch(currState) {
-        //       case "sideMenu.homeScreen":
-        //       navigator.app.exitApp();
-        //       break;
-        //       case "ordering.checkOut":
-        //       case "finalCheckOut":
-        //       break;
-        //       default:
-        //       $ionicHistory.backView();
-        //   }
-        // }
 
         $ionicPlatform.registerBackButtonAction(function (event) {
             if ($ionicHistory.currentStateName() != 'sideMenu.homeScreen'){

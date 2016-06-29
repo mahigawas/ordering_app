@@ -1,4 +1,4 @@
-var modalSelectTemplates = modalSelectTemplates || {};modalSelectTemplates['modal-template-multiple.html'] = ' <ion-modal-view class="ionic-select-modal" ng-class="::ui.modalClass">\n' +
+var modalSelectTemplates = modalSelectTemplates || {};modalSelectTemplates['modal-template-multiple.html'] = ' <ion-modal-view class="ionic-select-modal {{ [ar, kr].indexOf(lang) > -1 ? right_to_left: left_to_right}}" ng-class="::ui.modalClass">\n' +
     '    \n' +
     '    <ion-header-bar ng-class="::ui.headerFooterClass">\n' +
     '      <h1 class="title">{{::ui.modalTitle}} MULTIPLE</h1>\n' +
@@ -60,7 +60,7 @@ var modalSelectTemplates = modalSelectTemplates || {};modalSelectTemplates['moda
     '</ion-modal-view>\n' +
     '';
 
-var modalSelectTemplates = modalSelectTemplates || {};modalSelectTemplates['modal-template.html'] = ' <ion-modal-view class="ionic-select-modal" ng-class="::ui.modalClass">\n' +
+var modalSelectTemplates = modalSelectTemplates || {};modalSelectTemplates['modal-template.html'] = ' <ion-modal-view class="ionic-select-modal {{ [ar, kr].indexOf(lang) > -1 ? right_to_left: left_to_right}}" ng-class="::ui.modalClass">\n' +
     '    \n' +
     '    <ion-header-bar ng-class="::ui.headerFooterClass">\n' +
     '      <h1 class="title">{{::ui.modalTitle}}</h1>\n' +
