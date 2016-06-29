@@ -3,12 +3,14 @@
         
         <ion-nav-buttons side="left">
             <button class="btn btn-back-text" ng-click="onClickDetail()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'Order Details' | translate }}</button>
+            <button class="btn btn-back-text font-ar left-btn-navbar" ng-click="cancelOrder()"  ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'cancel order' | translate }}</button>
         </ion-nav-buttons>
 
         <ion-nav-title>{{'Checkout' | translate}}</ion-nav-title>
 
         <ion-nav-buttons side="right">
-            <button class="btn btn-back-text" ng-click="onClickDetail()" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'Order Details' | translate }}</button>
+            <button class="btn btn-back-text font-ar" ng-click="onClickDetail()" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'Order Details' | translate }}</button>
+            <button class="btn btn-back-text" ng-click="cancelOrder()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'cancel order' | translate }}</button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="color-bg padding">

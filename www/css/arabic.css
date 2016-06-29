@@ -234,6 +234,10 @@ input {
     font-family: 'Droid Arabic Kufi', 'RobotoRegular';
 }
 
+.left-btn-navbar{
+        margin-right: 230px;
+}
+
 @media (min-width: 401px) and (max-width: 767px){
 	.btn-arabic{
 		float: right;
