@@ -1190,6 +1190,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     gOrder.setData(ary);
                     $scope.initMyDish();
                     $scope.modal.hide();
+                    $state.go('restaurantSearch');
                 } else {
                     console.log('Pressed CANCEL!');
                 }
@@ -1667,7 +1668,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     console.log('Pressed OK!');
                     var ary = [];
                     gOrder.setData(ary);
-                    $state.go('ordering.detailMenu');
+                    $state.go('restaurantSearch');
 
                 } else {
                     console.log('Pressed CANCEL!');
@@ -2258,7 +2259,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     console.log('Pressed OK!');
                     var ary = [];
                     gOrder.setData(ary);
-                    $state.go('ordering.detailMenu');
+                    $state.go('restaurantSearch');
 
                 } else {
                     console.log('Pressed CANCEL!');

@@ -1,4 +1,4 @@
-<ion-modal-view>
+<ion-modal-view class="{{ ['ar', 'kr'].indexOf(lang) > -1 ? 'right_to_left': 'left_to_right'}}">
     <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
        <ion-nav-buttons side="left">
             <button class="btn btn-back-text"  ng-click="offProductOption()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'back to dishes' | translate }}</button>

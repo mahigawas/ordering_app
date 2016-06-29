@@ -125,22 +125,38 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             //});
         });
 
-        document.addEventListener("backbutton", onBackKeyDown, false);
+        // document.addEventListener("backbutton", onBackKeyDown, false);
 
-        function onBackKeyDown() {
+        // function onBackKeyDown() {
 
-          var currState = $ionicHistory.currentStateName();
-          switch(currState) {
-              case "sideMenu.homeScreen":
-              navigator.app.exitApp();
-              break;
-              case "ordering.checkOut":
-              case "finalCheckOut":
-              break;
-              default:
-              $ionicHistory.backView();
-          }
-        }
+        //   var currState = $ionicHistory.currentStateName();
+        //   switch(currState) {
+        //       case "sideMenu.homeScreen":
+        //       navigator.app.exitApp();
+        //       break;
+        //       case "ordering.checkOut":
+        //       case "finalCheckOut":
+        //       break;
+        //       default:
+        //       $ionicHistory.backView();
+        //   }
+        // }
+
+        $ionicPlatform.registerBackButtonAction(function (event) {
+            if ($ionicHistory.currentStateName() != 'sideMenu.homeScreen'){
+                //event.preventDefault();
+                var currState = $ionicHistory.currentStateName();
+                  switch(currState) {
+                      case "ordering.checkOut":
+                      case "finalCheckOut":
+                      break;
+                      default:
+                      $ionicHistory.backView();
+                  }
+            } else{
+                navigator.app.exitApp()
+            }
+        }, 100);
 
     })
 
