@@ -230,6 +230,9 @@ input {
 .font-ar{
     font-family: 'Droid Arabic Kufi', 'RobotoRegular';
 }
+.right_to_left #checkout_box ul li:first-child{
+    font-family: 'Droid Arabic Kufi', 'RobotoRegular';
+}
 
 @media (min-width: 401px) and (max-width: 767px){
 	.btn-arabic{
