@@ -134,9 +134,9 @@
 #search_restaurant_box  .white_box form .location-cont .popuptext-ar{
   padding-right: 17px;
 }
-.right_to_left #select_category_box ul li{
+.right_to_left #select_category_box ul li {
     margin-left: 6px;
-    margin-right: 0;
+    margin-right: 4px;
 }
 
 #circle-ar {
@@ -167,7 +167,7 @@
 }
 .right_to_left #select_category_box ul li:nth-child(2n+2) {
     float: right;
-    margin-right: 10px;
+    margin-right: 7px;
     width: 46%;
 }
 .right_to_left .modal-backdrop #size_box_button .white_box{
@@ -178,7 +178,7 @@
     float: left;
 }
 .confirm-dlg button {
-    width: 100%;
+    width: 100% !important;
 }
 .right_to_left .select_dish_np::after{
     background-color: #d6d6d6;
@@ -235,9 +235,22 @@ input {
 }
 
 .left-btn-navbar{
-        margin-right: 230px;
+    left: 10px;
+    margin-right: 0;
+    position: absolute;
 }
-
+.right_to_left .buttons-right{
+    right: 10px !important;
+    position: absolute;
+}
+.right_to_left .bar .buttons-right span {
+    display: inherit;
+    margin-right: 0px;
+}
+.right_to_left #size_box_button .white_box{
+    margin-right: 0;
+    margin-left: 10px;
+}
 @media (min-width: 401px) and (max-width: 767px){
 	.btn-arabic{
 		float: right;
@@ -245,8 +258,7 @@ input {
 	}
     .right_to_left #select_category_box ul li:nth-child(2n+2) {
         float: right;
-        margin-left: 8px;
-        margin-right: 23px;
+        margin-right: 7px;
         width: 46%;
     }
     .right_to_left #select_category_box ul li {

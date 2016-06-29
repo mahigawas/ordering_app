@@ -1176,6 +1176,18 @@ table {
     padding-bottom: 0;
     padding-top: 2.8em;
 }
+.bar .buttons-left span {
+    display: inherit;
+    margin-left: 5px;
+}
+.bar .buttons-right span {
+    display: inherit;
+    margin-right: 5px;
+}
+.bar .title{
+  left: 0 !important;
+  right: 0 !important;
+}
 /******************Language Setting Styles Ends************************/
 
 @media (min-width: 401px) and (max-width: 767px){
