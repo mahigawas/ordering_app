@@ -160,9 +160,10 @@ var modalSelectTemplates = modalSelectTemplates || {};modalSelectTemplates['moda
 			};
 		}])
 
-		.directive('modalSelect', ['$ionicModal','$timeout', '$filter', '$parse', '$templateCache',
-			function ($ionicModal, $timeout, $filter, $parse, $templateCache ) {
-
+		.directive('modalSelect', ['$ionicModal','$timeout', '$filter', '$parse', '$templateCache', '$rootScope',
+			function ($ionicModal, $timeout, $filter, $parse, $templateCache, $rootScope ) {
+				$rootScope.lang = localStorage.getItem('language') || 'ar'
+				
 				return {
 					restrict: 'A',
 					require : 'ngModel',

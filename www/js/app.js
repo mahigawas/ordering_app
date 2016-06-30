@@ -96,7 +96,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                 console.log("notificationOpenedCallback"+JSON.stringify(jsonData));
                 //alert('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
                 $rootScope.order = jsonData.additionalData;
-                $ionicModal.fromTemplateUrl('templates/push-confirm-popup.html', {
+                $ionicModal.fromTemplateUrl('templates/home-screen.html', {
                     scope: $rootScope,
                     animation: 'slide-in-up'
                 }).then(function(modal) {
@@ -118,8 +118,11 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                 window.plugins.OneSignal.registerForPushNotifications();
                 window.plugins.OneSignal.setSubscription(true); 
                 window.plugins.OneSignal.enableInAppAlertNotification(true);
+                window.plugins.OneSignal.enableNotificationsWhenActive(true);
 
                  window.plugins.OneSignal.getIds(function(ids) {
+                    localStorage.setItem('userId',ids.userId);
+                    localStorage.setItem('pushToken',ids.pushToken);
                    //alert("PlayerId: " + ids.userId + "PushToken: " + ids.pushToken);
                    //document.getElementById("GameThrivePlayerId").innerHTML = "PlayerId: " + ids.playerId;
                    //document.getElementById("GameThrivePushToken").innerHTML = "PushToken: " + ids.pushToken;

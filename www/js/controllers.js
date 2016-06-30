@@ -2011,7 +2011,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     hash = sha512('St49tOr03sXa82jAx83r' + $scope.signUpUser.mobile_number)
                     $http({
                         method: 'POST',
-                        url: 'http://ordering.talabatey.com/m_api/v1/requestcode/',
+                        url: 'http://order.talabatey.com/m_api/v1/requestcode/',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
                         transformRequest: function(obj) {
                             var str = [];
@@ -2054,7 +2054,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             hash = sha512('St49tOr03sXa82jAx83r' + $scope.signUpUser.mobile + $scope.signUpUser.registration_code)
             $http({
                 method: 'POST',
-                url: 'http://ordering.talabatey.com/m_api/v1/verify/',
+                url: 'http://order.talabatey.com/m_api/v1/verify/',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
                 transformRequest: function(obj) {
                     var str = [];
@@ -2369,6 +2369,23 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             //$state.go('sideMenu.homeScreen');
         };
 
+        //For send notification
+        $scope.sendConfirmNotification = function(){
+            window.plugins.OneSignal.getIds(function(ids) {
+              var notificationObj = { contents: {en: "Your Order is confirmed !"},
+                                      include_player_ids: [ids.userId]};
+              window.plugins.OneSignal.postNotification(notificationObj,
+                function(successResponse) {
+                  console.log("Notification Post Success:", successResponse);
+                },
+                function (failedResponse) {
+                  console.log("Notification Post Failed: ", failedResponse);
+                  alert("Notification Post Failed:\n" + JSON.stringify(failedResponse));
+                }
+              );
+            });
+        }
+
         $scope.fieldDetect = function( str ) {
             /*$ionicPopup.alert({
                 title : $filter('translate')('OrderingApp'),
@@ -2565,6 +2582,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     // All Order data init
                     initOrderData();
                     $scope.onConfirm();
+                    $scope.sendConfirmNotification();
                 }else{
                     $ionicPopup.alert({
                         title : $filter('translate')('OrderingApp'),

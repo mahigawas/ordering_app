@@ -5,7 +5,7 @@
 angular.module('orderingApp.factories',['ngResource'])
     
     .factory('NeighborListApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/fetchNeighborhoodAreas.php',{},{
+        return $resource('http://order.talabatey.com/ionicapp/fetchNeighborhoodAreas.php',{},{
             charge: {method:'POST'}
         });
     })
@@ -77,13 +77,13 @@ angular.module('orderingApp.factories',['ngResource'])
     })
 
     .factory('CountryApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/country.php',{},{
+        return $resource('http://order.talabatey.com/ionicapp/country.php',{},{
             charge: {method:'POST'}
         });
     })
 
     .factory('CityApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/city.php',{
+        return $resource('http://order.talabatey.com/ionicapp/city.php',{
             country : '@countryID'
         },{
             charge: {method:'POST'}
@@ -91,7 +91,7 @@ angular.module('orderingApp.factories',['ngResource'])
     })
 
     .factory('Logout', function($resource){
-        return $resource("http://ordering.talabatey.com/ionicapp/logout.php",{
+        return $resource("http://order.talabatey.com/ionicapp/logout.php",{
             id : '@id'
         },{
             charge: {method:'POST'}
@@ -100,7 +100,7 @@ angular.module('orderingApp.factories',['ngResource'])
 
 
     .factory('AllBusinessApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/allbusiness.php',{
+        return $resource('http://order.talabatey.com/ionicapp/allbusiness.php',{
             location:'@location',
             deliveryType:'@deliveryType',
             category:'@categories',
@@ -113,7 +113,7 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('FetchAllBusinessMenuApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/fetchallbusinessmenu.php',{
+        return $resource('http://order.talabatey.com/ionicapp/fetchallbusinessmenu.php',{
             businessid:'@id',
             deliverytype:'@type',
             whereall:'@where',
@@ -123,14 +123,14 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('BusinessInfoApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/businessinfo.php',{
+        return $resource('http://order.talabatey.com/ionicapp/businessinfo.php',{
             businessid:'@id'
         },{
             charge: {method:'POST'}
         });
     })
     .factory('ProductOptionApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/productoption.php',{
+        return $resource('http://order.talabatey.com/ionicapp/productoption.php',{
             extras_id:[],
             dish_id:''
         },{
@@ -138,14 +138,14 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('GetUserByIdApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/userbyid.php',{
+        return $resource('http://order.talabatey.com/ionicapp/userbyid.php',{
             id:''
         },{
             charge: {method:'POST'}
         });
     })
     .factory('PlaceOrderApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/placeorder.php',{
+        return $resource('http://order.talabatey.com/ionicapp/placeorder.php',{
             id:'',
             data:'',
             ordercomment:''
@@ -154,7 +154,7 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('PlaceOrderApi2', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/place_order.php',{
+        return $resource('http://order.talabatey.com/ionicapp/place_order.php',{
             user_id:'',
             user_city:'',
             placed_data:''
@@ -163,21 +163,21 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('CheckOutInfoApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/checkoutinfo.php',{
+        return $resource('http://order.talabatey.com/ionicapp/checkoutinfo.php',{
 
         },{
             charge: {method:'POST'}
         });
     })
     .factory('CityApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/city.php',{
+        return $resource('http://order.talabatey.com/ionicapp/city.php',{
             country : '@countryID'
         },{
             charge: {method:'POST'}
         });
     })
     .factory('UserRegisterApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/register.php',{
+        return $resource('http://order.talabatey.com/ionicapp/register.php',{
             name        : '@name',
             lastname    : '@lName' ,
             lastname2   : '@lName2' ,
@@ -198,7 +198,7 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('UpdateUserApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/updateuserbyid.php',{
+        return $resource('http://order.talabatey.com/ionicapp/updateuserbyid.php',{
             id          : '@userID',
             name        : '@name',
             lastname    : '@lName' ,
@@ -219,7 +219,7 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('SignInApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/login.php',{
+        return $resource('http://order.talabatey.com/ionicapp/login.php',{
             email       : '@Email' ,
             password    : '@Password'
         },{
@@ -227,21 +227,21 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('MyOrderApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/myorder.php',{
+        return $resource('http://order.talabatey.com/ionicapp/myorder.php',{
             usr : '@userId'
         },{
             charge: {method:'POST'}
         });
     })
     .factory('SingleOrderApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/singleorder.php',{
+        return $resource('http://order.talabatey.com/ionicapp/singleorder.php',{
             id:'@orderID'
         },{
             charge: {method:'POST'}
         });
     })
     .factory('PushUserApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/gcm_user.php',{
+        return $resource('http://order.talabatey.com/ionicapp/gcm_user.php',{
             user_id : '@userID',
             device_id : '@deviceID',
             kind : '@deviceKind'
@@ -250,7 +250,7 @@ angular.module('orderingApp.factories',['ngResource'])
         });
     })
     .factory('PushStateApi', function($resource){
-        return $resource('http://ordering.talabatey.com/ionicapp/gcm_push_setting.php',{
+        return $resource('http://order.talabatey.com/ionicapp/gcm_push_setting.php',{
             user_id : '@userID',
             login_status : '@loginStatus'
         },{
