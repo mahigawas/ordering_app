@@ -93,7 +93,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
             // OneSignal_Push Config---------------------------------
             var notificationOpenedCallback = function(jsonData) {
-                //alert('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+                console.log("notificationOpenedCallback"+JSON.stringify(jsonData));
+                alert('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
                 $rootScope.order = jsonData.additionalData;
                 $ionicModal.fromTemplateUrl('templates/push-confirm-popup.html', {
                     scope: $rootScope,
@@ -108,21 +109,29 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             };
 
             if (window.plugins && window.plugins.OneSignal){
-                //alert('INIT OK!');
+                //console.log('INIT OK!');
                 window.plugins.OneSignal.init(ONE_SIGNAL_ID,
                     {googleProjectNumber: GCM_SENDER_ID},
                     notificationOpenedCallback);
 
                 // Show an alert box if a notification comes in when the user is in your app.
+                window.plugins.OneSignal.registerForPushNotifications();
+                window.plugins.OneSignal.setSubscription(true); 
                 window.plugins.OneSignal.enableInAppAlertNotification(true);
+
+                 window.plugins.OneSignal.getIds(function(ids) {
+                   alert("PlayerId: " + ids.userId + "PushToken: " + ids.pushToken);
+                   //document.getElementById("GameThrivePlayerId").innerHTML = "PlayerId: " + ids.playerId;
+                   //document.getElementById("GameThrivePushToken").innerHTML = "PushToken: " + ids.pushToken;
+                   console.log('getIds: ' + JSON.stringify(ids));
+                });
+
+                window.plugins.OneSignal.getTags(function(tags) {
+                  console.log('Tags Received: ' + JSON.stringify(tags));
+                });
             }
 
-            //window.plugins.OneSignal.getIds(function(ids) {
-            //    alert("PlayerId: " + ids.userId + "PushToken: " + ids.pushToken);
-            //    //document.getElementById("GameThrivePlayerId").innerHTML = "PlayerId: " + ids.playerId;
-            //    //document.getElementById("GameThrivePushToken").innerHTML = "PushToken: " + ids.pushToken;
-            //    console.log('getIds: ' + JSON.stringify(ids));
-            //});
+           
         });
 
 
