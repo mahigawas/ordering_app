@@ -94,7 +94,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             // OneSignal_Push Config---------------------------------
             var notificationOpenedCallback = function(jsonData) {
                 console.log("notificationOpenedCallback"+JSON.stringify(jsonData));
-                alert('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+                //alert('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
                 $rootScope.order = jsonData.additionalData;
                 $ionicModal.fromTemplateUrl('templates/push-confirm-popup.html', {
                     scope: $rootScope,
@@ -120,7 +120,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                 window.plugins.OneSignal.enableInAppAlertNotification(true);
 
                  window.plugins.OneSignal.getIds(function(ids) {
-                   alert("PlayerId: " + ids.userId + "PushToken: " + ids.pushToken);
+                   //alert("PlayerId: " + ids.userId + "PushToken: " + ids.pushToken);
                    //document.getElementById("GameThrivePlayerId").innerHTML = "PlayerId: " + ids.playerId;
                    //document.getElementById("GameThrivePushToken").innerHTML = "PushToken: " + ids.pushToken;
                    console.log('getIds: ' + JSON.stringify(ids));
