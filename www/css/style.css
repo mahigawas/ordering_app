@@ -882,7 +882,7 @@ table {
 }*/
 #order_details_box .table thead tr th {
     background-color: #ccc;
-    font-family: "RobotoRegular";
+    font-family: 'Droid Arabic Kufi', "RobotoRegular";
     font-size: 13px;
     font-weight: bold;
     letter-spacing: 0;
@@ -913,6 +913,7 @@ table {
     margin-bottom: 20px;
     max-width: 100%;
     width: 100%;
+    text-align: justify;
 }
 .bold {
     font-weight: 600;
