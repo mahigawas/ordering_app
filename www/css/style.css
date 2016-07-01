@@ -516,6 +516,12 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     margin-top: 15px;
 }
 
+.button-common {
+    -webkit-border-radius: 70px;
+    width: 100%;
+    margin-top: 15px;
+}
+
 .menu{
     width: 25px;
     height: 5px;
@@ -896,6 +902,7 @@ table {
 }
 #order_details_box .table tbody tr td p {
     margin: 0;
+    text-align: justify;
 }
 .btn-viewmore {
     background-color: #ef404c;

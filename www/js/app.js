@@ -93,9 +93,9 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
             // OneSignal_Push Config---------------------------------
             var notificationOpenedCallback = function(jsonData) {
-                console.log("notificationOpenedCallback"+JSON.stringify(jsonData));
+                //console.log("notificationOpenedCallback"+JSON.stringify(jsonData));
                 //alert('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
-                $rootScope.order = jsonData.additionalData;
+                /*$rootScope.order = jsonData.additionalData;
                 $ionicModal.fromTemplateUrl('templates/home-screen.html', {
                     scope: $rootScope,
                     animation: 'slide-in-up'
@@ -105,7 +105,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                 });
                 $rootScope.offConfirm = function(){
                     $rootScope.modal.hide();
-                }
+                }*/
             };
 
             if (window.plugins && window.plugins.OneSignal){

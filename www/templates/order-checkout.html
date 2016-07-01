@@ -37,7 +37,7 @@
                   <span class="float-right text-red ar">{{(calcTotalPrice).toFixed(2)}} {{'IQD' | translate}}</span>
                 </li>
                 <li>
-                    <button type="button" class="btn btn-common button button-positive" ng-click="onFinalCheckOut()" ng-if="subTotal >= minimumPrice">{{'ORDER NOW' | translate}}</button> 
+                    <button type="button" class="btn button-common button button-positive" ng-click="onFinalCheckOut()" ng-if="subTotal >= minimumPrice">{{'ORDER NOW' | translate}}</button> 
                     <button type="button" class="btn btn-common button button-positive" ng-if="subTotal < minimumPrice">{{ 'MIN ORDER' | translate }} : {{ minimumPrice.toFixed(2) }}</button>
                 </li>
               </ul>
