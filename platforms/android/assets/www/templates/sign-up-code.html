@@ -9,14 +9,14 @@
                 <ul class="col-xs-12">
                   <li>
                     <div class="form-group">
-                       {{ 'Hi' | translate }} {{signUpUser.name}},
-                       {{ 'Please enter your registration code' | translate }}
-                      <input type="text" class="form-control"  placeholder="{{ 'Registration Code' | translate }}" ng-model="signUpUser.registration_code">
+                       <span>{{ 'Hi' | translate }} {{signUpUser.name}},
+                       {{ 'Please enter your registration code' | translate }}</span>
+                      <input type="text" class="w-100 in-box-style signup-code-input"  placeholder="{{ 'Registration Code' | translate }}" ng-model="signUpUser.registration_code">
                     </div>
                   </li>
                   
                   <li>
-                    <button type="button" class="btn btn-common" ng-click="onClickSignUp()">{{ 'SIGN UP' | translate }}</button>
+                    <button type="button" class="btn button-common button button-positive" ng-click="onClickSignUp()">{{ 'SIGN UP' | translate }}</button>
                   </li>
                 </ul>
                
