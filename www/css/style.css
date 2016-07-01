@@ -1198,6 +1198,10 @@ table {
   left: 0 !important;
   right: 0 !important;
 }
+
+.signup-code-input {
+  margin-top: 10px !important;
+}
 /******************Language Setting Styles Ends************************/
 
 @media (min-width: 401px) and (max-width: 767px){
