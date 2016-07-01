@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-nav-bar class="bar-stable bar-shadow">
+        <ion-nav-buttons side="left">
+            <button class="button top-btn" menu-toggle="left", ng-show="['ar', 'kr'].indexOf(lang) < -1"><img src="img/icon-back.png">
+            </button>
+            <button class="button top-btn" menu-toggle="right" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/icon-back.png">
+            </button>
+        </ion-nav-buttons>
+    <ion-nav-title>{{ 'Settings' | translate }}</ion-nav-title>
+    </ion-nav-bar>
+
+    <ion-content>
+        <div class="list">
+            <div class="item item-divider divider-padding">
+                {{ 'Notifications' | translate }}
+            </div>
+            <ion-toggle ng-model="pushState.checked" ng-change="pushChanged()" ng-show="getLoginState() == true">
+                {{ pushState.curState }} {{ 'Push Notifications' | translate }}
+            </ion-toggle>
+			<div class="item" ng-show="getLoginState() == false">
+				<span class="positive {{['ar', 'kr'].indexOf(lang) < 0? 'float-left' : 'float-right'}}">{{ '*Login Required' | translate }}</span>
+				<span class="{{['ar', 'kr'].indexOf(lang) > -1? 'float-right' : 'float-left'}} font-large">{{ 'Push Notifications' | translate }}</span>
+			</div>
+            <!--<div class="item item-divider divider-padding">
+                Others
+            </div>
+            <div class="item">
+                <input class="sel-location" placeholder="Change your location">
+            </div>-->
+        </div>
+    </ion-content>
+</ion-view>

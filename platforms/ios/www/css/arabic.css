@@ -1,0 +1,221 @@
+.arabic{
+	text-align: right;
+}
+#registration_box_arabic ul li .form-group label{
+	font-size: 12px;
+	color: #cccccc;
+	font-weight: normal;
+}
+#registration_box_arabic .form-group{
+	position: relative;
+}
+#registration_box_arabic .form-group::before {
+    border-bottom: 13px solid #d6d6d6;
+    border-right: 12px solid transparent;
+    bottom: 0;
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+    left: 0;
+    border-left: 0 none;
+}
+#mySidenav .menu-list-arabic {
+    clear: both;
+    padding: 0 17px;
+}
+#mySidenav .menu-list-arabic li {
+    text-align: right;
+    border-bottom: 1px solid #f3f3f4;
+    font-size: 15px;
+    padding: 10px 0;
+}
+.sidenav_ar img {
+    float: right;
+}
+.sidenav_ar a {
+    color: #1d1d26;
+    padding: 8px 25px 8px 32px;
+    text-decoration: none;
+    font-size:13px;
+    font-family: 'Droid Arabic Kufi', serif;
+}
+#mySidenav .logo-arabic {
+    height: 50px;
+    margin-bottom: 32px;
+    margin-top: -26px;
+    padding-left: 0;
+    padding-right: 59px;
+    width: auto;
+}
+.menu-icon-arabic{
+	cursor: pointer;
+	padding-top: 13px;
+}
+.btn-arabic{
+	float: right;
+    margin-right: 10px;
+}
+
+#select_dish_box_arabic li {
+    display: table;
+    width: 100%;
+}
+.select_dish_image_arabic {
+    display: table-cell;
+    vertical-align: middle;
+    width: 15%;
+}
+.select_dish_image_arabic  img {
+    border-radius: 6px;
+    height: 37px;
+    width: 100%;
+}
+.select_dish_name_arabic {
+    display: table-cell;
+    vertical-align: middle;
+    width: 60%;
+}
+.select_dish_name_arabic p{
+	color: #333333;
+}
+.select_dish_price_arabic {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    width: 15%;
+}
+
+#select_dish_box_arabic .select_dish_price_arabic span{
+	color: #ef404c;
+}
+#select_dish_box_arabic .select_dish_np_arabic{
+	border-bottom: 1px solid #d6d6d6;
+	margin-right: 10px;
+}
+#size_box_button .white_box_arabic{
+	width: 55%;
+	margin-left: 10px;
+}
+#size_box_button .white_box_arabic span{
+	padding-left: 13px;
+	color: #333;
+}
+.white_box_arabic{
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	 border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+	padding: 10px;
+}
+
+.checkbox-arabic{
+	float: right;
+}
+.checkbox-inline-arabic{
+	float: right;
+}
+.inlinetextarabic{
+	float: left;
+	margin-right: 30px;
+}
+#size_box ul .arabic-style{
+	padding-bottom: 12px;
+}
+.arabic-price{
+	display: inline-block;
+}
+#search_restaurant_box  .white_box form .location-cont .select-ar{
+  padding-right: 13px;
+}
+#search_restaurant_box  .white_box form .location-cont .popuptext-ar{
+  padding-right: 17px;
+}
+.right_to_left #select_category_box ul li{
+    margin-left: 6px;
+    margin-right: 0;
+}
+
+#circle-ar {
+    background: #d6d6d6 none repeat scroll 0 0;
+    border-radius: 50px;
+    bottom: 157px;
+    height: 15px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0;
+    width: 15px;
+}
+#circle1-ar {
+    background: #d6d6d6 none repeat scroll 0 0;
+    border-radius: 50px;
+    bottom: 99px;
+    height: 15px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0;
+    width: 15px;
+}
+.right_to_left #select_restaurant_box .rest-item .restaurant-details .left-div p{
+    text-align: right;
+}
+.right_to_left #select_restaurant_box .rest-item .restaurant-details .right-div p{
+    text-align: left;
+}
+.right_to_left #select_category_box ul li:nth-child(2n+2) {
+    float: right;
+    margin-right: 10px;
+    width: 46%;
+}
+.right_to_left .modal-backdrop #size_box_button .white_box{
+    margin-left: 10px;
+    margin-right: 0;
+}
+.right_to_left #checkout_box ul li .ar{
+    float: left;
+}
+.confirm-dlg button {
+    width: 100%;
+}
+.right_to_left .select_dish_np::after{
+    background-color: #d6d6d6;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: -9px;
+    margin-top: 0;
+    position: absolute;
+    right: 42px;
+    width: 100%;
+}
+.right_to_left .modal-backdrop .btn-homepage{
+    font-size: 15px;
+    padding: 16px 0;
+}
+@media (min-width: 401px) and (max-width: 767px){
+	.btn-arabic{
+		float: right;
+	    margin-right: 15px;
+	}
+}
+
+.select-item {
+    padding-right: 1em;
+}
+
+title, select, p, div, span, h1, h4{
+	font-family: 'Droid Arabic Kufi', 'RobotoRegular';
+}
+
+input {
+	font-family: 'Droid Arabic Kufi', 'RobotoRegular';
+	padding-right: 0.8em !important;
+}
+
+.ng-binding.float-right.mg-top-sm {
+	padding-right: 1em !important;
+}

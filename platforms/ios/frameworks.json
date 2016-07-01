@@ -1,0 +1,20 @@
+{
+    "Accelerate.framework": 2,
+    "AudioToolbox.framework": 2,
+    "AVFoundation.framework": 2,
+    "CoreMedia.framework": 2,
+    "CoreVideo.framework": 2,
+    "Foundation.framework": 1,
+    "OpenGLES.framework": 2,
+    "QuartzCore.framework": 2,
+    "Security.framework": 2,
+    "UIKit.framework": 2,
+    "libc++.dylib": 2,
+    "CFNetwork.framework": 1,
+    "CoreLocation.framework": 2,
+    "MessageUI.framework": 1,
+    "SafariServices.framework": 1,
+    "SystemConfiguration.framework": 3,
+    "libPayPalMobile.a": 1,
+    "CoreTelephony.framework": 1
+}

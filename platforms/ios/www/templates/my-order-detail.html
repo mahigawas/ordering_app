@@ -1,0 +1,117 @@
+
+<ion-view>
+    
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
+       <ion-nav-buttons side="left">
+            <button class="btn btn-close"  ng-click="goOrder()"  ng-show="['ar', 'kr'].indexOf(lang) == -1"><img src="img/btnback.png"></button>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+            <button class="btn btn-close"  ng-click="goOrder()" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/btnback.png"></button>
+        </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <ion-content class="order-detail-cont color-bg">
+        <ion-item class="order-bg font-mid">{{'Order No' | translate}} : {{ myOrderId }} <span class="float-right">{{ 'Status' | translate}} : {{ myCurOrder.status }}</span></ion-item>
+        <!-- <ion-item>
+            <div class="row font-small">
+                <div class="col col-50">{{ 'Full Name' | translate }}</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.name }}</div>
+            </div>
+        </ion-item> -->
+      <!--  <ion-item>
+            <div class="row font-small">
+                <div class="col col-50">Last Name</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.lastname }}</div>
+            </div> -->
+        <!-- </ion-item>
+        <ion-item>
+            <div class="row font-small">
+                <div class="col col-50">{{ 'Email' | translate }}</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.email }}</div>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div class="row font-small">
+                <div class="col col-50">{{ 'Full Address' | translate }}</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.address }}</div>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div class="row font-small">
+                <div class="col col-50">{{ 'Notes' | translate }}</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.api }}</div>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div class="row font-small">
+                <div class="col col-50">{{ 'Mobile Phone' | translate }}</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.tel }}</div>
+            </div>
+        </ion-item>
+        <ion-item> -->
+          <!--   <div class="row font-small">
+                <div class="col col-50">City</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.cityname }}</div>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div class="row font-small">
+                <div class="col col-50">Neighborhood</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.neighborhood }}</div>
+            </div>
+        </ion-item>
+        <ion-item>
+            <div class="row font-small">
+                <div class="col col-50">Reference</div>
+                <div class="col col-50">{{ myOrderDetail.buyer.reference }}</div>
+            </div>-->
+        <!-- </ion-item> -->
+        <p class="ht-3"></p>
+        <ion-item class="padding-5 no-border">
+            <p class="color-font-dark padding-top-5">{{ myOrderDetail.business[0].name}} <span class="color-main">( {{'Business Phone' | translate}} : {{myOrderDetail.business[0].tel}} )</span></p>
+            <p class="color-font-gray">{{ 'Payment Method' | translate }} : {{ payMethod }} on Delivery</p>
+            <p class="color-font-gray">{{ 'Delivery type' | translate }} : {{myOrderDetail.buyer.deliveryType}}</p>
+            <p class="color-font-gray">{{ 'Delivery Date' | translate }} : {{ myCurOrder.date }}</p>
+            <div class="h-line-grey"></div>
+        </ion-item>
+        <ion-item class="padding-5 no-border" ng-repeat="dish in myOrderDetail.business[0].dishes track by $index">
+            <div class="food-cont color-font-dark">
+                <div class="float-left badge-cont">{{dish.quantity}}</div>
+                <span class="float-left">{{dish.name}}</span>
+                <p class="color-main font-small float-right">{{dish.total}} {{'IQD' | translate}}</p>
+            </div>
+            <p class="color-font-gray food-tail"><span ng-repeat="extra in dish.extras track by $index">{{extra.name}}, </span></p>
+            <p class="color-font-gray food-tail pd-top-4"><span>{{dish.specialComment}}</span></p>
+            <div class="h-line-grey"></div>
+        </ion-item>
+        <!-- <ion-item class="padding-5 no-border">
+            <div class="calc-item">
+                <p class="color-font-gray float-left">{{ 'Tax' | translate }}</p>
+                <p class="color-main font-small float-right">$ {{myOrderDetail.tax}}</p>
+            </div>
+            <div class="calc-item">
+                <p class="color-font-gray float-left">{{ 'Delivery Fee' | translate }}</p>
+                <p class="color-main font-small float-right">$ {{myOrderDetail.servicefeeTotal}}</p>
+            </div>
+            <div class="calc-item">
+                <p class="color-font-gray float-left">{{ 'Service Fee' | translate }}</p>
+                <p class="color-main font-small float-right">$ {{myOrderDetail.servicefee}}</p>
+            </div>
+            <div class="calc-item">
+                <p class="color-font-gray float-left">{{ 'Tax' | translate }}</p>
+                <p class="color-main font-small float-right">${{myOrderDetail.tax}}</p>
+            </div>
+            <div class="calc-item">
+                <p class="color-font-gray float-left">{{ 'Driver Tip' | translate }}</p>
+                <p class="color-main font-small float-right">${{myOrderDetail.servicefeeTotal1}}</p>
+            </div>
+            <div class="h-line-grey"></div>
+        </ion-item> -->
+        <ion-item class="padding-5 no-border total-item">
+            <p class="font-large color-font-dark float-left">{{ 'Total' | translate }}</p>
+            <p class="font-small color-main float-right">{{myOrderDetail.Total}} {{'IQD' | translate}}</p>
+        </ion-item>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view>
+  
+    <ion-nav-bar class="navbar navbar-default navbar-fixed-top">
+       <ion-nav-buttons side="left">
+            <button class="btn btn-back-text"  ng-click="gotoHome()"  ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'Home' | translate }}</button>
+        </ion-nav-buttons>
+
+        <ion-nav-title>{{ 'My Orders' | translate }}</ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="btn btn-back-text"  ng-click="gotoHome()" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'Home' | translate }}</button>
+        </ion-nav-buttons>
+
+    </ion-nav-bar>
+   
+    <ion-content class="order-cont">
+      <!-- <ion-scroll direction="x" locking="false" scroll="true" style="width: 500px;"> -->
+        <div id="order_details_box">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>{{ 'Date' | translate }}</th>
+                    <th>{{ 'Business' | translate }}</th>
+                    <th></th>
+                  </tr>
+                </thead>        
+                
+                <tbody>
+                  <tr ng-repeat="order in myOrders" ng-model="orderModel">
+                    <td>{{ order.id }}</td>
+                    <td><p>{{ order.date }}</p></td>
+                    <td><p>{{ order.busname }}</p></td>
+                    <td class="text-center"><button class="btn btn-viewmore" ng-click="orderViewMore(order.id)" type="button">{{ 'View more' | translate }}</button></td>
+                  </tr>
+                  
+                </tbody>
+                
+            </table>
+        </div>
+      <!-- </ion-scroll> -->
+    
+    </ion-content>
+</ion-view>

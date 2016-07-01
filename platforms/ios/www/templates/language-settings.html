@@ -1,0 +1,24 @@
+<ion-view view-title="{{ 'Language Settings' | translate }}" cache-view="true">
+    <ion-nav-bar class="bar-stable bar-shadow">
+        <!-- <ion-nav-buttons side="left">
+            <button class="button top-btn" menu-toggle="left", ng-show="['ar', 'kr'].indexOf(lang) < 0"><img src="img/icon-back.png">
+            </button>
+            <button class="button top-btn" menu-toggle="right" ng-show="['ar', 'kr'].indexOf(lang) > -1"><img src="img/icon-back.png">
+            </button>
+        </ion-nav-buttons> -->
+    </ion-nav-bar>
+    {{lang}}
+    <ion-content>
+        <div class="list">
+            <div class="item item-divider divider-padding", ng-click="setLanguage('en')", ng-class="{'active-language': lang == 'en'}">
+                {{ 'English' | translate }}
+            </div>
+            <div class="item item-divider divider-padding", ng-click="setLanguage('ar')", ng-class="{'active-language': lang == 'ar'}">
+                {{ 'Arabic' | translate }}
+            </div>
+            <div class="item item-divider divider-padding", ng-click="setLanguage('kr')" ng-class="{'active-language': lang == 'kr'}">
+                {{ 'Kurdish' | translate }}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
