@@ -111,8 +111,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             if (window.plugins && window.plugins.OneSignal){
                 //console.log('INIT OK!');
                 window.plugins.OneSignal.init(ONE_SIGNAL_ID,
-                    {googleProjectNumber: GCM_SENDER_ID},
-                    notificationOpenedCallback);
+                    {googleProjectNumber: GCM_SENDER_ID});
 
                 // Show an alert box if a notification comes in when the user is in your app.
                 window.plugins.OneSignal.registerForPushNotifications();
@@ -120,7 +119,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                 window.plugins.OneSignal.enableInAppAlertNotification(true);
                 window.plugins.OneSignal.enableNotificationsWhenActive(true);
 
-                 window.plugins.OneSignal.getIds(function(ids) {
+                /* window.plugins.OneSignal.getIds(function(ids) {
                     localStorage.setItem('userId',ids.userId);
                     localStorage.setItem('pushToken',ids.pushToken);
                    //alert("PlayerId: " + ids.userId + "PushToken: " + ids.pushToken);
@@ -131,7 +130,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
                 window.plugins.OneSignal.getTags(function(tags) {
                   console.log('Tags Received: ' + JSON.stringify(tags));
-                });
+                });*/
             }
 
            

@@ -343,6 +343,7 @@ tr th:first-child, tr td:first-child{
 tr:first-child th, tr:first-child td{
   border-top-style: solid;
   border-top-width: 1px;
+  text-align: center;
 }
 
 /*-------------------------------------------------------
@@ -902,7 +903,7 @@ table {
 }
 #order_details_box .table tbody tr td p {
     margin: 0;
-    text-align: justify;
+    text-align: center;
 }
 .btn-viewmore {
     background-color: #ef404c;
