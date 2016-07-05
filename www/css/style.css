@@ -521,6 +521,9 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     -webkit-border-radius: 70px;
     width: 100%;
     margin-top: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .menu{
