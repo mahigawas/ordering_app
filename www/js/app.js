@@ -529,7 +529,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Turn on your app push notifications.': 'تفعيل الاشعارت',
             'You will get order status changes.': 'ستصلك حالة الطلب',
             'status change': 'تغيير حالة الطلب',
-            'Ok, go back to homepage': 'الرجاء العودة الى الصفحة الرئيسية',
+            'Ok, go back to homepage': 'الصفحة الرئيسية',
             'Please choose your': 'الرجاء اختيار',
             'Special Instructions': 'تعليمات خاصة',
             'Add': 'إضافة',
@@ -630,7 +630,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back categories' : 'العودة للاصناف',
             'back to dishes' : 'العودة للاطباق',
             'Back' : 'الرجوع',
-            'Home' : 'آلرئيسية',
+            'Home' : 'الرئيسية',
             'cancel order' : 'الغاء الطلب'
         });
 
@@ -686,7 +686,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Turn on your app push notifications.': 'داكيرساندني ورياكردنەوە',
             'You will get order status changes.': 'تۆ فەرمان گۆڕانى حالەت دەست دەكەو',
             'status change': '',
-            'Ok, go back to homepage': 'باشە، بگەڕێوە بۆ سه ره تا',
+            'Ok, go back to homepage': 'الصفحة الرئيسية',
             'Please choose your': 'تكايەت هەڵ ببژێرە',
             'Special Instructions': 'ڕێنماييى تايبەتى',
             'Add': 'زياد بكەە',
@@ -791,7 +791,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back categories' : 'العودة للاصناف',
             'back to dishes' : 'العودة للاطباق',
             'Back' : 'الرجوع',
-            'Home' : 'آلرئيسية',
+            'Home' : 'الرئيسية',
             'cancel order' : 'الغاء الطلب'
         });
         $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
