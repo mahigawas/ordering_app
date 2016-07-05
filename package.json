@@ -23,20 +23,12 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
     "cordova-plugin-network-information",
-    {
-      "locator": "https://github.com/phonegap-build/PushPlugin.git",
-      "id": "com.phonegap.plugins.PushPlugin"
-    },
     "cordova-plugin-geolocation",
     "com.paypal.cordova.mobilesdk",
     "onesignal-cordova-plugin",
     "ionic-plugin-deploy"
   ],
   "cordovaPlatforms": [
-    {
-      "platform": "ios",
-      "version": "3.9.2",
-      "locator": "ios@3.9.2"
-    }
+    "ios"
   ]
 }
