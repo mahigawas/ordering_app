@@ -10,6 +10,9 @@
         "com.paypal.cordova.mobilesdk": {
             "PACKAGE_NAME": "com.talabatey"
         },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.talabatey"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.talabatey"
         },
