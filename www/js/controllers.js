@@ -2372,7 +2372,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
         //For send notification
         $scope.sendConfirmNotification = function(){
             //console.log("in sendConfirmNotification");
-            window.plugins.OneSignal.enableInAppAlertNotification(true);
+            /*window.plugins.OneSignal.enableInAppAlertNotification(true);
             window.plugins.OneSignal.enableNotificationsWhenActive(true);
 
             window.plugins.OneSignal.getIds(function(ids) {
@@ -2392,11 +2392,11 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                   //alert("Notification Post Failed:\n" + JSON.stringify(failedResponse));
                 }
               );
-            });
+            });*/
         }
 
         $scope.sendFailOrderNotification = function(){
-            window.plugins.OneSignal.enableInAppAlertNotification(true);
+            /*window.plugins.OneSignal.enableInAppAlertNotification(true);
             window.plugins.OneSignal.enableNotificationsWhenActive(true);
 
             window.plugins.OneSignal.getIds(function(ids) {
@@ -2416,7 +2416,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                   //alert("Notification Post Failed:\n" + JSON.stringify(failedResponse));
                 }
               );
-            });
+            });*/
         }
 
         $scope.fieldDetect = function( str ) {
