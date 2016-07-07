@@ -115,7 +115,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
                 // Show an alert box if a notification comes in when the user is in your app.
                 window.plugins.OneSignal.registerForPushNotifications();
-                window.plugins.OneSignal.setSubscription(true); 
+                window.plugins.OneSignal.setSubscription(true);
                 window.plugins.OneSignal.enableInAppAlertNotification(true);
                 window.plugins.OneSignal.enableNotificationsWhenActive(true);
 
@@ -133,7 +133,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                 });*/
             }
 
-           
+
         });
 
 
@@ -375,6 +375,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please choose your': 'Please choose your',
             'Special Instructions': 'Special Instructions',
             'Add': 'Add',
+            'if you want to add additional dish press +, or you want reduce dish, press -': 'if you want to add additional dish press +, or you want reduce dish, press -',
             'View Order': 'View Order',
             'Restaurant Search': 'Restaurant Search',
             'Restaurants near': 'Restaurants near',
@@ -533,6 +534,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please choose your': 'الرجاء اختيار',
             'Special Instructions': 'تعليمات خاصة',
             'Add': 'إضافة',
+            'if you want to add additional dish press +, or you want reduce dish, press -': 'اذا تريد تضيف طبق، اضغط علامة +، واذا تريد تقلل عدد الاطباق، اضغط - شكرا الك',
             'View Order': 'عرض تفاصيل الطلب',
             'Restaurant Search': 'البحث عن المطاعم',
             'Restaurants near': 'المطاعم القريبة من',
@@ -690,6 +692,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please choose your': 'تكايەت هەڵ ببژێرە',
             'Special Instructions': 'ڕێنماييى تايبەتى',
             'Add': 'زياد بكەە',
+            'if you want to add additional dish press +, or you want reduce dish, press -': 'اذا تريد تضيف طبق، اضغط علامة +، واذا تريد تقلل عدد الاطباق، اضغط - شكرا الك',
             'View Order': 'ڕوانيني فەرمان',
             'Restaurant Search': 'بەدواگەڕانى چێشتخانە',
             'Restaurants near': 'چێشتخانە نزيك',
@@ -821,6 +824,3 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
         'ar': 19,
         'kr': 29
     });
-
-
-

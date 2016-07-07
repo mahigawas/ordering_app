@@ -1014,7 +1014,7 @@ table {
 .ion-navicon-round::before {
     color: #fff;
 }
-#circle { 
+#circle {
   background: #d6d6d6 none repeat scroll 0 0;
     border-radius: 50px;
     bottom: 157px;;
@@ -1024,7 +1024,7 @@ table {
     position: absolute;
     width: 15px;
 }
-#circle1 { 
+#circle1 {
   background: #d6d6d6 none repeat scroll 0 0;
     border-radius: 50px;
     bottom: 99px;
@@ -1084,7 +1084,7 @@ table {
 #search_restaurant_box .white_box ul li p{
   margin: 6px 0 0 0;
   line-height: 0;
-  width: 135px;  
+  width: 135px;
 }
 .menu-icon{
  cursor: pointer;
@@ -1171,7 +1171,7 @@ table {
 }*/
 
 .popup-buttons .button {
-  padding:9px 5px; 
+  padding:9px 5px;
 }
 
 .bar.item-input-inset .item-input-wrapper input {
@@ -1217,6 +1217,22 @@ table {
 .confirm-top-padding{
   top: 90px !important;
 }
+
+ .plus-minus-instructions {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #444;
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: -1px;
+  padding: 16px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 16px;
+  white-space: normal !important;
+ }
+
 /******************Language Setting Styles Ends************************/
 
 @media (min-width: 401px) and (max-width: 767px){
@@ -1268,4 +1284,3 @@ table {
 	}
 
 }
-
