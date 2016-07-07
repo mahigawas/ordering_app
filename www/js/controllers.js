@@ -2292,10 +2292,10 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
             //$scope.curStreet = $scope.curBusinessInfo.street + ', ' + gNearService.getData().nearAddress;
             $scope.curStreet = gNearService.getData().nearAddress;
-            if ($scope.order_buyer.address === null || $scope.order_buyer.address === undefined) {
+            //if ($scope.order_buyer.address === null || $scope.order_buyer.address === undefined) {
                 $scope.order_buyer.address = localStorage.getItem("currentArea");
                 console.log($scope.order_buyer.address);
-            }
+            //}
 
             $scope.taxPrice = parseFloat($scope.curBusiness.tax);
 
@@ -2371,52 +2371,21 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         //For send notification
         $scope.sendConfirmNotification = function(){
-            //console.log("in sendConfirmNotification");
-            /*window.plugins.OneSignal.enableInAppAlertNotification(true);
-            window.plugins.OneSignal.enableNotificationsWhenActive(true);
-
-            window.plugins.OneSignal.getIds(function(ids) {
-                //console.log(ids.userId);
-              var notificationObj = { contents: {en: "Your Order is accepted !"},
-                                      include_player_ids: [ids.userId],
-                                     isIos:true,
-                                     isAndroid:true};
-              window.plugins.OneSignal.enableInAppAlertNotification(true);
-              window.plugins.OneSignal.enableNotificationsWhenActive(true);
-              window.plugins.OneSignal.postNotification(notificationObj,
-                function(successResponse) {
-                  //console.log("Notification Post Success:", successResponse);
-                },
-                function (failedResponse) {
-                  //console.log("Notification Post Failed: ", failedResponse);
-                  //alert("Notification Post Failed:\n" + JSON.stringify(failedResponse));
-                }
-              );
-            });*/
-        }
-
-        $scope.sendFailOrderNotification = function(){
-            /*window.plugins.OneSignal.enableInAppAlertNotification(true);
-            window.plugins.OneSignal.enableNotificationsWhenActive(true);
-
-            window.plugins.OneSignal.getIds(function(ids) {
-                //console.log(ids.userId);
-              var notificationObj = { contents: {en: "Sorry,Your Order is not accepted !"},
-                                      include_player_ids: [ids.userId],
-                                     isIos:true,
-                                     isAndroid:true};
-              window.plugins.OneSignal.enableInAppAlertNotification(true);
-              window.plugins.OneSignal.enableNotificationsWhenActive(true);
-              window.plugins.OneSignal.postNotification(notificationObj,
-                function(successResponse) {
-                  //console.log("Notification Post Success:", successResponse);
-                },
-                function (failedResponse) {
-                  //console.log("Notification Post Failed: ", failedResponse);
-                  //alert("Notification Post Failed:\n" + JSON.stringify(failedResponse));
-                }
-              );
-            });*/
+            
+            // window.plugins.OneSignal.getIds(function(ids) {
+            //   var notificationObj = { contents: {en: "Your Order is accepted !"},
+            //                           include_player_ids: [ids.userId],
+            //                           isIos:true,
+            //                          isAndroid:true};
+            //   window.plugins.OneSignal.postNotification(notificationObj,
+            //     function(successResponse) {
+            //       console.log("Notification Post Success:", successResponse);
+            //     },
+            //     function (failedResponse) {
+            //       console.log("Notification Post Failed: ", failedResponse);
+            //     }
+            //   );
+            // });
         }
 
         $scope.fieldDetect = function( str ) {
@@ -2617,7 +2586,6 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
                     $scope.onConfirm();
                     $scope.sendConfirmNotification();
                 }else{
-                    $scope.sendFailOrderNotification();
                     $ionicPopup.alert({
                         title : $filter('translate')('OrderingApp'),
                         template : 'Failed Place Order!! ^o^',
