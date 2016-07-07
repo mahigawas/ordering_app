@@ -468,7 +468,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'Please Select your City' :'Please Select your City',
             'Delivery time is 60 min' : 'Delivery time is 60 min',
             'Open & Close time' : 'Open & Close time',
-            'back resturnat' : 'Back Resturnat',
+            'back resturnat' : 'Back Restaurant',
             'back categories' : 'Back Categories',
             'back to dishes' : 'Back To Dishes',
             'Back' : 'Back',
