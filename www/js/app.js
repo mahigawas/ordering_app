@@ -110,7 +110,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
             if (window.plugins && window.plugins.OneSignal){
                 //console.log('INIT OK!');
-                window.plugins.OneSignal.init(ONE_SIGNAL_ID,
+                /*window.plugins.OneSignal.init(ONE_SIGNAL_ID,
                     {googleProjectNumber: GCM_SENDER_ID});
 
                 // Show an alert box if a notification comes in when the user is in your app.
