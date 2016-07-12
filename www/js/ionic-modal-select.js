@@ -14,7 +14,7 @@ var modalSelectTemplates = modalSelectTemplates || {};modalSelectTemplates['moda
     '      </button>\n' +
     '    </div>\n' +
     '    \n' +
-    '    <ion-content class="has-header" ng-class="{\'has-subheader\':ui.hasSearch}">\n' +
+    '    <ion-content class="has-header" style="background-color: #fff;" ng-class="{\'has-subheader\':ui.hasSearch}">\n' +
     '    <div class="text-center" ng-if="!ui.shortList && !showList" style="padding-top:40px;">\n' +
     '        <h4 class="muted">{{::ui.loadListMessage}}</h4>\n' +
     '        <p>\n' +
@@ -76,7 +76,7 @@ var modalSelectTemplates = modalSelectTemplates || {};modalSelectTemplates['moda
     '      </button>\n' +
     '    </div>\n' +
     '\n' +
-    '    <ion-content class="has-header" ng-class="{\'has-subheader\':ui.hasSearch}">\n' +
+    '    <ion-content class="has-header" style="background-color: #fff;" ng-class="{\'has-subheader\':ui.hasSearch}">\n' +
     '        <div class="text-center" ng-if="!ui.shortList && !showList" style="padding-top:40px;">\n' +
     '            <h4 class="muted">{{::ui.loadListMessage}}</h4>\n' +
     '            <p>\n' +
