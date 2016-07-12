@@ -59,7 +59,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             }
 
             // Push Register part -------------------------------------
-            if (window.plugins && window.plugins.pushNotification) {
+            /*if (window.plugins && window.plugins.pushNotification) {
                 if (ionic.Platform.isAndroid()){
                     window.plugins.pushNotification.register(
                         function(result) {
@@ -72,7 +72,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                             "senderID": GCM_SENDER_ID,
                             "ecb": "onNotificationGCM"
                         });
-                }else if (ionic.Platform.isIOS()){
+                } else if (ionic.Platform.isIOS()){
                     window.plugins.pushNotification.register(
                         function(token){
                             // $ionicPopup.alert({
@@ -89,7 +89,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                             "ecb":"onNotificationAPN"
                         });
                 }
-            }
+            }*/
 
             // OneSignal_Push Config---------------------------------
             var notificationOpenedCallback = function(jsonData) {
@@ -110,8 +110,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
 
             if (window.plugins && window.plugins.OneSignal){
                 //console.log('INIT OK!');
-                /*window.plugins.OneSignal.init(ONE_SIGNAL_ID,
-                    {googleProjectNumber: GCM_SENDER_ID});
+                window.plugins.OneSignal.init(ONE_SIGNAL_ID,{googleProjectNumber: GCM_SENDER_ID});
 
                 // Show an alert box if a notification comes in when the user is in your app.
                 window.plugins.OneSignal.registerForPushNotifications();
@@ -119,18 +118,17 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
                 window.plugins.OneSignal.enableInAppAlertNotification(true);
                 window.plugins.OneSignal.enableNotificationsWhenActive(true);
 
-                /* window.plugins.OneSignal.getIds(function(ids) {
-                    localStorage.setItem('userId',ids.userId);
-                    localStorage.setItem('pushToken',ids.pushToken);
-                   //alert("PlayerId: " + ids.userId + "PushToken: " + ids.pushToken);
-                   //document.getElementById("GameThrivePlayerId").innerHTML = "PlayerId: " + ids.playerId;
-                   //document.getElementById("GameThrivePushToken").innerHTML = "PushToken: " + ids.pushToken;
-                   console.log('getIds: ' + JSON.stringify(ids));
+                window.plugins.OneSignal.getIds(function(ids) {
+                    console.log("PlayerId: " + ids.userId + " \n PushToken: " + ids.pushToken);
+                    //document.getElementById("GameThrivePlayerId").innerHTML = "PlayerId: " + ids.playerId;
+                    //document.getElementById("GameThrivePushToken").innerHTML = "PushToken: " + ids.pushToken;
+                    console.log('getIds: ' + JSON.stringify(ids));
+                    GCM_DEVICE_TOKEN = ids.pushToken;
                 });
 
                 window.plugins.OneSignal.getTags(function(tags) {
-                  console.log('Tags Received: ' + JSON.stringify(tags));
-                });*/
+                    console.log('Tags Received: ' + JSON.stringify(tags));
+                });
             }
 
 

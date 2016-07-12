@@ -311,7 +311,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
             if (G_NETSTATE == STATE.NO_INTERNET){
                 $scope.openModal();
             }else if (G_NETSTATE == STATE.STATE_OK) {
-                $scope.closeModal();
+                // $scope.closeModal();
             }
 
         });
@@ -1917,21 +1917,23 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         function getUserInformation ( usr_id ) {
 
-                    // Registration of Device Token --------------------
+            // Registration of Device Token --------------------
             var device_kind = 0;
             if (ionic.Platform.isIOS()){
                 device_kind = 1;
             }else{
                 device_kind = 0;
             }
-             //alert("kind" + device_kind + "user" + usr_id + "device_id" + GCM_DEVICE_TOKEN);
+
             if (GCM_DEVICE_TOKEN != ''){
+                console.log("kind : " + device_kind + " \n user : " + usr_id + " \n device_id : " + GCM_DEVICE_TOKEN);
                 PushUserApi.charge({
                     user_id : usr_id,
                     device_id : GCM_DEVICE_TOKEN,
+                    apns_id : GCM_DEVICE_TOKEN,
                     kind : device_kind
                 },function(res){
-                     console.log("Device_REG_RESP : "+JSON.stringify(res));
+                     console.log("Device_REG_RESP : "+res);
                 });
             }
 
@@ -2371,7 +2373,7 @@ angular.module('orderingApp.controllers',['ngOpenFB'])
 
         //For send notification
         $scope.sendConfirmNotification = function(){
-            
+
             // window.plugins.OneSignal.getIds(function(ids) {
             //   var notificationObj = { contents: {en: "Your Order is accepted !"},
             //                           include_player_ids: [ids.userId],

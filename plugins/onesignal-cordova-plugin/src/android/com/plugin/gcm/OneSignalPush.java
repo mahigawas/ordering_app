@@ -1,7 +1,7 @@
 /**
   * Modified MIT License
   * 
-  * Copyright 2015 OneSignal
+  * Copyright 2016 OneSignal
   *
   * Permission is hereby granted, free of charge, to any person obtaining a copy
   * of this software and associated documentation files (the "Software"), to deal
@@ -65,16 +65,24 @@ public class OneSignalPush extends CordovaPlugin {
   public static final String ENABLE_INAPP_ALERT_NOTIFICATION = "enableInAppAlertNotification";
   public static final String SET_SUBSCRIPTION = "setSubscription";
   public static final String POST_NOTIFICATION = "postNotification";
+  public static final String PROMPT_LOCATION = "promptLocation";
+  public static final String SET_EMAIL = "setEmail";
   public static final String SET_LOG_LEVEL = "setLogLevel";
   
   // This is to prevent an issue where if two Javascript calls are made to OneSignal expecting a callback then only one would fire.
   private static void callbackSuccess(CallbackContext callbackContext, JSONObject jsonObject) {
+    if(jsonObject == null){ // in case there are no data
+      jsonObject = new JSONObject();
+    }
     PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, jsonObject);
     pluginResult.setKeepCallback(true);
     callbackContext.sendPluginResult(pluginResult);
   }
   
   private static void callbackError(CallbackContext callbackContext, JSONObject jsonObject) {
+    if(jsonObject == null){ // in case there are no data
+      jsonObject = new JSONObject();
+    }
     PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR, jsonObject);
     pluginResult.setKeepCallback(true);
     callbackContext.sendPluginResult(pluginResult);
@@ -240,6 +248,15 @@ public class OneSignalPush extends CordovaPlugin {
         
         result = true;
         } catch (Throwable t) {
+        t.printStackTrace();
+      }
+    }
+    else if (PROMPT_LOCATION.equals(action))
+      OneSignal.promptLocation();
+    else if (SET_EMAIL.equals(action)) {
+      try {
+        OneSignal.setEmail(data.getString(0));
+      } catch(Throwable t) {
         t.printStackTrace();
       }
     }

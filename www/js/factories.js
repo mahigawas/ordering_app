@@ -3,7 +3,7 @@
  */
 
 angular.module('orderingApp.factories',['ngResource'])
-    
+
     .factory('NeighborListApi', function($resource){
         return $resource('http://order.talabatey.com/ionicapp/fetchNeighborhoodAreas.php',{},{
             charge: {method:'POST'}
@@ -25,7 +25,7 @@ angular.module('orderingApp.factories',['ngResource'])
         }
     })
 
-    
+
     .factory('MyAlert',function ($ionicPopup, $rootScope, $q) {
         return {
             show : showAlert,
@@ -328,7 +328,7 @@ angular.module('orderingApp.factories',['ngResource'])
                     var url = this.urlForLatLng(lat, lng);
                     $http.get(url).success(function(response) {
                         // hacky
-                        var address; 
+                        var address;
                         var state = false;
                         angular.forEach(response.results, function(result) {
                             if (state == false){
@@ -341,10 +341,10 @@ angular.module('orderingApp.factories',['ngResource'])
                                 }else if (result.types[0] === 'postal_code'){
                                 address = result.formatted_address;
                                     state = true;
-                                }    
+                                }
                             }
                         });
-                        deferred.resolve(address);                        
+                        deferred.resolve(address);
                     }).error(deferred.reject);
 
                     return deferred.promise;
