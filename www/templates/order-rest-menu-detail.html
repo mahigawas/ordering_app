@@ -4,7 +4,7 @@
             <button type="button" class="btn btn-back-text" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) == -1">{{ 'back categories' | translate }}</button>
         </ion-nav-buttons>
 
-        <ion-nav-title>{{HeaderTitle}}</ion-nav-title>
+        <ion-nav-title style="margin-right: 20% !important;">{{HeaderTitle}}</ion-nav-title>
 
         <ion-nav-buttons side="right">
              <button type="button" class="btn  btn-back-text" ui-sref="ordering.detailRest" ng-show="['ar', 'kr'].indexOf(lang) > -1">{{ 'back categories' | translate }}</button>
@@ -12,13 +12,7 @@
     </ion-nav-bar>
 
     <ion-content class="color-bg padding">
-        <ion-item class="detail-item" ng-repeat="item in resSubMenulist" ng-click="onProductOption(item)">
-           <!--  <img ng-src="http://order.talabatey.com/panel/images/dishes/{{item.id}}/1/small.jpg", ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right' : 'float-left'">
-            <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right mg-top-sm' : 'float-left mg-top-sm'">{{item.name}}</span>
-            <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{item.price}}</span>
-            <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{'IQD' | translate}}&nbsp</span>
-            <div class="bottom-line-grey"></div> -->
-
+        <ion-item class="detail-item" ng-repeat="item in resSubMenulist" ng-click="onProductOption(item)">          
             <div class="select_dish_image">
                 <span><img ng-src="http://order.talabatey.com/panel/images/dishes/{{item.id}}/1/small.jpg", ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'float-right' : 'float-left'"></span>
               </div>
@@ -28,7 +22,6 @@
                 </div>
                 <div class="select_dish_price">
                     <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{'IQD' | translate}}&nbsp{{item.price}}</span>
-                    <!-- <span ng-class="['ar', 'kr'].indexOf(lang) > -1 ? 'color-main font-small float-left' : 'color-main font-small float-right'">{{'IQD' | translate}}&nbsp</span> -->
                 </div>
               </div>
         </ion-item>

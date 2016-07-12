@@ -472,7 +472,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back to dishes' : 'Back To Dishes',
             'Back' : 'Back',
             'Home' : 'Home',
-            'cancel order' : 'cancel order'
+            'cancel order' : 'cancel order',
+            'You will get notification !' : 'You will get notification !'
 
         });
 
@@ -524,7 +525,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'MIN ORDER': 'الحد الأدنى للطلب',
             'You are awesome!': 'عاشت ايدك ',
             'Your order': 'طلبك',
-            'was placed successfully': 'قيد التنفيذ، سيصلك اشعار بحالة الطلب',
+            'was placed successfully': 'قيد التنفيذ',
             'Turn on your app push notifications.': 'تفعيل الاشعارت',
             'You will get order status changes.': 'ستصلك حالة الطلب',
             'status change': 'تغيير حالة الطلب',
@@ -631,7 +632,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back to dishes' : 'العودة للاطباق',
             'Back' : 'الرجوع',
             'Home' : 'الرئيسية',
-            'cancel order' : 'الغاء الطلب'
+            'cancel order' : 'الغاء الطلب',
+            'You will get notification !' : 'سيصلك اشعار بحالة الطلب'
         });
 
         $translateProvider.translations('kr', {
@@ -682,7 +684,7 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'MIN ORDER': 'لكەمترين فەرمان',
             'You are awesome!': 'تۆ سامناكيت!',
             'Your order': 'فەرمانت',
-            'was placed successfully': 'قيد التنفيذ، سيصلك اشعار بحالة الطلب',
+            'was placed successfully': 'قيد التنفيذ',
             'Turn on your app push notifications.': 'داكيرساندني ورياكردنەوە',
             'You will get order status changes.': 'تۆ فەرمان گۆڕانى حالەت دەست دەكەو',
             'status change': '',
@@ -793,7 +795,8 @@ app = angular.module('orderingApp', ['ionic','orderingApp.controllers','ordering
             'back to dishes' : 'العودة للاطباق',
             'Back' : 'الرجوع',
             'Home' : 'الرئيسية',
-            'cancel order' : 'الغاء الطلب'
+            'cancel order' : 'الغاء الطلب',
+            'You will get notification !' : 'سيصلك اشعار بحالة الطلب'
         });
         $translateProvider.preferredLanguage(localStorage.getItem("language") || 'ar');
         $translateProvider.useSanitizeValueStrategy(null)

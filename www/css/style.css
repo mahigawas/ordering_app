@@ -1101,7 +1101,7 @@ table {
 .select_dish_image img {
     border-radius: 6px;
     height: 37px;
-    width: auto;
+    width: 37px;
 }
 
 .select_dish_name {
@@ -1200,6 +1200,7 @@ table {
 .bar .title{
   left: 0 !important;
   right: 0 !important;
+  font-size: 17px;
 }
 
 .signup-code-input {
@@ -1215,7 +1216,7 @@ table {
 }
 
 .confirm-top-padding{
-  top: 90px !important;
+  top: 80px !important;
 }
 
  .plus-minus-instructions {
@@ -1226,11 +1227,15 @@ table {
   z-index: 2;
   display: block;
   margin: -1px;
-  padding: 16px;
+  padding: 10px;
   border-width: 1px;
   border-style: solid;
   font-size: 16px;
   white-space: normal !important;
+ }
+
+ .plus-minus-instructions p{
+    font-size: 13px;
  }
 
 /******************Language Setting Styles Ends************************/
